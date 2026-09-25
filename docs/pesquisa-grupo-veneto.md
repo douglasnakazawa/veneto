@@ -107,6 +107,28 @@ O Veneto é, hoje, o maior ativo de mídia do nicho de estética automotiva no B
 - A página de matrícula ainda diz "primeira turma" e "pioneiros", o que contradiz um curso presencial na turma 83.
 - Turmas presenciais têm capacidade limitada e dependem 100% do Tarcisio. Não há instrutores secundários formados publicamente.
 
+### 6.4 Link na bio do Instagram (escoladobrilho.com/bio, capturado em set/2026)
+
+A página de link na bio é o hub do funil e mostra a prioridade comercial atual. Ordem e destinos dos seis botões:
+
+| # | Botão | Destino | Papel no funil |
+|---|---|---|---|
+| 1 | Mini curso Restauração de Faróis | lp.escoladobrilho.com/minicurso-farol | Isca gratuita ou de baixo ticket (topo) |
+| 2 | Método Veneto – Lavagem automotiva detalhada | lp.escoladobrilho.com/matriculas-metodo | Oferta principal de infoproduto |
+| 3 | Polimento Express | lp.escoladobrilho.com/matriculas-polimento | Segundo infoproduto, vendido isolado (não só como combo) |
+| 4 | Produtos – Galera do Brilho | linktr.ee/galeradobrilho | E-commerce, via Linktree intermediário |
+| 5 | Atendimento Veneto – serviços e curso presencial | WhatsApp (11) 97369-6517 | Serviços do studio e presencial, atendimento manual |
+| 6 | Vote no iBest – o maior prêmio do Brasil | app.premioibest.com (categoria influenciador automotivo e de transportes) | Prova social e reputação |
+
+Rodapé: "Escola do Brilho 2026". Todos os links carregam parâmetros `_gl` / `_gcl_au` (Google Analytics e Google Ads com linker entre domínios) e `fbclid` (Meta).
+
+**Leituras:**
+- O educacional ocupa metade dos botões e as três primeiras posições. O grupo está priorizando infoproduto sobre serviços e loja.
+- O Método Veneto e o Polimento Express têm páginas de matrícula separadas no subdomínio `lp.escoladobrilho.com`, além da página `escoladobrilho.com/matriculas-v1` que vende o combo. São pelo menos três páginas de venda para dois produtos, o que dificulta atribuição.
+- A loja entra por um Linktree, e não pelo domínio próprio. Um clique a mais e perda de rastreamento de origem.
+- Não há botão para YouTube, Telegram ou Universidade do Brilho, nem para o curso presencial como oferta própria (ele vira "atendimento" via WhatsApp).
+- A candidatura ao prêmio iBest (influenciador automotivo e de transportes) é um ativo de relações públicas a ser aproveitado em todas as frentes.
+
 ---
 
 ## 7. Frente 3: E-commerce (Galera do Brilho e Produtos Veneto)

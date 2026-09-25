@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bio Veneto – Veneto Studio</title>
+  <meta name="description" content="Links oficiais do Veneto Studio: mini curso de restauração de faróis, Método Veneto, Polimento Express, produtos Galera do Brilho e atendimento.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e0f13;
+      --hero: #06070a;
+      --card: #16171c;
+      --border: rgba(255,255,255,0.07);
+      --text: #f4f4f5;
+      --muted: #8f9099;
+      --red: #d61f2c;
+      --red-dark: #7a0f17;
+      --green: #25d366;
+      --gold: #d9b64a;
+      --radius: 22px;
+      --max: 460px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Hero */
+    .hero {
+      background:
+        radial-gradient(520px 260px at 50% 100%, rgba(214, 31, 44, 0.35), transparent 70%),
+        radial-gradient(400px 200px at 50% 20%, rgba(255,255,255,0.05), transparent 70%),
+        var(--hero);
+      padding: 56px 16px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; max-width: var(--max); margin: 0 auto; }
+    .emblem {
+      width: 72px; height: 72px;
+      margin: 0 auto 14px;
+      background: linear-gradient(160deg, #ff3b47, var(--red) 55%, var(--red-dark));
+      clip-path: polygon(50% 0, 100% 28%, 50% 100%, 0 28%);
+      filter: drop-shadow(0 8px 24px rgba(214,31,44,0.5));
+    }
+    .wordmark {
+      font-size: clamp(64px, 18vw, 96px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+      background: linear-gradient(180deg, #ffffff 0%, #b9bbc4 60%, #8a8c96 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-transform: uppercase;
+    }
+    .hero .tag {
+      margin-top: 14px;
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* Links */
+    main { flex: 1; }
+    .links {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 16px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .card {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      min-height: 150px;
+      padding: 26px 28px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--card);
+      position: relative;
+      overflow: hidden;
+      text-align: right;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 22px 50px rgba(0,0,0,0.55); }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(255,255,255,0.06) 0%, transparent 45%);
+      pointer-events: none;
+    }
+    .card .icon {
+      position: absolute;
+      left: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 64px; height: 64px;
+      opacity: 0.55;
+    }
+    .card .icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .card .text { position: relative; z-index: 1; max-width: 68%; }
+    .card .kicker {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex; align-items: center; justify-content: flex-end; gap: 8px;
+    }
+    .card .kicker::before, .card .kicker::after {
+      content: ""; width: 22px; height: 1px; background: var(--red);
+    }
+    .card .title {
+      font-size: clamp(22px, 6.5vw, 30px);
+      font-weight: 900;
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+    .card .sub {
+      margin-top: 8px;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* Variantes */
+    .card.farol .title { font-style: italic; background: linear-gradient(180deg, #fff, #c3c5cd); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .card.farol .icon { color: #cfd1d8; }
+
+    .card.metodo .title { font-size: clamp(36px, 11vw, 52px); background: linear-gradient(180deg, #fff 0%, #a9abb5 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .card.atendimento .title { font-size: clamp(30px, 9vw, 40px); }
+    .card.metodo .icon { color: var(--red); opacity: .7; }
+
+    .card.polimento { background: linear-gradient(90deg, #2a0a0d 0%, var(--card) 60%); }
+    .card.polimento .title { color: #fff; font-style: italic; }
+    .card.polimento .title span { color: var(--red); }
+    .card.polimento .kicker { color: #fff; }
+    .card.polimento .kicker::before, .card.polimento .kicker::after { background: #fff; }
+    .card.polimento .icon { color: #ff4a55; }
+
+    .card.produtos { background: linear-gradient(90deg, #5a0a12 0%, var(--red) 55%, #9f1620 100%); border-color: rgba(255,255,255,0.15); }
+    .card.produtos .title { color: #fff; font-size: clamp(28px, 8.5vw, 38px); }
+    .card.produtos .kicker, .card.produtos .sub { color: rgba(255,255,255,0.85); }
+    .card.produtos .kicker::before, .card.produtos .kicker::after { background: rgba(255,255,255,0.7); }
+    .card.produtos .icon { color: #fff; opacity: .8; }
+    .card.produtos .sub { letter-spacing: 0.06em; text-transform: lowercase; font-size: 12px; }
+
+    .card.atendimento .title { color: var(--green); }
+    .card.atendimento .kicker { text-transform: none; letter-spacing: 0.02em; font-size: 20px; font-weight: 400; color: #e6e6e9; }
+    .card.atendimento .kicker::before, .card.atendimento .kicker::after { display: none; }
+    .card.atendimento .icon { color: var(--green); opacity: .85; }
+
+    .card.ibest { background: linear-gradient(90deg, #3a2f10 0%, #1a1712 45%, #2a2210 100%); border-color: rgba(217,182,74,0.35); }
+    .card.ibest .kicker { color: #fff; font-size: 13px; letter-spacing: 0.4em; font-weight: 500; }
+    .card.ibest .kicker::before, .card.ibest .kicker::after { display: none; }
+    .card.ibest .title { color: #fff; text-transform: none; font-size: clamp(36px, 11vw, 48px); }
+    .card.ibest .title .bang {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 0.85em; height: 0.85em; border-radius: 50%;
+      background: #f5c400; color: var(--red);
+      font-size: 0.8em; vertical-align: 0.05em; margin-left: 0.05em;
+    }
+    .card.ibest .sub { color: #e9dcae; white-space: nowrap; }
+    .card.ibest .icon { color: var(--gold); }
+
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 28px 16px 40px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="emblem" aria-hidden="true"></div>
+      <h1 class="wordmark">Veneto</h1>
+      <p class="tag">Escola do Brilho · Galera do Brilho</p>
+    </div>
+  </header>
+
+  <main>
+    <nav class="links" aria-label="Links oficiais">
+
+      <a class="card farol" href="https://lp.escoladobrilho.com/minicurso-farol" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M8 32c0-9 8-16 18-16h30v32H26C16 48 8 41 8 32z"/><path d="M26 22v20M36 22v20M46 22v20"/><path d="M4 26l4 2M4 38l4-2"/></svg></span>
+        <span class="text">
+          <span class="kicker">Mini curso</span>
+          <span class="title">Restauração<br>de faróis</span>
+        </span>
+      </a>
+
+      <a class="card metodo" href="https://lp.escoladobrilho.com/matriculas-metodo" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22"/><circle cx="32" cy="32" r="8"/><path d="M32 10v8M32 46v8M10 32h8M46 32h8"/></svg></span>
+        <span class="text">
+          <span class="kicker">Método</span>
+          <span class="title">Veneto</span>
+          <span class="sub">Lavagem automotiva detalhada</span>
+        </span>
+      </a>
+
+      <a class="card polimento" href="https://lp.escoladobrilho.com/matriculas-polimento" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="26" cy="36" r="16"/><circle cx="26" cy="36" r="5"/><path d="M38 24l16-16M50 8h6v6"/></svg></span>
+        <span class="text">
+          <span class="kicker">Polimento</span>
+          <span class="title">E<span>x</span>press</span>
+        </span>
+      </a>
+
+      <a class="card produtos" href="https://linktr.ee/galeradobrilho" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M10 24h44l-4 30H14z"/><path d="M22 24v-6a10 10 0 0 1 20 0v6"/><path d="M26 36h12"/></svg></span>
+        <span class="text">
+          <span class="kicker">Galera do Brilho</span>
+          <span class="title">Produtos</span>
+          <span class="sub">www.galeradobrilho.com.br</span>
+        </span>
+      </a>
+
+      <a class="card atendimento" href="https://api.whatsapp.com/send?phone=5511973696517" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M12 52l4-11a22 22 0 1 1 8 8z"/><path d="M24 26c0 8 6 14 14 14l3-4-5-3-2 2c-3-1-5-3-6-6l2-2-3-5z"/></svg></span>
+        <span class="text">
+          <span class="kicker">Atendimento</span>
+          <span class="title">Veneto</span>
+          <span class="sub">Serviços e curso presencial</span>
+        </span>
+      </a>
+
+      <a class="card ibest" href="https://app.premioibest.com/votacao/influenciador-automotivo-e-de-transportes/821558739" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M20 10h24v14a12 12 0 0 1-24 0z"/><path d="M20 14H10v4a8 8 0 0 0 8 8M44 14h10v4a8 8 0 0 1-8 8"/><path d="M32 36v8M22 54h20M26 44h12v10H26z"/></svg></span>
+        <span class="text">
+          <span class="kicker">Vote no</span>
+          <span class="title">iBest<span class="bang">!</span></span>
+          <span class="sub">O maior prêmio do Brasil</span>
+        </span>
+      </a>
+
+    </nav>
+  </main>
+
+  <footer>Escola do Brilho 2026 © Todos os direitos reservados</footer>
+
+</body>
+</html>
