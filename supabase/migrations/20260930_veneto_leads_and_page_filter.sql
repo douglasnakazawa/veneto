@@ -1,0 +1,6 @@
+-- Aplicada no projeto Grupo NKZ (fscqqeakupldpdaaimkc) em 30/09/2026
+-- com o nome "veneto_leads_and_page_filter".
+-- Cria veneto.leads + public.veneto_lead (espelha na "00. Central de Leads")
+-- e recria public.veneto_bio_stats com filtro por página e contagem de leads.
+-- O SQL completo está registrado no histórico de migrações do projeto
+-- (schema supabase_migrations) e documentado em supabase/README.md.

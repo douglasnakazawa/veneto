@@ -83,6 +83,7 @@
       padding: 16px 0;
     }
     .filters .label { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
+    .filters select { background: rgba(255,255,255,0.05); border: 1px solid var(--line-strong); border-radius: 10px; padding: 8px 10px; font-size: 13px; color: #fff; color-scheme: dark; }
     .filters input[type="date"] {
       background: rgba(255,255,255,0.05); border: 1px solid var(--line-strong); border-radius: 10px;
       padding: 7px 10px; font-size: 13px; color-scheme: dark;
@@ -110,7 +111,7 @@
     .card.loading { opacity: .55; }
     .card h2 { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
     .card .hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
-    .span-3 { grid-column: span 3; } .span-4 { grid-column: span 4; } .span-6 { grid-column: span 6; } .span-8 { grid-column: span 8; } .span-12 { grid-column: span 12; }
+    .span-2 { grid-column: span 2; } .span-3 { grid-column: span 3; } .span-4 { grid-column: span 4; } .span-6 { grid-column: span 6; } .span-8 { grid-column: span 8; } .span-12 { grid-column: span 12; }
 
     /* KPIs */
     .kpi .value { font-size: 40px; font-weight: 800; line-height: 1.05; margin-top: 12px; letter-spacing: -0.02em; }
@@ -190,10 +191,10 @@
     footer { text-align: center; padding: 20px 16px 40px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); }
 
     @media (max-width: 900px) {
-      .span-3 { grid-column: span 6; } .span-4 { grid-column: span 6; } .span-6, .span-8 { grid-column: span 12; }
+      .span-2, .span-3 { grid-column: span 4; } .span-4 { grid-column: span 6; } .span-6, .span-8 { grid-column: span 12; }
     }
     @media (max-width: 560px) {
-      .span-3, .span-4 { grid-column: span 12; }
+      .span-2, .span-3, .span-4 { grid-column: span 12; }
       .kpi.hero .value { font-size: 48px; }
       .range-note { margin-left: 0; width: 100%; }
       .card { padding: 18px 16px; }
@@ -225,6 +226,8 @@
       <button class="btn" data-range="30" type="button">30 dias</button>
       <button class="btn" data-range="90" type="button">90 dias</button>
       <span class="sep"></span>
+      <select id="pageSel" aria-label="Página"><option value="/bio/">Link na bio</option><option value="/restauracao-de-farois/">Restauração de Faróis</option></select>
+      <span class="sep"></span>
       <input type="date" id="dateFrom" aria-label="De">
       <input type="date" id="dateTo" aria-label="Até">
       <button class="btn" id="btnApply" type="button">Aplicar</button>
@@ -243,7 +246,7 @@
         <svg class="spark" id="sparkViews" viewBox="0 0 300 34" preserveAspectRatio="none" aria-hidden="true"></svg>
       </section>
 
-      <section class="card kpi green span-3" id="cardClicks">
+      <section class="card kpi green span-2" id="cardClicks">
         <i class="accent"></i>
         <h2>Cliques</h2>
         <div class="value" id="kClicks">–</div>
@@ -251,12 +254,20 @@
         <svg class="spark" id="sparkClicks" viewBox="0 0 300 34" preserveAspectRatio="none" aria-hidden="true"></svg>
       </section>
 
-      <section class="card kpi green span-3" id="cardCtr">
+      <section class="card kpi green span-2" id="cardCtr">
         <i class="accent"></i>
         <h2>Taxa de clique</h2>
         <div class="value" id="kCtr">–</div>
         <div class="meta"><span id="kClickerRate">–</span> dos visitantes clicaram em algo</div>
         <div class="meter green"><i id="meterCtr"></i></div>
+      </section>
+
+      <section class="card kpi span-2" id="cardLeads">
+        <i class="accent"></i>
+        <h2>Leads</h2>
+        <div class="value" id="kLeads">–</div>
+        <div class="meta"><span id="kLeadRate">–</span> das visitas viraram lead</div>
+        <div class="meter"><i id="meterLeads"></i></div>
       </section>
 
       <section class="card span-8" id="cardDaily">
@@ -286,7 +297,7 @@
 
       <section class="card span-8" id="cardButtons">
         <h2>Cliques por botão</h2>
-        <div class="hint">Cada botão do link na bio e das redes no topo</div>
+        <div class="hint">Botões da página selecionada</div>
         <div id="buttons"></div>
       </section>
 
@@ -322,7 +333,7 @@
     var pf = new Intl.NumberFormat('pt-BR', { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 });
     var df = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: '2-digit' });
     var dfl = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
-    var state = { from: null, to: null, preset: '7' };
+    var state = { from: null, to: null, preset: '7', page: '/bio/' };
     var $ = function (id) { return document.getElementById(id); };
 
     /* ---------- período ---------- */
@@ -351,6 +362,7 @@
     document.querySelectorAll('[data-range]').forEach(function (b) { b.addEventListener('click', function () { setPreset(b.getAttribute('data-range')); }); });
     $('btnApply').addEventListener('click', applyCustom);
     $('btnRefresh').addEventListener('click', load);
+    $('pageSel').addEventListener('change', function () { state.page = this.value; load(); });
 
     /* ---------- chave ---------- */
     function getKey() { try { return localStorage.getItem(KEY_STORE) || ''; } catch (e) { return ''; } }
@@ -370,7 +382,7 @@
       return fetch(cfg.url.replace(/\/$/, '') + '/rest/v1/rpc/veneto_bio_stats', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'apikey': cfg.key, 'Authorization': 'Bearer ' + cfg.key },
-        body: JSON.stringify({ p_key: key, p_from: state.from.toISOString(), p_to: state.to.toISOString() })
+        body: JSON.stringify({ p_key: key, p_from: state.from.toISOString(), p_to: state.to.toISOString(), p_page: state.page })
       }).then(function (r) {
         if (r.status === 401 || r.status === 403 || r.status === 400) { return r.json().then(function (j) { throw new Error((j && j.message) || 'auth'); }); }
         if (!r.ok) throw new Error('HTTP ' + r.status);
@@ -409,6 +421,10 @@
       $('kCtr').textContent = views ? pf.format(ctr) : '–';
       $('kClickerRate').textContent = visitors ? pf.format(clickers / visitors) : '–';
       $('meterCtr').style.width = Math.min(100, ctr * 100) + '%';
+      var leads = +d.leads || 0;
+      $('kLeads').textContent = nf.format(leads);
+      $('kLeadRate').textContent = views ? pf.format(leads / views) : '–';
+      $('meterLeads').style.width = Math.min(100, (views ? leads / views : 0) * 100) + '%';
 
       var days = fillDays(d.daily || []);
       sparkline($('sparkViews'), days.map(function (x) { return x.views; }), 'var(--s1)');
@@ -543,7 +559,7 @@
       }
       var visitors = Math.round(views * 0.82), clickers = Math.round(clicks * 0.78);
       return {
-        views: views, visitors: visitors, clicks: clicks, clickers: clickers,
+        views: views, visitors: visitors, clicks: clicks, clickers: clickers, leads: Math.round(views * 0.04),
         daily: daily,
         buttons: buttons.map(function (b) { var c = Math.round(clicks * b[2]); return { button: b[0], href: b[1], clicks: c, clickers: Math.round(c * 0.8) }; }),
         sources: [{ source: 'instagram', views: Math.round(views * 0.71) }, { source: 'direto', views: Math.round(views * 0.13) }, { source: 'youtube', views: Math.round(views * 0.09) }, { source: 'tiktok', views: Math.round(views * 0.05) }, { source: 'l.facebook.com', views: Math.round(views * 0.02) }],

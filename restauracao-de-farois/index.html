@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Curso Restauração de Faróis – Veneto Studio</title>
+  <meta name="description" content="Aprenda a técnica completa de restauração de faróis com Tarcísio Veneto e transforme menos de R$ 100 em produtos em serviços de R$ 150 a R$ 400. Acesso imediato, certificado e garantia de 7 dias.">
+  <meta name="theme-color" content="#0a0b0e">
+  <meta property="og:title" content="Mini Curso Restauração de Faróis – Veneto Studio">
+  <meta property="og:description" content="Como faturar R$ 2.400 por mês restaurando faróis, mesmo começando do zero.">
+  <meta property="og:image" content="imagens/hero-bg.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0b0e;
+      --bg-2: #0f1015;
+      --surface: #14161c;
+      --surface-2: #1a1d24;
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.16);
+      --text: #f5f5f7;
+      --text-2: #c9cbd3;
+      --muted: #8f919b;
+      --red: #e4202d;
+      --red-2: #ff3d49;
+      --red-deep: #8a0f18;
+      --red-soft: rgba(228,32,45,0.14);
+      --green: #2ab05a;
+      --green-soft: rgba(42,176,90,0.14);
+      --gold: #e2c05a;
+      --radius: 20px;
+      --max: 1120px;
+      --ease: cubic-bezier(.22,.61,.36,1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; cursor: pointer; }
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    section { padding: 88px 0; position: relative; }
+    .alt { background: var(--bg-2); }
+    h1, h2, h3 { line-height: 1.12; font-weight: 800; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(32px, 4.6vw, 54px); font-weight: 900; }
+    h2 { font-size: clamp(28px, 3.6vw, 42px); font-weight: 900; text-transform: uppercase; }
+    h3 { font-size: 19px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--red-2);
+      margin-bottom: 16px;
+    }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--red); }
+    .center { text-align: center; }
+    .center .eyebrow::after { content: ""; width: 26px; height: 2px; background: var(--red); }
+    .lead { color: var(--text-2); font-size: 17px; max-width: 720px; }
+    .center .lead { margin: 16px auto 0; }
+    .hl { color: var(--red-2); }
+    .muted { color: var(--muted); }
+
+    /* Botões */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 18px 34px; border-radius: 14px; border: none;
+      font-weight: 800; font-size: 16px; letter-spacing: 0.02em; text-transform: uppercase;
+      background: linear-gradient(180deg, var(--red-2) 0%, var(--red) 60%, #c4141f 100%);
+      color: #fff; box-shadow: 0 14px 34px rgba(228,32,45,0.35), inset 0 1px 0 rgba(255,255,255,0.18);
+      transition: transform .18s var(--ease), box-shadow .18s var(--ease), filter .18s;
+      position: relative; overflow: hidden;
+    }
+    .btn::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.22) 50%, transparent 70%);
+      transform: translateX(-130%); transition: transform .7s var(--ease);
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 20px 44px rgba(228,32,45,0.45); }
+    .btn:hover::after { transform: translateX(130%); }
+    .btn.lg { padding: 20px 40px; font-size: 17px; }
+    .btn.block { width: 100%; }
+    .btn.ghost { background: rgba(255,255,255,0.06); box-shadow: none; border: 1px solid var(--line-strong); }
+    .btn svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .trust { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 14px; font-size: 12px; color: var(--muted); font-weight: 600; }
+    .trust span { display: inline-flex; align-items: center; gap: 6px; }
+    .trust span::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+
+    /* Topbar */
+    .topbar {
+      position: sticky; top: 0; z-index: 40;
+      background: rgba(10,11,14,0.82); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 66px; gap: 16px; }
+    .topbar img { height: 34px; width: auto; }
+    .topbar .btn { padding: 11px 18px; font-size: 12px; border-radius: 10px; }
+    .topbar .btn span { display: none; }
+    @media (min-width: 640px) { .topbar .btn span { display: inline; } }
+
+    /* Hero */
+    .hero {
+      padding: 0;
+      min-height: 640px;
+      background: #06070a url('imagens/hero-bg.webp') center right / cover no-repeat;
+      position: relative;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background:
+        linear-gradient(90deg, rgba(6,7,10,0.96) 0%, rgba(6,7,10,0.88) 38%, rgba(6,7,10,0.35) 62%, rgba(6,7,10,0.1) 100%),
+        linear-gradient(180deg, rgba(6,7,10,0) 70%, var(--bg) 100%);
+    }
+    .hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 620px) 1fr; min-height: 640px; align-items: center; padding-top: 72px; padding-bottom: 72px; }
+    .hero .logo-curso { width: 250px; margin-bottom: 26px; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.6)); }
+    .hero h1 { margin-bottom: 18px; text-transform: uppercase; }
+    .hero .lead { margin-bottom: 30px; }
+    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 34px; max-width: 560px; }
+    .stat {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 14px 16px; border-radius: 14px;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--line); backdrop-filter: blur(6px);
+      font-size: 13px; color: var(--text-2); line-height: 1.4;
+    }
+    .stat b { display: block; color: #fff; font-size: 14px; }
+    .stat i { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; background: var(--red-soft); display: grid; place-items: center; }
+    .stat i svg { width: 14px; height: 14px; stroke: var(--red-2); stroke-width: 2.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Faixa de prova social */
+    .strip { padding: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-2); }
+    .strip .wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 40px; padding: 22px 20px; }
+    .strip span { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-2); font-weight: 600; }
+    .strip b { color: #fff; font-size: 18px; font-weight: 900; }
+
+    /* Cards genéricos */
+    .grid { display: grid; gap: 16px; }
+    .cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 28px; position: relative; overflow: hidden;
+      transition: transform .25s var(--ease), border-color .25s;
+    }
+    .card:hover { transform: translateY(-3px); border-color: var(--line-strong); }
+    .card h3 { margin-bottom: 10px; }
+    .card p { color: var(--text-2); font-size: 15px; }
+    .ico {
+      width: 46px; height: 46px; border-radius: 13px; margin-bottom: 18px;
+      background: linear-gradient(160deg, var(--red-soft), rgba(228,32,45,0.04)); border: 1px solid rgba(228,32,45,0.35);
+      display: grid; place-items: center;
+    }
+    .ico svg { width: 22px; height: 22px; stroke: var(--red-2); stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Listas check / x */
+    .list { list-style: none; display: grid; gap: 12px; margin-top: 18px; }
+    .list li { position: relative; padding-left: 34px; color: var(--text-2); font-size: 15px; }
+    .list li::before {
+      content: ""; position: absolute; left: 0; top: 2px; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--green-soft); border: 1px solid rgba(42,176,90,0.5);
+    }
+    .list li::after {
+      content: ""; position: absolute; left: 8px; top: 6px; width: 5px; height: 10px;
+      border-right: 2px solid var(--green); border-bottom: 2px solid var(--green); transform: rotate(45deg);
+    }
+    .list.no li::before { background: var(--red-soft); border-color: rgba(228,32,45,0.5); }
+    .list.no li::after { border: none; width: 10px; height: 10px; left: 6px; top: 8px; transform: none;
+      background: linear-gradient(45deg, transparent 45%, var(--red-2) 45%, var(--red-2) 55%, transparent 55%), linear-gradient(-45deg, transparent 45%, var(--red-2) 45%, var(--red-2) 55%, transparent 55%); }
+    .card.yes { border-top: 3px solid var(--green); }
+    .card.no { border-top: 3px solid var(--red); }
+    .quote {
+      margin: 34px auto 0; max-width: 760px; text-align: center; font-style: italic; color: var(--text-2);
+      padding: 22px 26px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line);
+    }
+
+    /* Instrutor */
+    .instr { display: grid; grid-template-columns: 380px 1fr; gap: 48px; align-items: center; }
+    .instr .photo { border-radius: 24px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0,0,0,0.6); position: relative; }
+    .instr .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(10,11,14,0.7)); }
+    .instr .photo img { width: 100%; }
+    .instr h2 { text-transform: none; font-size: clamp(30px, 3.6vw, 44px); }
+    .instr .role { color: var(--muted); margin: 8px 0 22px; font-weight: 600; }
+    .instr p { color: var(--text-2); margin-bottom: 14px; }
+    .instr strong { color: #fff; }
+    .pills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 24px; }
+    .pill { padding: 14px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .pill b { display: block; color: #fff; font-size: 14px; margin-bottom: 2px; }
+
+    /* Calculadora */
+    .calc { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 34px; }
+    .calc .box { border-radius: var(--radius); padding: 28px; border: 1px solid var(--line); background: var(--surface); text-align: center; position: relative; overflow: hidden; }
+    .calc .box::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: var(--red); }
+    .calc .box.realista::before { background: var(--green); }
+    .calc .tag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red-2); padding: 6px 12px; border-radius: 999px; background: var(--red-soft); }
+    .calc .realista .tag { color: var(--green); background: var(--green-soft); }
+    .calc .line { color: var(--text-2); margin-top: 14px; font-size: 15px; }
+    .calc .total { font-size: clamp(30px, 4vw, 40px); font-weight: 900; margin-top: 10px; color: #fff; }
+    .calc .realista .total { color: var(--green); }
+
+    /* Antes e depois */
+    .compare-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 40px; }
+    .compare { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); aspect-ratio: 16 / 9; background: #000; user-select: none; }
+    .compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .compare .after { clip-path: inset(0 0 0 var(--pos, 50%)); }
+    .compare .handle {
+      position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 2px; background: #fff; transform: translateX(-50%);
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.3); pointer-events: none;
+    }
+    .compare .handle::after {
+      content: "⇆"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 44px; height: 44px; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; font-size: 18px; font-weight: 900;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+    .compare input[type=range] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+    .compare .lbl { position: absolute; top: 12px; padding: 6px 12px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; background: rgba(0,0,0,0.6); backdrop-filter: blur(6px); pointer-events: none; }
+    .compare .lbl.b { left: 12px; color: #ffb4b9; }
+    .compare .lbl.a { right: 12px; color: #9ff0b7; }
+    .compare-cap { text-align: center; color: var(--muted); font-size: 13px; margin-top: 12px; }
+    .compare-cap b { color: #fff; }
+
+    /* Aulas */
+    .lessons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+    .lesson { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; position: relative; overflow: hidden; }
+    .lesson .n { position: absolute; right: 18px; top: 8px; font-size: 72px; font-weight: 900; color: rgba(255,255,255,0.045); line-height: 1; }
+    .lesson .k { font-size: 11px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red-2); margin-bottom: 8px; }
+    .lesson h3 { font-size: 17px; margin-bottom: 12px; }
+    .lesson ul { list-style: none; display: grid; gap: 8px; }
+    .lesson li { position: relative; padding-left: 20px; color: var(--text-2); font-size: 14px; }
+    .lesson li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px; border-radius: 2px; background: var(--red); }
+    .lesson.bonus { grid-column: 1 / -1; border: 1px solid rgba(226,192,90,0.45); background: linear-gradient(120deg, rgba(226,192,90,0.08), var(--surface) 55%); }
+    .lesson.bonus .k { color: var(--gold); }
+    .lesson.bonus li::before { background: var(--gold); }
+    .lesson.bonus ul { grid-template-columns: repeat(2, 1fr); }
+    .perks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+    .perk { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; text-align: center; }
+    .perk .img { aspect-ratio: 16 / 10; background: #fff; display: grid; place-items: center; overflow: hidden; }
+    .perk .img img { width: 100%; height: 100%; object-fit: cover; }
+    .perk .img.pad img { object-fit: contain; padding: 18px; }
+    .perk .t { padding: 18px 18px 22px; }
+    .perk h3 { font-size: 16px; }
+    .perk p { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+    /* Depoimentos */
+    .testi { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 40px; }
+    .t-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+    .t-card .who { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .t-card .av { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(160deg, var(--red-2), var(--red-deep)); display: grid; place-items: center; font-weight: 900; font-size: 15px; }
+    .t-card .name { font-weight: 800; }
+    .t-card .stars { color: var(--gold); font-size: 12px; letter-spacing: 2px; }
+    .t-card p { color: var(--text-2); font-style: italic; }
+
+    /* Oferta */
+    .offer { display: grid; grid-template-columns: 1fr 460px; gap: 48px; align-items: center; }
+    .offer h2 { text-transform: none; }
+    .offer .txt p { color: var(--text-2); margin-top: 14px; }
+    .offer .txt strong { color: #fff; }
+    .price-box {
+      border-radius: 26px; padding: 36px 32px; text-align: center; position: relative;
+      background: linear-gradient(180deg, #1a1d24, #111318);
+      border: 1px solid rgba(228,32,45,0.45);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 6px rgba(228,32,45,0.08);
+    }
+    .price-box .badge {
+      position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+      background: var(--red); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 8px 16px; border-radius: 999px; white-space: nowrap; box-shadow: 0 8px 22px rgba(228,32,45,0.45);
+    }
+    .price-box img { width: 220px; margin: 6px auto 18px; }
+    .price-box .from { color: var(--muted); font-size: 15px; }
+    .price-box .from s { color: #6f7079; }
+    .price-box .inst { font-size: clamp(40px, 6vw, 56px); font-weight: 900; line-height: 1; margin-top: 6px; color: #fff; }
+    .price-box .inst small { display: block; font-size: 0.3em; font-weight: 700; color: var(--text-2); margin-top: 6px; letter-spacing: 0.02em; }
+    .price-box .cash { color: var(--text-2); margin: 8px 0 22px; font-size: 15px; }
+    .price-box .cash b { color: #fff; }
+    .price-box .list { text-align: left; margin: 0 0 26px; gap: 9px; }
+    .price-box .list li { font-size: 14px; }
+    .price-box .safe { margin-top: 14px; font-size: 12px; color: var(--muted); }
+    .price-box .safe + .safe { margin-top: 6px; }
+
+    /* Garantia */
+    .guar { display: grid; grid-template-columns: 150px 1fr; gap: 32px; align-items: center; max-width: 900px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 36px; }
+    .seal { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--red); display: grid; place-items: center; text-align: center; line-height: 1; background: var(--red-soft); box-shadow: 0 0 0 10px rgba(228,32,45,0.06); }
+    .seal b { display: block; font-size: 52px; font-weight: 900; color: #fff; }
+    .seal span { display: block; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red-2); font-weight: 800; margin-top: 6px; }
+    .guar h3 { font-size: 24px; font-weight: 900; text-transform: uppercase; }
+    .guar .zero { color: var(--red-2); font-weight: 800; margin: 6px 0 12px; }
+    .guar p { color: var(--text-2); }
+
+    /* FAQ */
+    .faq { max-width: 820px; margin: 36px auto 0; }
+    details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 0 22px; margin-bottom: 10px; }
+    summary { cursor: pointer; padding: 18px 0; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--red-2); font-size: 24px; font-weight: 400; flex: 0 0 auto; transition: transform .2s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    details p { color: var(--text-2); padding-bottom: 18px; font-size: 15px; }
+
+    /* Final */
+    .final { background: radial-gradient(700px 400px at 50% 0%, rgba(228,32,45,0.22), transparent 70%), var(--bg-2); text-align: center; }
+    .final .lead { margin: 16px auto 30px; }
+    .icons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 24px; margin-top: 18px; font-size: 13px; color: var(--muted); }
+
+    footer { border-top: 1px solid var(--line); padding: 40px 0 110px; text-align: center; color: var(--muted); font-size: 12px; }
+    footer img { height: 34px; width: auto; margin: 0 auto 12px; opacity: .9; }
+    footer .links { margin: 10px 0; display: flex; justify-content: center; gap: 18px; }
+    footer .links a:hover { color: #fff; }
+    @media (min-width: 720px) { footer { padding-bottom: 40px; } }
+
+    /* Barra fixa mobile */
+    .sticky-cta {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(10,11,14,0.92); backdrop-filter: blur(12px); border-top: 1px solid var(--line);
+      display: flex; align-items: center; gap: 12px;
+      transform: translateY(110%); transition: transform .3s var(--ease);
+    }
+    .sticky-cta.show { transform: translateY(0); }
+    .sticky-cta .p { flex: 1; line-height: 1.2; }
+    .sticky-cta .p small { display: block; color: var(--muted); font-size: 11px; }
+    .sticky-cta .p b { font-size: 16px; }
+    .sticky-cta .btn { padding: 12px 18px; font-size: 12px; border-radius: 10px; flex: 0 0 auto; width: auto !important; }
+    @media (min-width: 720px) { .sticky-cta { display: none; } }
+
+    /* Modal */
+    .modal { position: fixed; inset: 0; z-index: 60; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(4,5,8,0.82); backdrop-filter: blur(10px); }
+    .modal.show { display: flex; }
+    .modal .box {
+      width: 100%; max-width: 440px; border-radius: 24px; padding: 30px 28px; position: relative;
+      background: linear-gradient(180deg, #1a1d24, #111318); border: 1px solid rgba(228,32,45,0.4);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.7); animation: pop .35s var(--ease) both;
+    }
+    @keyframes pop { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
+    .modal .close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: rgba(255,255,255,0.05); font-size: 18px; line-height: 1; }
+    .modal img { width: 190px; margin: 0 auto 16px; }
+    .modal h3 { font-size: 22px; font-weight: 900; text-align: center; }
+    .modal .sub { text-align: center; color: var(--muted); font-size: 14px; margin: 8px 0 20px; }
+    .field { margin-bottom: 12px; }
+    .field label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .field input {
+      width: 100%; padding: 14px 14px; border-radius: 12px; font-size: 16px;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--line-strong); color: #fff; outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .field input:focus { border-color: var(--red-2); box-shadow: 0 0 0 3px var(--red-soft); }
+    .field input.err { border-color: var(--red-2); }
+    .modal .msg { font-size: 12px; color: #ff8a92; min-height: 16px; margin: -4px 0 8px; }
+    .modal .btn { margin-top: 6px; }
+    .modal .fine { text-align: center; font-size: 11px; color: var(--muted); margin-top: 12px; }
+    .modal .btn[disabled] { opacity: .7; cursor: wait; transform: none; }
+
+    /* Reveal */
+    .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rv.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } *, *::before, *::after { animation: none !important; } }
+
+    /* Responsivo */
+    @media (max-width: 960px) {
+      .cols-3 { grid-template-columns: repeat(2, 1fr); }
+      .lessons { grid-template-columns: repeat(2, 1fr); }
+      .instr { grid-template-columns: 1fr; }
+      .instr .photo { max-width: 380px; }
+      .offer { grid-template-columns: 1fr; }
+      .hero .wrap { grid-template-columns: 1fr; }
+      .hero { background-position: 70% top; }
+      .hero::before { background: linear-gradient(180deg, rgba(6,7,10,0.35) 0%, rgba(6,7,10,0.92) 45%, var(--bg) 100%); }
+      .hero .wrap { padding-top: 300px; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 64px 0; }
+      .cols-2, .cols-3, .lessons, .perks, .testi, .compare-grid, .calc { grid-template-columns: 1fr; }
+      .lesson.bonus ul { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr; }
+      .pills { grid-template-columns: 1fr; }
+      .guar { grid-template-columns: 1fr; text-align: center; padding: 28px 20px; }
+      .seal { margin: 0 auto; }
+      .btn { width: 100%; padding: 17px 20px; font-size: 15px; }
+      .topbar .btn { width: auto; }
+      .hero .logo-curso { width: 200px; }
+      .hero .wrap { padding-top: 240px; padding-bottom: 56px; }
+      .price-box { padding: 30px 20px; }
+      .card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <img src="imagens/logo-curso.webp" alt="Mini Curso Restauração de Faróis" width="600" height="128">
+      <button class="btn js-cta" data-cta="topo" type="button">Garantir <span>minha</span> vaga</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <div>
+        <img class="logo-curso" src="imagens/logo-curso.webp" alt="Mini Curso Restauração de Faróis" width="600" height="128">
+        <h1>Como faturar <span class="hl">R$ 2.400 por mês</span> restaurando faróis, mesmo começando <span class="hl">do zero</span></h1>
+        <p class="lead">Aprenda a técnica completa de restauração de faróis e transforme um investimento de menos de R$ 100 em um serviço de R$ 150 a R$ 400. Sua porta de entrada na estética automotiva.</p>
+        <button class="btn lg js-cta" data-cta="hero" type="button">Quero garantir minha vaga agora
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <div class="trust"><span>Acesso imediato</span><span>Garantia de 7 dias</span><span>Certificado incluído</span></div>
+
+        <div class="stats">
+          <div class="stat"><i><svg viewBox="0 0 24 24"><path d="M12 3v18M7 8h7a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h8"/></svg></i><div><b>Menos de R$ 100</b>investimento inicial em produtos</div></div>
+          <div class="stat"><i><svg viewBox="0 0 24 24"><path d="M4 17l6-6 4 4 6-8"/></svg></i><div><b>R$ 150 a R$ 400</b>por serviço completo</div></div>
+          <div class="stat"><i><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></i><div><b>R$ 2.400/mês</b>com apenas 2 serviços por semana</div></div>
+          <div class="stat"><i><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5"/></svg></i><div><b>Cliente volta</b>para lavagem e polimento</div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="strip">
+    <div class="wrap">
+      <span><b>+4 mi</b> seguidores nas redes</span>
+      <span><b>2 mi</b> inscritos no YouTube</span>
+      <span><b>5 aulas</b> práticas + bônus</span>
+      <span><b>7 dias</b> de garantia</span>
+    </div>
+  </div>
+
+  <!-- PARA QUEM É -->
+  <section>
+    <div class="wrap">
+      <div class="center rv">
+        <span class="eyebrow">Antes de continuar</span>
+        <h2>Este curso é para você?</h2>
+      </div>
+      <div class="grid cols-2 rv" style="margin-top:40px">
+        <div class="card yes">
+          <h3>Esse curso foi feito para você que…</h3>
+          <ul class="list">
+            <li>Quer começar na estética com um serviço simples e lucrativo</li>
+            <li>Está no CLT ou desempregado e quer uma renda extra</li>
+            <li>Já tem uma estética e quer agregar um serviço de alto valor</li>
+            <li>Nunca trabalhou com carros mas quer começar pela garagem</li>
+            <li>Já faz restauração por conta própria e quer cobrar mais</li>
+          </ul>
+        </div>
+        <div class="card no">
+          <h3>Este curso NÃO é para você se…</h3>
+          <ul class="list no">
+            <li>Procura fórmula mágica para ficar rico sem fazer nada</li>
+            <li>Não está disposto a aplicar o que aprender na prática</li>
+            <li>Quer resultado sem dedicar tempo para aprender e praticar</li>
+            <li>Busca um atalho que não exige nenhum esforço da sua parte</li>
+            <li>Espera que os clientes apareçam sozinhos, sem nenhuma ação</li>
+          </ul>
+        </div>
+      </div>
+      <p class="quote rv">"Seja honesto consigo mesmo. Este curso entrega a técnica, a estratégia e o passo a passo. Mas <strong style="color:#fff">VOCÊ</strong> precisa aplicar."</p>
+    </div>
+  </section>
+
+  <!-- INSTRUTOR -->
+  <section class="alt">
+    <div class="wrap instr">
+      <div class="photo rv"><img src="imagens/tarcisio.webp" alt="Tarcísio Veneto, fundador da Veneto Studio" width="800" height="909" loading="lazy"></div>
+      <div class="rv">
+        <span class="eyebrow">Conheça seu instrutor</span>
+        <h2>Tarcísio Veneto</h2>
+        <div class="role">Fundador da Veneto Studio, a maior referência em estética automotiva do Brasil</div>
+        <p><strong>Fala, galera do brilho! Eu sou o Tarcísio Veneto.</strong></p>
+        <p>Criei a Veneto Studio, a maior referência em estética automotiva do Brasil, com mais de 4 milhões de seguidores nas redes sociais.</p>
+        <p>Nos últimos anos, ensinei centenas de pessoas a transformarem suas vidas através da estética automotiva, desde quem estava desempregado até profissionais que queriam escalar seus negócios.</p>
+        <p><strong>E agora, quero te mostrar o caminho mais rápido para você entrar nesse mercado: restauração de faróis.</strong></p>
+        <div class="pills">
+          <div class="pill"><b>Rápido de aprender</b>Técnica simplificada</div>
+          <div class="pill"><b>Barato para começar</b>Menos de R$ 100</div>
+          <div class="pill"><b>Lucrativo por serviço</b>R$ 150 a R$ 400</div>
+          <div class="pill"><b>Porta de entrada perfeita</b>Cliente volta</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE -->
+  <section>
+    <div class="wrap">
+      <div class="center rv">
+        <span class="eyebrow">O mercado</span>
+        <h2>Por que restauração de faróis é sua porta de entrada?</h2>
+      </div>
+      <div class="grid cols-3 rv" style="margin-top:40px">
+        <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v18M7 8h7a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h8"/></svg></div><h3>Investimento baixíssimo</h3><p>Menos de R$ 100 em produtos. Não precisa de espaço nem estrutura cara. Pode começar na garagem de casa ou ir na casa do cliente.</p></div>
+        <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20l5-5m0 0l9-9a2.1 2.1 0 0 0-3-3l-9 9m3 3l-4 1 1-4"/></svg></div><h3>Técnica simples</h3><p>Muito mais fácil que polimento ou lavagem detalhada. Você aprende rápido e faz com segurança desde o primeiro dia.</p></div>
+        <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.4 5 5.6.8-4 3.9.9 5.6-4.9-2.6-4.9 2.6.9-5.6-4-3.9 5.6-.8z"/></svg></div><h3>Resultado impressionante</h3><p>O cliente vê a transformação na hora. Farol amarelado fica cristalino em alguns minutos. Isso gera satisfação e indicações.</p></div>
+        <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 17l6-6 4 4 6-8M14 7h6v6"/></svg></div><h3>Ticket excelente</h3><p>R$ 150 a R$ 400 por serviço completo (o par de faróis). Faça 2 serviços por semana e são R$ 2.400 no mês.</p></div>
+        <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5"/></svg></div><h3>Cliente volta</h3><p>Quem faz o serviço de faróis com você te pede a lavagem, o polimento e outros serviços. É a sua porta de entrada.</p></div>
+        <div class="card" style="display:grid;place-items:center;text-align:center;background:linear-gradient(160deg,var(--red-soft),var(--surface) 60%)">
+          <div><div class="eyebrow" style="justify-content:center;margin-bottom:8px">Comece hoje</div><h3 style="font-size:22px">Sua primeira vitória é restaurar o farol do próprio carro</h3></div>
+        </div>
+      </div>
+
+      <div class="calc rv">
+        <div class="box">
+          <span class="tag">Conservador</span>
+          <div class="line">2 serviços por semana<br>R$ 300 por serviço</div>
+          <div class="total">= R$ 2.400/mês</div>
+        </div>
+        <div class="box realista">
+          <span class="tag">Realista</span>
+          <div class="line">3 serviços por semana<br>R$ 300 por serviço</div>
+          <div class="total">= R$ 3.600/mês</div>
+        </div>
+      </div>
+      <p class="center lead rv" style="margin-top:26px">E isso é <strong style="color:#fff">só com faróis</strong>. Imagine quando você agregar lavagem ou polimento para esses mesmos clientes?</p>
+    </div>
+  </section>
+
+  <!-- ANTES E DEPOIS -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="center rv">
+        <span class="eyebrow">Resultado real</span>
+        <h2>Veja a transformação que você vai fazer</h2>
+        <p class="lead">Arraste o controle e compare. Olha só o resultado que a técnica entrega:</p>
+      </div>
+      <div class="compare-grid rv">
+        <div>
+          <div class="compare" style="--pos:50%">
+            <img class="before" src="imagens/antes-1.webp" alt="Farol amarelado antes da restauração" width="400" height="225" loading="lazy">
+            <img class="after" src="imagens/depois-1.webp" alt="Farol cristalino depois da restauração" width="400" height="225" loading="lazy">
+            <div class="handle"></div>
+            <span class="lbl b">Antes</span><span class="lbl a">Depois</span>
+            <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+          </div>
+          <div class="compare-cap">Farol 100% amarelado → <b>Cristalino</b></div>
+        </div>
+        <div>
+          <div class="compare" style="--pos:50%">
+            <img class="before" src="imagens/antes-2.webp" alt="Farol craquelado antes da restauração" width="400" height="263" loading="lazy">
+            <img class="after" src="imagens/depois-2.webp" alt="Farol restaurado" width="400" height="218" loading="lazy">
+            <div class="handle"></div>
+            <span class="lbl b">Antes</span><span class="lbl a">Depois</span>
+            <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+          </div>
+          <div class="compare-cap">Farol craquelado → <b>Restaurado</b></div>
+        </div>
+      </div>
+      <p class="center lead rv" style="margin-top:30px">Esse resultado <strong style="color:#fff">você consegue fazer</strong>. E o cliente fica tão impressionado que volta, indica, e vira cliente fiel.</p>
+      <div class="center rv" style="margin-top:26px"><button class="btn js-cta" data-cta="transformacao" type="button">Quero aprender essa técnica</button></div>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO -->
+  <section>
+    <div class="wrap">
+      <div class="center rv">
+        <span class="eyebrow">Conteúdo</span>
+        <h2>O que você vai aprender</h2>
+        <p class="lead">O Mini Curso Restauração de Faróis é dividido em 5 aulas práticas que vão do absoluto zero até você cobrar seus primeiros R$ 150 a R$ 400. <strong style="color:var(--gold)">+ 1 aula bônus</strong> sobre como escalar seu negócio na estética automotiva.</p>
+      </div>
+      <div class="lessons rv">
+        <div class="lesson"><span class="n">0</span><div class="k">Aula 0</div><h3>Boas-vindas</h3><ul><li>Apresentação completa do curso</li><li>Como consumir o conteúdo da melhor forma</li><li>Ficha de matrícula e primeiros passos</li></ul></div>
+        <div class="lesson"><span class="n">1</span><div class="k">Aula 1</div><h3>Fundamentos do sucesso</h3><ul><li>Por que serviços rápidos são oportunidades de ouro</li><li>Por que faróis são a porta de entrada perfeita</li><li>Mentalidade para construir um negócio sólido</li><li>Matemática: 1 farol por dia = quanto por mês?</li></ul></div>
+        <div class="lesson"><span class="n">2</span><div class="k">Aula 2</div><h3>Mão na massa: seu primeiro farol</h3><ul><li>Lista completa de produtos essenciais</li><li>Processo passo a passo da restauração</li><li>Técnica exclusiva Veneto de acabamento perfeito</li><li>Como evitar os erros mais comuns</li></ul></div>
+        <div class="lesson"><span class="n">3</span><div class="k">Aula 3</div><h3>Dominando a técnica premium</h3><ul><li>Diferença entre serviço comum e serviço premium</li><li>Segredos do acabamento que impressiona</li><li>Como garantir durabilidade do serviço</li><li>Primeira vitória: restaurar o farol do próprio carro</li></ul></div>
+        <div class="lesson"><span class="n">4</span><div class="k">Aula 4</div><h3>Superando objeções e vendendo valor</h3><ul><li>Como responder "Tá muito caro, fulano cobra R$ 50"</li><li>Como responder "Não preciso agora"</li><li>Scripts de abordagem e fechamento testados</li><li>Template de orçamento profissional</li><li>Checklist de diagnóstico técnico</li></ul></div>
+        <div class="lesson"><span class="n">5</span><div class="k">Aula 5</div><h3>Escala e otimização</h3><ul><li>Como ter clientes todo dia restaurando faróis</li><li>Parcerias estratégicas (lava-jatos, estéticas, revendas)</li><li>Como usar redes sociais para atrair clientes</li><li>Sistema de indicações que funciona no automático</li><li>Segunda vitória: 2 serviços por semana = R$ 2.400/mês</li></ul></div>
+        <div class="lesson bonus"><span class="n">★</span><div class="k">Aula bônus</div><h3>Seu próximo nível</h3><ul><li>Como usar faróis para vender serviços premium</li><li>Como combinar serviços e aumentar ticket médio</li><li>Próximos passos para faturar R$ 10K+ por mês</li><li>Caminhos para crescer na estética automotiva</li></ul></div>
+      </div>
+
+      <div class="perks rv">
+        <div class="perk"><div class="img"><img src="imagens/certificado.png" alt="Certificado digital de conclusão" width="800" height="565" loading="lazy"></div><div class="t"><h3>Certificado digital de conclusão</h3><p>Comprove que você domina restauração de faróis</p></div></div>
+        <div class="perk"><div class="img pad" style="background:#1a1d24"><img src="imagens/bonus-acesso.jpg" alt="Acesso por 1 ano" width="512" height="512" loading="lazy"></div><div class="t"><h3>Acesso por 1 ano</h3><p>Assista quantas vezes quiser, no seu ritmo</p></div></div>
+        <div class="perk"><div class="img pad"><img src="imagens/bonus-dispositivos.jpg" alt="Acesso pelo celular e computador" width="512" height="512" loading="lazy"></div><div class="t"><h3>Acesso pelo celular e computador</h3><p>Assista de onde estiver, quando quiser</p></div></div>
+      </div>
+      <div class="center rv" style="margin-top:34px"><button class="btn lg js-cta" data-cta="conteudo" type="button">Sim, quero acesso completo agora</button></div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="center rv">
+        <span class="eyebrow">Prova</span>
+        <h2>Quem aplicou, teve resultado</h2>
+        <p class="lead">Veja o que alunos que aplicaram as técnicas estão dizendo:</p>
+      </div>
+      <div class="testi rv">
+        <div class="t-card"><div class="who"><div class="av">C</div><div><div class="name">Carlos M.</div><div class="stars">★★★★★</div></div></div><p>"Comecei do zero e em 2 semanas já fiz meu primeiro serviço. Técnica simples e resultado incrível!"</p></div>
+        <div class="t-card"><div class="who"><div class="av">R</div><div><div class="name">Rafael S.</div><div class="stars">★★★★★</div></div></div><p>"Estava desempregado e com R$ 150 comecei. Hoje faço 3 faróis por semana e pago todas as contas."</p></div>
+        <div class="t-card"><div class="who"><div class="av">A</div><div><div class="name">Anderson L.</div><div class="stars">★★★★★</div></div></div><p>"Já trabalhava com lavagem e o curso me deu mais um serviço pra oferecer. Meus clientes adoram!"</p></div>
+        <div class="t-card"><div class="who"><div class="av">B</div><div><div class="name">Bruno T.</div><div class="stars">★★★★★</div></div></div><p>"Melhor investimento que fiz. R$ 67 que já me renderam mais de R$ 3.000 em dois meses."</p></div>
+      </div>
+      <div class="center rv" style="margin-top:34px"><button class="btn js-cta" data-cta="depoimentos" type="button">Quero ter esses resultados também</button></div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section id="oferta">
+    <div class="wrap offer">
+      <div class="txt rv">
+        <span class="eyebrow">Investimento</span>
+        <h2>Garantir sua vaga é <span class="hl">simples</span></h2>
+        <p><strong>Vou ser direto com você.</strong></p>
+        <p>Eu poderia facilmente cobrar R$ 200 por este treinamento. É o valor justo pelo que você vai aprender e pelo retorno que vai ter.</p>
+        <p>Mas eu não quero deixar ninguém de fora por questão financeira. <strong>Eu quero que TODO MUNDO que tem vontade de mudar de vida consiga começar.</strong></p>
+        <p>Por isso, o investimento é:</p>
+      </div>
+      <div class="price-box rv">
+        <span class="badge">Oferta especial</span>
+        <img src="imagens/logo-curso.webp" alt="Mini Curso Restauração de Faróis" width="600" height="128">
+        <div class="from">De <s>R$ 200</s> por</div>
+        <div class="inst">9x R$ 8,80<small> no cartão</small></div>
+        <div class="cash">ou <b>R$ 67,00</b> à vista</div>
+        <ul class="list">
+          <li>5 aulas práticas + 1 aula bônus</li>
+          <li>Acesso por 1 ano</li>
+          <li>Certificado digital</li>
+          <li>Suporte direto na plataforma</li>
+          <li>Garantia de 7 dias</li>
+        </ul>
+        <button class="btn lg block js-cta" data-cta="oferta" type="button">Quero garantir minha vaga por R$ 67</button>
+        <div class="safe">Acesso imediato • Garantia de 7 dias • Pagamento seguro</div>
+        <div class="safe">🔒 Seus dados estão seguros. Pagamento processado pela Hotmart.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GARANTIA -->
+  <section class="alt" style="padding-top:0">
+    <div class="wrap">
+      <div class="guar rv">
+        <div class="seal"><div><b>7</b><span>dias de garantia</span></div></div>
+        <div>
+          <h3>Garantia incondicional de 7 dias</h3>
+          <div class="zero">Risco ZERO para você.</div>
+          <p>Acesse o curso, assista às aulas, veja a técnica completa. Se por QUALQUER motivo você não ficar satisfeito, é só mandar uma mensagem dentro de 7 dias e eu devolvo 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="wrap">
+      <div class="center rv">
+        <span class="eyebrow">Dúvidas</span>
+        <h2>Perguntas frequentes</h2>
+      </div>
+      <div class="faq rv">
+        <details><summary>Eu nunca trabalhei com carros. Consigo aprender?</summary><p>SIM! O curso foi feito pensando em quem está começando do ZERO. Eu explico cada passo de forma simples e você vai ver exatamente como fazer. Se você consegue assistir um vídeo e seguir instruções, você consegue restaurar faróis.</p></details>
+        <details><summary>Preciso de muito dinheiro para começar?</summary><p>Não. O investimento inicial em produtos é baixo. Na aula 2 eu mostro exatamente quais produtos comprar e onde comprar mais barato.</p></details>
+        <details><summary>Quanto tempo leva para fazer o serviço?</summary><p>Entre 25 e 35 minutos por farol. O serviço completo (par de faróis) leva cerca de 1 hora. Com a prática, você fica cada vez mais rápido.</p></details>
+        <details><summary>Quanto posso cobrar pelo serviço?</summary><p>Entre R$ 150 e R$ 400 por serviço completo (par de faróis), dependendo da sua região e do tipo de carro. No curso eu ensino como precificar corretamente.</p></details>
+        <details><summary>Tem garantia?</summary><p>Sim! Garantia incondicional de 7 dias. Se você não gostar do curso por qualquer motivo, devolvemos 100% do seu dinheiro.</p></details>
+        <details><summary>Por quanto tempo tenho acesso?</summary><p>Você tem acesso por 1 ano completo. Pode assistir pelo celular ou computador, quantas vezes quiser, no seu tempo.</p></details>
+        <details><summary>Recebo certificado?</summary><p>Sim! Ao concluir o curso, você recebe um certificado digital de conclusão.</p></details>
+        <details><summary>Consigo fazer em casa ou preciso de estrutura?</summary><p>Você pode fazer na sua garagem, na rua, ou onde tiver espaço para trabalhar no carro. Não precisa de estrutura cara.</p></details>
+        <details><summary>Como vou receber o acesso?</summary><p>Assim que o pagamento for confirmado, você recebe um e-mail da Hotmart com login e senha para acessar a plataforma.</p></details>
+        <details><summary>E se eu tiver dúvidas durante o curso?</summary><p>Abaixo de cada aula na plataforma Hotmart tem um espaço para você enviar suas dúvidas. Nossa equipe responde todas as perguntas.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final">
+    <div class="wrap rv">
+      <span class="eyebrow">Sua vez</span>
+      <h2>Sua vez de começar</h2>
+      <p class="lead">Por apenas R$ 67, você recebe toda a técnica, estratégia e passo a passo para começar a faturar com restauração de faróis. <strong style="color:#fff">O único risco é não tentar.</strong></p>
+      <button class="btn lg js-cta" data-cta="final" type="button">Sim, quero começar agora por R$ 67</button>
+      <div class="icons"><span>🔒 Pagamento 100% seguro</span><span>✅ Acesso imediato após confirmação</span><span>🛡️ Garantia de 7 dias</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <img src="imagens/logo-curso.webp" alt="Mini Curso Restauração de Faróis" width="600" height="128">
+      <div>Um produto Veneto Studio</div>
+      <div class="links"><a href="#">Termos de uso</a><a href="#">Política de privacidade</a></div>
+      <div>© 2026 Veneto Studio. Todos os direitos reservados.</div>
+    </div>
+  </footer>
+
+  <div class="sticky-cta" id="stickyCta">
+    <div class="p"><small>De R$ 200 por</small><b>9x R$ 8,80</b></div>
+    <button class="btn js-cta" data-cta="barra-mobile" type="button">Garantir vaga</button>
+  </div>
+
+  <!-- MODAL DE CAPTURA -->
+  <div class="modal" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
+    <form class="box" id="leadForm" novalidate>
+      <button class="close" type="button" id="leadClose" aria-label="Fechar">×</button>
+      <img src="imagens/logo-curso.webp" alt="" width="600" height="128">
+      <h3 id="leadTitle">Falta só um passo</h3>
+      <p class="sub">Informe seu nome e WhatsApp para garantir sua vaga. Você vai direto para o pagamento seguro.</p>
+      <div class="field"><label for="leadNome">Seu nome</label><input id="leadNome" name="nome" type="text" autocomplete="name" placeholder="Como quer ser chamado" required></div>
+      <div class="field"><label for="leadZap">Seu WhatsApp</label><input id="leadZap" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(11) 99999-9999" required></div>
+      <div class="msg" id="leadMsg"></div>
+      <button class="btn block" type="submit" id="leadSubmit">Garantir minha vaga por R$ 67
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <div class="fine">🔒 Seus dados estão seguros. Pagamento processado pela Hotmart.</div>
+    </form>
+  </div>
+
+  <script src="../track-config.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var CHECKOUT = 'https://pay.hotmart.com/W103469304T';
+    var PAGE = '/restauracao-de-farois/';
+    var cfg = window.VENETO_TRACK || {};
+    var live = !!(cfg.url && cfg.key) && location.protocol !== 'file:';
+    var q = new URLSearchParams(location.search);
+    var ua = navigator.userAgent || '';
+    var device = /iPad|Tablet/i.test(ua) ? 'tablet' : (/Mobi|Android|iPhone/i.test(ua) ? 'mobile' : 'desktop');
+    var sid = null;
+    try {
+      sid = localStorage.getItem('vn_sid');
+      if (!sid) { sid = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2)); localStorage.setItem('vn_sid', sid); }
+    } catch (e) {}
+    var ctx = {
+      p_session_id: sid,
+      p_referrer: (document.referrer || '').slice(0, 300) || null,
+      p_utm_source: q.get('utm_source'), p_utm_medium: q.get('utm_medium'),
+      p_utm_campaign: q.get('utm_campaign'), p_utm_content: q.get('utm_content'),
+      p_device: device
+    };
+    function rpc(fn, body) {
+      if (!live) return Promise.resolve();
+      return fetch(cfg.url.replace(/\/$/, '') + '/rest/v1/rpc/' + fn, {
+        method: 'POST', keepalive: true, mode: 'cors',
+        headers: { 'Content-Type': 'application/json', 'apikey': cfg.key, 'Authorization': 'Bearer ' + cfg.key },
+        body: JSON.stringify(body)
+      });
+    }
+    function track(ev) { try { rpc('veneto_track', Object.assign({ p_page: PAGE, p_lang: (navigator.language || '').slice(0, 16) || null }, ctx, ev)).catch(function () {}); } catch (e) {} }
+    track({ p_event: 'view' });
+
+    /* Reveal */
+    var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12 }) : null;
+    document.querySelectorAll('.rv').forEach(function (el) { io ? io.observe(el) : el.classList.add('in'); });
+
+    /* Antes e depois */
+    document.querySelectorAll('.compare').forEach(function (c) {
+      var r = c.querySelector('input[type=range]');
+      r.addEventListener('input', function () { c.style.setProperty('--pos', r.value + '%'); });
+    });
+
+    /* Barra fixa mobile */
+    var hero = document.querySelector('.hero'), sticky = document.getElementById('stickyCta');
+    function onScroll() { sticky.classList.toggle('show', window.scrollY > hero.offsetHeight - 80); }
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+    /* Modal */
+    var modal = document.getElementById('leadModal'), form = document.getElementById('leadForm');
+    var nome = document.getElementById('leadNome'), zap = document.getElementById('leadZap'), msg = document.getElementById('leadMsg'), submit = document.getElementById('leadSubmit');
+    var currentCta = 'cta';
+    function openModal(cta) {
+      currentCta = cta || 'cta';
+      modal.classList.add('show'); document.body.style.overflow = 'hidden';
+      setTimeout(function () { (nome.value ? zap : nome).focus(); }, 60);
+      track({ p_event: 'click', p_button: 'CTA: ' + currentCta, p_href: '#popup' });
+    }
+    function closeModal() { modal.classList.remove('show'); document.body.style.overflow = ''; }
+    document.querySelectorAll('.js-cta').forEach(function (b) { b.addEventListener('click', function () { openModal(b.getAttribute('data-cta')); }); });
+    document.getElementById('leadClose').addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('show')) closeModal(); });
+
+    /* Máscara de telefone */
+    zap.addEventListener('input', function () {
+      var d = zap.value.replace(/\D/g, '').slice(0, 11), out = '';
+      if (d.length > 0) out = '(' + d.slice(0, 2);
+      if (d.length >= 3) out += ') ' + d.slice(2, d.length > 10 ? 7 : 6);
+      if (d.length > (d.length > 10 ? 7 : 6)) out += '-' + d.slice(d.length > 10 ? 7 : 6);
+      zap.value = out;
+    });
+    try { var saved = JSON.parse(localStorage.getItem('vn_lead') || 'null'); if (saved) { nome.value = saved.nome || ''; zap.value = saved.zap || ''; } } catch (e) {}
+
+    function checkoutUrl(n, digits) {
+      var u = new URL(CHECKOUT);
+      u.searchParams.set('name', n);
+      if (digits.length >= 10) { u.searchParams.set('phoneac', digits.slice(0, 2)); u.searchParams.set('phonenumber', digits.slice(2)); }
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'sck', 'src', 'xcod'].forEach(function (k) { if (q.get(k)) u.searchParams.set(k, q.get(k)); });
+      return u.toString();
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var n = nome.value.trim(), digits = zap.value.replace(/\D/g, '');
+      nome.classList.toggle('err', n.length < 2); zap.classList.toggle('err', digits.length < 10);
+      if (n.length < 2) { msg.textContent = 'Digite seu nome.'; nome.focus(); return; }
+      if (digits.length < 10) { msg.textContent = 'Digite um WhatsApp válido com DDD.'; zap.focus(); return; }
+      msg.textContent = ''; submit.disabled = true; submit.firstChild.textContent = 'Só um instante… ';
+      try { localStorage.setItem('vn_lead', JSON.stringify({ nome: n, zap: zap.value })); } catch (e2) {}
+      var go = function () { location.href = checkoutUrl(n, digits); };
+      var timer = setTimeout(go, 2500);
+      var p = rpc('veneto_lead', Object.assign({ p_nome: n, p_whatsapp: digits, p_page: PAGE, p_cta: currentCta, p_url: location.href.slice(0, 500), p_utm_term: q.get('utm_term') }, ctx));
+      p.then(function () { clearTimeout(timer); go(); }).catch(function () { clearTimeout(timer); go(); });
+    });
+  })();
+  </script>
+</body>
+</html>
