@@ -128,14 +128,18 @@
       transition: opacity .2s;
     }
     .card.loading { opacity: .55; }
-    .card h2 { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+    .card h2 { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); line-height: 1.35; }
+    .card.kpi { container-type: inline-size; min-width: 0; }
+    .grid > .card { min-width: 0; }
+    .card.kpi h2 { font-size: clamp(10px, 5.2cqi, 12px); letter-spacing: 0.1em; }
     .card .hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
     .span-2 { grid-column: span 2; } .span-3 { grid-column: span 3; } .span-4 { grid-column: span 4; } .span-6 { grid-column: span 6; } .span-8 { grid-column: span 8; } .span-12 { grid-column: span 12; }
 
     /* KPIs */
-    .kpi .value { font-size: 40px; font-weight: 800; line-height: 1.05; margin-top: 12px; letter-spacing: -0.02em; }
-    .kpi.hero .value { font-size: 56px; }
-    .kpi .meta { display: block; margin-top: 10px; font-size: 12px; line-height: 1.5; color: var(--muted); }
+    .kpi .value { font-size: clamp(24px, 19cqi, 40px); font-weight: 800; line-height: 1.05; margin-top: 12px; letter-spacing: -0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-variant-numeric: normal; }
+    .kpi.hero .value { font-size: clamp(34px, 16cqi, 56px); }
+    .kpi .meta { display: block; margin-top: 10px; font-size: clamp(11px, 5.4cqi, 12px); line-height: 1.45; color: var(--muted); overflow-wrap: anywhere; }
+    .kpi .meta b, .kpi .meta span { color: var(--text-2); }
     .meter { height: 8px; border-radius: 999px; background: var(--track); overflow: hidden; margin-top: 14px; }
     .meter > i { display: block; height: 100%; border-radius: 999px; background: var(--red); width: 0; transition: width .6s var(--ease); }
     .meter.green > i { background: var(--green); }
@@ -187,6 +191,54 @@
     .empty { padding: 26px 0 10px; color: var(--muted); font-size: 13px; text-align: center; }
     .rank { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; background: rgba(255,255,255,0.06); font-size: 11px; font-weight: 700; color: var(--text-2); margin-right: 8px; }
 
+
+    /* ===== Quiz ===== */
+    .quiz-only { display: none; }
+    body.is-quiz .quiz-only { display: block; }
+    body.is-quiz .hide-quiz { display: none !important; }
+    .funnel { margin-top: 16px; display: grid; gap: 10px; }
+    .fstep { display: grid; grid-template-columns: minmax(120px, 190px) 1fr 132px; gap: 14px; align-items: center; }
+    .fstep .lbl { font-size: 13px; font-weight: 600; color: var(--text-2); line-height: 1.25; }
+    .fstep .lbl small { display: block; font-size: 11px; color: var(--muted); font-weight: 500; }
+    .fstep .track { height: 12px; border-radius: 999px; background: var(--track); overflow: hidden; }
+    .fstep .track i { display: block; height: 100%; width: 0; border-radius: 999px; background: var(--s1); transition: width .7s var(--ease); }
+    .fstep.key .lbl { color: #fff; font-weight: 800; }
+    .fstep .num { text-align: right; font-variant-numeric: tabular-nums; line-height: 1.2; }
+    .fstep .num b { font-size: 15px; color: #fff; }
+    .fstep .num small { display: block; font-size: 11px; color: var(--muted); }
+    .fstep .num small.drop { color: #ff8a92; }
+    .fnote { margin-top: 16px; padding: 12px 14px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid var(--line); font-size: 13px; color: var(--text-2); }
+    .fnote b { color: #fff; }
+    #qCardPotential { container-type: inline-size; }
+    .pot-big { font-size: clamp(26px, 11cqi, 38px); font-weight: 800; letter-spacing: -0.02em; margin-top: 10px; line-height: 1.05; }
+    .pot-big small { font-size: 14px; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+    .pot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+    .pot-grid div { padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid var(--line); }
+    .pot-grid small { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .pot-grid b { display: block; font-size: 18px; margin-top: 4px; font-variant-numeric: tabular-nums; }
+    .qgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+    .qbox { padding: 16px; border-radius: 14px; background: rgba(255,255,255,0.03); border: 1px solid var(--line); min-width: 0; }
+    .qbox h3 { font-size: 13px; font-weight: 800; color: #fff; }
+    .qbox h3 small { display: block; font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; }
+    .qrow { margin-top: 12px; }
+    .qrow .t { display: flex; justify-content: space-between; gap: 10px; font-size: 12px; color: var(--text-2); }
+    .qrow .t span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .qrow .t b { color: #fff; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .qrow .t b small { color: var(--muted); font-weight: 500; }
+    .qrow .track { height: 6px; border-radius: 999px; background: var(--track); overflow: hidden; margin-top: 5px; }
+    .qrow .track i { display: block; height: 100%; width: 0; border-radius: 999px; background: var(--s1); transition: width .6s var(--ease); }
+    .qrow.best .t span:first-child { color: #fff; font-weight: 700; }
+    @media (max-width: 900px) {
+      body.is-quiz .q-tile { grid-column: span 6; }
+      .qgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      body.is-quiz .q-tile { grid-column: span 12; }
+      .qgrid { grid-template-columns: 1fr; }
+      .fstep { grid-template-columns: 1fr 96px; gap: 6px 10px; }
+      .fstep .lbl { grid-column: 1 / -1; }
+      .pot-big { font-size: 32px; }
+    }
     /* Gate */
     .gate {
       display: none; position: fixed; inset: 0; z-index: 50; background: rgba(6,7,10,0.86); backdrop-filter: blur(8px);
@@ -215,13 +267,17 @@
     @media (max-width: 560px) {
       .top { flex-wrap: wrap; }
       .brand { width: 100%; justify-content: space-between; }
-      .brand .sub { font-size: 11px; }
+      .brand .sub { font-size: 11px; white-space: normal; text-align: right; min-width: 0; line-height: 1.3; }
+      .brand .logo { flex: 0 0 auto; }
       .status { width: 100%; justify-content: flex-start; }
       .span-2, .span-3, .span-4 { grid-column: span 12; }
-      .kpi.hero .value { font-size: 48px; }
       .range-note { margin-left: 0; width: 100%; }
       .card { padding: 18px 16px; }
-      #buttons .bar-cell, #buttons th.bar-cell { display: none; }
+      #buttons .bar-cell, #buttons th.bar-cell, #qCities .bar-cell { display: none; }
+      .hm { display: none; }
+      th, td { padding: 10px 6px; }
+      table { font-size: 12px; }
+      th { letter-spacing: 0.08em; }
       td.name small { max-width: 180px; }
     }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
@@ -276,7 +332,7 @@
         <svg class="spark" id="sparkViews" viewBox="0 0 300 34" preserveAspectRatio="none" aria-hidden="true"></svg>
       </section>
 
-      <section class="card kpi green span-2" id="cardClicks">
+      <section class="card kpi green span-2 hide-quiz" id="cardClicks">
         <i class="accent"></i>
         <h2>Cliques</h2>
         <div class="value" id="kClicks">–</div>
@@ -284,20 +340,66 @@
         <svg class="spark" id="sparkClicks" viewBox="0 0 300 34" preserveAspectRatio="none" aria-hidden="true"></svg>
       </section>
 
-      <section class="card kpi green span-2" id="cardCtr">
+      <section class="card kpi green span-2 hide-quiz" id="cardCtr">
         <i class="accent"></i>
         <h2>Taxa de clique</h2>
         <div class="value" id="kCtr">–</div>
-        <div class="meta"><span id="kClickerRate">–</span> dos visitantes clicaram em algo</div>
+        <div class="meta">dos visitantes clicaram em algum botão · <span id="kClickerRate">–</span> cliques por visita</div>
         <div class="meter green"><i id="meterCtr"></i></div>
       </section>
 
-      <section class="card kpi span-2" id="cardLeads">
+      <section class="card kpi span-2 hide-quiz" id="cardLeads">
         <i class="accent"></i>
         <h2>Leads</h2>
         <div class="value" id="kLeads">–</div>
-        <div class="meta"><span id="kLeadRate">–</span> das visitas viraram lead</div>
+        <div class="meta"><span id="kLeadRate">–</span> por dia em média</div>
         <div class="meter"><i id="meterLeads"></i></div>
+      </section>
+
+      <section class="card kpi green span-2" id="cardConv">
+        <i class="accent"></i>
+        <h2>Conversão em leads</h2>
+        <div class="value" id="kConv">–</div>
+        <div class="meta"><span id="kConvBase">–</span></div>
+        <div class="meta" id="kConvStep" style="margin-top:4px"></div>
+        <div class="meter green"><i id="meterConv"></i></div>
+      </section>
+
+
+      <section class="card kpi green span-3 q-tile quiz-only" id="qCardStart">
+        <i class="accent"></i>
+        <h2>Iniciaram o quiz</h2>
+        <div class="value" id="qStart">–</div>
+        <div class="meta"><span id="qStartRate">–</span> dos visitantes começaram</div>
+        <div class="meter green"><i id="qStartMeter"></i></div>
+      </section>
+
+      <section class="card kpi span-3 q-tile quiz-only" id="qCardLeads">
+        <i class="accent"></i>
+        <h2>Leads do quiz</h2>
+        <div class="value" id="qLeads">–</div>
+        <div class="meta"><span id="qLeadRate">–</span> de quem iniciou deixou o contato</div>
+        <div class="meter"><i id="qLeadMeter"></i></div>
+      </section>
+
+      <section class="card span-8 quiz-only" id="qCardFunnel">
+        <h2>Funil do quiz</h2>
+        <div class="hint">Pessoas em cada etapa, da visita ao clique em comprar</div>
+        <div class="funnel" id="qFunnel"></div>
+        <div class="fnote" id="qFunnelNote"></div>
+      </section>
+
+      <section class="card span-4 quiz-only" id="qCardPotential">
+        <h2>Potencial calculado</h2>
+        <div class="hint">Média dos resultados mostrados aos leads</div>
+        <div class="pot-big" id="qPot">–</div>
+        <div class="pot-grid">
+          <div><small>Ticket médio</small><b id="qTicket">–</b></div>
+          <div><small>Serviços/semana</small><b id="qServ">–</b></div>
+          <div><small>Meta média</small><b id="qGoal">–</b></div>
+          <div><small>Batem a meta</small><b id="qHit">–</b></div>
+        </div>
+        <div class="fnote" id="qBuyNote"></div>
       </section>
 
       <section class="card span-8" id="cardDaily">
@@ -325,16 +427,29 @@
         <div id="sources"></div>
       </section>
 
-      <section class="card span-8" id="cardButtons">
+      <section class="card span-8 hide-quiz" id="cardButtons">
         <h2>Cliques por botão</h2>
         <div class="hint">Botões da página selecionada</div>
         <div id="buttons"></div>
+      </section>
+
+
+      <section class="card span-8 quiz-only" id="qCardCities">
+        <h2>Cidades com mais leads</h2>
+        <div class="hint">De onde vêm as pessoas que fizeram o quiz</div>
+        <div id="qCities"></div>
       </section>
 
       <section class="card span-4" id="cardDevices">
         <h2>Dispositivo</h2>
         <div class="hint">Visitas por tipo de aparelho</div>
         <div id="devices"></div>
+      </section>
+
+      <section class="card span-12 quiz-only" id="qCardAnswers">
+        <h2>Respostas do quiz</h2>
+        <div class="hint">Quantas pessoas escolheram cada opção, por pergunta</div>
+        <div class="qgrid" id="qAnswers"></div>
       </section>
     </main>
   </div>
@@ -414,6 +529,21 @@
     function setStatus(kind, text) { var p = $('statusPill'); p.className = 'pill ' + kind; $('statusText').textContent = text; }
     function setLoading(on) { document.querySelectorAll('.card').forEach(function (c) { c.classList.toggle('loading', on); }); }
 
+    function rpcCall(fn, body) {
+      return fetch(cfg.url.replace(/\/$/, '') + '/rest/v1/rpc/' + fn, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'apikey': cfg.key, 'Authorization': 'Bearer ' + cfg.key },
+        body: JSON.stringify(body)
+      }).then(function (r) {
+        if (r.status === 401 || r.status === 403 || r.status === 400) { return r.json().then(function (j) { throw new Error((j && j.message) || 'auth'); }); }
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      });
+    }
+    function fetchQuiz() {
+      if (DEMO) return Promise.resolve(demoQuiz());
+      return rpcCall('veneto_quiz_stats', { p_key: getKey(), p_from: state.from.toISOString(), p_to: state.to.toISOString() });
+    }
     function fetchStats() {
       if (DEMO) return Promise.resolve(demoData(state.from, state.to));
       var key = getKey();
@@ -435,15 +565,22 @@
       var isBio = state.page === '/bio/';
       $('subTitle').textContent = 'Dashboard · ' + (PAGE_LABEL[state.page] || state.page);
       $('openPage').href = '..' + state.page;
-      $('cardButtons').querySelector('h2').textContent = isBio ? 'Cliques por botão' : 'Cliques por CTA';
       var isQuiz = state.page === '/quiz-farois/';
       $('cardButtons').querySelector('h2').textContent = isBio ? 'Cliques por botão' : (isQuiz ? 'Funil e respostas do quiz' : 'Cliques por CTA');
       $('cardButtons').querySelector('.hint').textContent = isBio ? 'Botões do link na bio e redes no topo' : (isQuiz ? 'Quantos iniciaram, cada resposta escolhida, quantos viram o resultado e clicaram em comprar' : 'Qual botão da página abriu o pop-up de captura');
       $('cardLeads').style.display = isBio ? 'none' : '';
-      $('cardClicks').className = 'card kpi green ' + (isBio ? 'span-3' : 'span-2');
-      $('cardCtr').className = 'card kpi green ' + (isBio ? 'span-3' : 'span-2');
-      fetchStats().then(function (d) {
+      $('cardConv').style.display = isBio ? 'none' : '';
+      $('cardViews').className = 'card kpi hero ' + (isBio ? 'span-6' : (isQuiz ? 'span-3 q-tile' : 'span-4'));
+      $('cardClicks').className = 'card kpi green hide-quiz ' + (isBio ? 'span-3' : 'span-2');
+      $('cardCtr').className = 'card kpi green hide-quiz ' + (isBio ? 'span-3' : 'span-2');
+      $('cardConv').className = 'card kpi green ' + (isQuiz ? 'span-3 q-tile' : 'span-2');
+      document.body.classList.toggle('is-quiz', isQuiz);
+      var jobs = [fetchStats()];
+      if (isQuiz) jobs.push(fetchQuiz());
+      Promise.all(jobs).then(function (res) {
+        var d = res[0];
         render(d);
+        if (isQuiz) renderQuiz(res[1] || {}, d);
         setLoading(false);
         if (DEMO) { setStatus('demo', 'Modo demonstração'); notice('<b>Dados de demonstração.</b> Preencha o arquivo <code>track-config.js</code> com a URL e a chave do Supabase para ver os dados reais.'); }
         else { setStatus('live', 'Ao vivo · ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })); notice(''); }
@@ -458,6 +595,14 @@
     function notice(html) { var n = $('notice'); n.innerHTML = html; n.classList.toggle('show', !!html); }
     function escapeHtml(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 
+
+    function setConv(leads, base, stepBase, stepLabel) {
+      var rate = base ? leads / base : 0;
+      $('kConv').textContent = base ? pf.format(rate) : '–';
+      $('kConvBase').textContent = nf.format(leads) + ' leads de ' + nf.format(base) + ' visitantes únicos';
+      $('kConvStep').textContent = stepBase ? pf.format(Math.min(1, leads / stepBase)) + ' de quem ' + stepLabel + ' virou lead' : '';
+      $('meterConv').style.width = Math.min(100, rate * 100) + '%';
+    }
     /* ---------- render ---------- */
     function render(d) {
       var views = +d.views || 0, visitors = +d.visitors || 0, clicks = +d.clicks || 0, clickers = +d.clickers || 0;
@@ -466,14 +611,16 @@
       $('kViewsPer').textContent = visitors ? (views / visitors).toLocaleString('pt-BR', { maximumFractionDigits: 1 }) : '–';
       $('kClicks').textContent = nf.format(clicks);
       $('kClickers').textContent = nf.format(clickers);
-      var ctr = views ? clicks / views : 0;
-      $('kCtr').textContent = views ? pf.format(ctr) : '–';
-      $('kClickerRate').textContent = visitors ? pf.format(clickers / visitors) : '–';
-      $('meterCtr').style.width = Math.min(100, ctr * 100) + '%';
+      var clickRate = visitors ? Math.min(1, clickers / visitors) : 0;
+      $('kCtr').textContent = visitors ? pf.format(clickRate) : '–';
+      $('kClickerRate').textContent = views ? (clicks / views).toLocaleString('pt-BR', { maximumFractionDigits: 1 }) : '–';
+      $('meterCtr').style.width = (clickRate * 100) + '%';
       var leads = +d.leads || 0;
+      var nDays = Math.max(1, Math.round((state.to - state.from) / 864e5));
       $('kLeads').textContent = nf.format(leads);
-      $('kLeadRate').textContent = views ? pf.format(leads / views) : '–';
-      $('meterLeads').style.width = Math.min(100, (views ? leads / views : 0) * 100) + '%';
+      $('kLeadRate').textContent = (leads / nDays).toLocaleString('pt-BR', { maximumFractionDigits: 1 });
+      $('meterLeads').style.width = Math.min(100, (visitors ? leads / visitors : 0) * 100) + '%';
+      setConv(leads, visitors, clickers, 'abriram o pop-up');
 
       var days = fillDays(d.daily || []);
       sparkline($('sparkViews'), days.map(function (x) { return x.views; }), 'var(--s1)');
@@ -573,13 +720,13 @@
       if (!rows.length) { el.innerHTML = '<div class="empty">Nenhum clique no período.</div>'; return; }
       var maxC = Math.max.apply(null, rows.map(function (r) { return +r.clicks || 0; }));
       var total = rows.reduce(function (a, r) { return a + (+r.clicks || 0); }, 0);
-      var html = '<table><thead><tr><th>Botão</th><th class="bar-cell">Participação</th><th class="num">Cliques</th><th class="num">Pessoas</th><th class="num">Taxa</th></tr></thead><tbody>';
+      var html = '<table><thead><tr><th>Botão</th><th class="bar-cell">Participação</th><th class="num">Cliques</th><th class="num hm">Pessoas</th><th class="num">Taxa</th></tr></thead><tbody>';
       rows.forEach(function (r, i) {
         var c = +r.clicks || 0, u = +r.clickers || 0;
         html += '<tr><td class="name"><span class="rank">' + (i + 1) + '</span>' + escapeHtml(r.button || '(sem nome)') + (r.href ? '<small>' + escapeHtml(r.href) + '</small>' : '') + '</td>' +
           '<td class="bar-cell"><div class="track"><i style="width:' + (maxC ? (c / maxC) * 100 : 0) + '%"></i></div></td>' +
           '<td class="num"><b>' + nf.format(c) + '</b><small>' + (total ? pf.format(c / total) : '–') + ' dos cliques</small></td>' +
-          '<td class="num">' + nf.format(u) + '</td>' +
+          '<td class="num hm">' + nf.format(u) + '</td>' +
           '<td class="num">' + (views ? pf.format(c / views) : '–') + '</td></tr>';
       });
       el.innerHTML = '<div class="tbl">' + html + '</tbody></table></div>';
@@ -594,6 +741,126 @@
           '<td class="num"><b>' + nf.format(v) + '</b><small>' + (total ? pf.format(v / total) : '–') + '</small></td></tr>';
       });
       el.innerHTML = '<div class="tbl">' + html + '</tbody></table></div>';
+    }
+
+
+    /* ---------- quiz ---------- */
+    var brl = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+    function money(v) { return (v === null || v === undefined || isNaN(v)) ? '–' : brl.format(Math.round(v)); }
+    var Q_META = [
+      { k: 'Q1 Estado', t: 'Estado', n: 'Pergunta 1' },
+      { k: 'Q2 Porte', t: 'Tamanho da cidade', n: 'Pergunta 2', order: ['Até 50 mil habitantes', '50 mil a 200 mil', '200 mil a 1 milhão', 'Capital ou mais de 1 milhão'] },
+      { k: 'Q3 Carros', t: 'Carros da região', n: 'Pergunta 3', order: ['Populares', 'Médios e seminovos', 'Muitos SUVs e premium'] },
+      { k: 'Q4 Situação', t: 'Situação atual', n: 'Pergunta 4' },
+      { k: 'Q5 Dias', t: 'Dias por semana', n: 'Pergunta 5', order: ['Só nos fins de semana', '3 a 4 dias', '5 a 6 dias'] },
+      { k: 'Q6 Horas', t: 'Tempo por dia', n: 'Pergunta 6', order: ['Algumas horas', 'Meio período', 'Período integral'] },
+      { k: 'Q7 Meta', t: 'Meta de faturamento', n: 'Pergunta 7', order: ['R$ 1.000 a mais', 'R$ 2.500 a mais', 'R$ 5.000 a mais', 'R$ 10.000 ou mais'] }
+    ];
+    function pct(a, b) { return b ? pf.format(a / b) : '–'; }
+    function renderQuiz(qd, d) {
+      var f = qd.funnel || {}, pot = qd.potential || {};
+      var visitors = +f.visitors || +d.visitors || 0, started = +f.started || 0, leads = +f.leads || 0;
+      $('qStart').textContent = nf.format(started);
+      $('qStartRate').textContent = pct(started, visitors);
+      $('qStartMeter').style.width = Math.min(100, visitors ? started / visitors * 100 : 0) + '%';
+      $('qLeads').textContent = nf.format(leads);
+      $('qLeadRate').textContent = pct(leads, started);
+      $('qLeadMeter').style.width = Math.min(100, started ? leads / started * 100 : 0) + '%';
+      setConv(leads, visitors, +f.q7 || 0, 'respondeu a última pergunta');
+
+      var steps = [
+        ['Visitaram a página', '', visitors, true],
+        ['Iniciaram o quiz', '', started, true],
+        ['Pergunta 1', 'Cidade e estado', +f.q1 || 0],
+        ['Pergunta 2', 'Tamanho da cidade', +f.q2 || 0],
+        ['Pergunta 3', 'Carros da região', +f.q3 || 0],
+        ['Pergunta 4', 'Situação atual', +f.q4 || 0],
+        ['Pergunta 5', 'Dias por semana', +f.q5 || 0],
+        ['Pergunta 6', 'Tempo por dia', +f.q6 || 0],
+        ['Pergunta 7', 'Meta de faturamento', +f.q7 || 0],
+        ['Deixaram o contato', 'Viraram lead', leads, true],
+        ['Viram o resultado', '', +f.result || 0, true],
+        ['Clicaram em comprar', 'Foram ao checkout', +f.buy || 0, true]
+      ];
+      var top = Math.max(1, steps[0][2]), html = '', worst = null;
+      steps.forEach(function (st, i) {
+        var prev = i ? steps[i - 1][2] : 0, n = st[2];
+        var dropTxt = '';
+        if (i > 0 && prev > 0) {
+          var keep = n / prev;
+          dropTxt = keep < 1 ? '<small class="drop">−' + pf.format(1 - keep) + ' da etapa anterior</small>' : '<small>100% da etapa anterior</small>';
+          if (i > 1 && prev >= 3 && (worst === null || (1 - keep) > worst.loss)) worst = { name: st[0] + (st[1] ? ' (' + st[1].toLowerCase() + ')' : ''), loss: 1 - keep, lost: prev - n };
+        } else if (i > 0) dropTxt = '<small>–</small>';
+        else dropTxt = '<small>100%</small>';
+        html += '<div class="fstep' + (st[3] ? ' key' : '') + '"><div class="lbl">' + escapeHtml(st[0]) + (st[1] ? '<small>' + escapeHtml(st[1]) + '</small>' : '') + '</div>' +
+          '<div class="track"><i style="width:' + (n / top * 100) + '%"></i></div>' +
+          '<div class="num"><b>' + nf.format(n) + '</b>' + dropTxt + '</div></div>';
+      });
+      $('qFunnel').innerHTML = html;
+      var note = 'Conversão total: <b>' + pct(+f.buy || 0, visitors) + '</b> dos visitantes chegaram ao checkout.';
+      if (worst && worst.loss > 0) note += ' Maior abandono: <b>' + escapeHtml(worst.name) + '</b>, com ' + nf.format(worst.lost) + ' pessoas saindo (−' + pf.format(worst.loss) + ').';
+      if (+f.redo) note += ' ' + nf.format(+f.redo) + ' refizeram o quiz.';
+      $('qFunnelNote').innerHTML = visitors ? note : 'Ainda não há visitas no quiz neste período.';
+
+      var withRes = +pot.leads_with_result || 0;
+      $('qPot').innerHTML = withRes ? money(+pot.avg_potential) + ' <small>/mês</small>' : '–';
+      $('qTicket').textContent = withRes ? money(+pot.avg_ticket) : '–';
+      $('qServ').textContent = withRes && pot.avg_services !== null ? String(pot.avg_services).replace('.', ',') : '–';
+      $('qGoal').textContent = withRes ? money(+pot.avg_goal) : '–';
+      $('qHit').textContent = withRes ? pct(+pot.hit_goal || 0, withRes) : '–';
+      var res = +f.result || 0, buy = +f.buy || 0;
+      $('qBuyNote').innerHTML = res ? 'De quem viu o resultado, <b>' + pct(buy, res) + '</b> clicou em comprar (' + nf.format(+f.buy_clicks || 0) + ' cliques no total).' : 'Nenhum resultado exibido no período.';
+
+      var byQ = {};
+      (qd.answers || []).forEach(function (a) { (byQ[a.q] = byQ[a.q] || []).push({ a: a.answer, n: +a.people || 0 }); });
+      $('qAnswers').innerHTML = Q_META.map(function (m) {
+        var rows = byQ[m.k] || [];
+        var total = rows.reduce(function (x, r) { return x + r.n; }, 0);
+        if (m.order) {
+          rows.sort(function (x, y) { var ix = m.order.indexOf(x.a), iy = m.order.indexOf(y.a); return (ix < 0 ? 99 : ix) - (iy < 0 ? 99 : iy); });
+        } else rows.sort(function (x, y) { return y.n - x.n; });
+        if (m.k === 'Q1 Estado' && rows.length > 6) {
+          var rest = rows.slice(6).reduce(function (x, r) { return x + r.n; }, 0);
+          rows = rows.slice(0, 6).concat([{ a: 'Outros estados', n: rest }]);
+        }
+        var max = Math.max.apply(null, rows.map(function (r) { return r.n; }).concat([1]));
+        var body = rows.length ? rows.map(function (r) {
+          return '<div class="qrow' + (r.n === max ? ' best' : '') + '"><div class="t"><span>' + escapeHtml(r.a) + '</span><b>' + nf.format(r.n) + ' <small>' + pct(r.n, total) + '</small></b></div><div class="track"><i style="width:' + (r.n / max * 100) + '%"></i></div></div>';
+        }).join('') : '<div class="empty" style="padding:14px 0 4px">Sem respostas no período.</div>';
+        return '<div class="qbox"><h3><small>' + m.n + '</small>' + m.t + '</h3>' + body + '</div>';
+      }).join('');
+
+      var cities = qd.cities || [];
+      if (!cities.length) { $('qCities').innerHTML = '<div class="empty">Nenhum lead do quiz no período.</div>'; }
+      else {
+        var cmax = Math.max.apply(null, cities.map(function (c) { return +c.leads || 0; }).concat([1]));
+        var ch = '<table><thead><tr><th>Cidade</th><th class="bar-cell"></th><th class="num">Leads</th><th class="num">Potencial</th></tr></thead><tbody>';
+        cities.forEach(function (c, i) {
+          ch += '<tr><td class="name"><span class="rank">' + (i + 1) + '</span>' + escapeHtml(c.city || '–') + (c.uf ? ' <span style="color:var(--muted);font-weight:500">/ ' + escapeHtml(c.uf) + '</span>' : '') + '</td>' +
+            '<td class="bar-cell"><div class="track"><i style="width:' + ((+c.leads || 0) / cmax * 100) + '%"></i></div></td>' +
+            '<td class="num"><b>' + nf.format(+c.leads || 0) + '</b></td><td class="num">' + money(+c.avg_potential) + '</td></tr>';
+        });
+        $('qCities').innerHTML = '<div class="tbl">' + ch + '</tbody></table></div>';
+      }
+    }
+    function demoQuiz() {
+      var v = 1480, st = 912;
+      var f = { visitors: v, started: st, q1: 861, q2: 834, q3: 812, q4: 790, q5: 771, q6: 760, q7: 748, leads: 529, result: 518, buy: 131, buy_clicks: 164, redo: 37 };
+      var A = function (q, list) { return list.map(function (x) { return { q: q, answer: x[0], people: x[1] }; }); };
+      var answers = [].concat(
+        A('Q1 Estado', [['SP', 296], ['MG', 118], ['RJ', 97], ['PR', 71], ['RS', 58], ['SC', 44], ['BA', 39], ['GO', 31], ['PE', 27], ['DF', 22]]),
+        A('Q2 Porte', [['Até 50 mil habitantes', 142], ['50 mil a 200 mil', 257], ['200 mil a 1 milhão', 246], ['Capital ou mais de 1 milhão', 189]]),
+        A('Q3 Carros', [['Populares', 402], ['Médios e seminovos', 331], ['Muitos SUVs e premium', 79]]),
+        A('Q4 Situação', [['Trabalho CLT e quero renda extra', 351], ['Estou sem trabalho fixo', 188], ['Já trabalho com estética ou lava-jato', 171], ['Tenho outro negócio automotivo', 80]]),
+        A('Q5 Dias', [['Só nos fins de semana', 311], ['3 a 4 dias', 279], ['5 a 6 dias', 181]]),
+        A('Q6 Horas', [['Algumas horas', 262], ['Meio período', 318], ['Período integral', 180]]),
+        A('Q7 Meta', [['R$ 1.000 a mais', 118], ['R$ 2.500 a mais', 247], ['R$ 5.000 a mais', 241], ['R$ 10.000 ou mais', 142]])
+      );
+      return {
+        funnel: f, answers: answers,
+        potential: { leads_with_result: 529, avg_potential: 3120, avg_ticket: 225, avg_services: 3.4, avg_goal: 4480, hit_goal: 196 },
+        cities: [{ city: 'São Paulo', uf: 'SP', leads: 64, avg_potential: 4210 }, { city: 'Campinas', uf: 'SP', leads: 31, avg_potential: 3150 }, { city: 'Belo Horizonte', uf: 'MG', leads: 28, avg_potential: 3840 }, { city: 'Rio De Janeiro', uf: 'RJ', leads: 26, avg_potential: 4020 }, { city: 'Curitiba', uf: 'PR', leads: 21, avg_potential: 3560 }, { city: 'Ribeirão Preto', uf: 'SP', leads: 17, avg_potential: 2980 }, { city: 'Porto Alegre', uf: 'RS', leads: 15, avg_potential: 3390 }, { city: 'Uberlândia', uf: 'MG', leads: 12, avg_potential: 2760 }]
+      };
     }
 
     /* ---------- demonstração ---------- */

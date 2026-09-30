@@ -11,6 +11,7 @@ A API pública tem apenas duas funções, ambas com prefixo `veneto_`:
 | `public.veneto_track(...)` | RPC chamada pela página para gravar um evento |
 | `public.veneto_lead(...)` | RPC do pop-up: grava em `veneto.leads` e espelha na `00. Central de Leads` (utm_funil `veneto-<página>`) |
 | `public.veneto_bio_stats(key, from, to, page)` | RPC chamada pelo dashboard; exige chave; filtra por página |
+| `public.veneto_quiz_stats(key, from, to)` | RPC da aba Quiz: funil por pessoa, respostas, potencial e cidades; exige chave |
 
 Para criar uma nova chave de acesso ao dashboard, no SQL Editor:
 

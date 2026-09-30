@@ -1,0 +1,7 @@
+-- Aplicada no projeto Grupo NKZ (fscqqeakupldpdaaimkc) em 30/09/2026
+-- com o nome "veneto_quiz_stats".
+-- Cria public.veneto_quiz_stats(key, from, to): funil do quiz em pessoas
+-- por etapa (visitantes, iniciaram, Q1..Q7, leads, viram resultado,
+-- clicaram em comprar), respostas por pergunta, potencial médio calculado
+-- e cidades com mais leads. Exige chave em veneto.dashboard_keys.
+-- O SQL completo está no histórico de migrações do projeto.
