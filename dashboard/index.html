@@ -368,7 +368,7 @@
       if (DEMO) return Promise.resolve(demoData(state.from, state.to));
       var key = getKey();
       if (!key) { showGate(false); return Promise.reject(new Error('no-key')); }
-      return fetch(cfg.url.replace(/\/$/, '') + '/rest/v1/rpc/bio_stats', {
+      return fetch(cfg.url.replace(/\/$/, '') + '/rest/v1/rpc/veneto_bio_stats', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'apikey': cfg.key, 'Authorization': 'Bearer ' + cfg.key },
         body: JSON.stringify({ p_key: key, p_from: state.from.toISOString(), p_to: state.to.toISOString() })

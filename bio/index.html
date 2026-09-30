@@ -378,6 +378,7 @@
     <nav class="links" aria-label="Links oficiais">
 
       <a class="tile" data-track="Mini curso Restauração de Faróis" href="https://lp.escoladobrilho.com/minicurso-farol" target="_blank" rel="noopener">
+        <span class="badge">Matrículas abertas</span>
         <img src="assets/minicurso-farois.png" alt="Mini curso Restauração de Faróis" width="768" height="307" loading="eager">
         <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
@@ -389,6 +390,7 @@
       </a>
 
       <a class="tile" data-track="Polimento Express" href="https://lp.escoladobrilho.com/matriculas-polimento" target="_blank" rel="noopener">
+        <span class="badge">Matrículas abertas</span>
         <img src="assets/polimento-express.png" alt="Curso Polimento Express" width="768" height="307" loading="lazy">
         <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
@@ -435,28 +437,28 @@
       var ua = navigator.userAgent || '';
       var device = /iPad|Tablet/i.test(ua) ? 'tablet' : (/Mobi|Android|iPhone/i.test(ua) ? 'mobile' : 'desktop');
       var base = {
-        page: location.pathname,
-        session_id: sid,
-        referrer: (document.referrer || '').slice(0, 300) || null,
-        utm_source: q.get('utm_source'), utm_medium: q.get('utm_medium'),
-        utm_campaign: q.get('utm_campaign'), utm_content: q.get('utm_content'),
-        device: device,
-        lang: (navigator.language || '').slice(0, 16) || null
+        p_page: location.pathname,
+        p_session_id: sid,
+        p_referrer: (document.referrer || '').slice(0, 300) || null,
+        p_utm_source: q.get('utm_source'), p_utm_medium: q.get('utm_medium'),
+        p_utm_campaign: q.get('utm_campaign'), p_utm_content: q.get('utm_content'),
+        p_device: device,
+        p_lang: (navigator.language || '').slice(0, 16) || null
       };
       function send(ev) {
         var body = JSON.stringify(Object.assign({}, base, ev));
         try {
-          fetch(cfg.url.replace(/\/$/, '') + '/rest/v1/bio_events', {
+          fetch(cfg.url.replace(/\/$/, '') + '/rest/v1/rpc/veneto_track', {
             method: 'POST', keepalive: true, mode: 'cors',
-            headers: { 'Content-Type': 'application/json', 'apikey': cfg.key, 'Authorization': 'Bearer ' + cfg.key, 'Prefer': 'return=minimal' },
+            headers: { 'Content-Type': 'application/json', 'apikey': cfg.key, 'Authorization': 'Bearer ' + cfg.key },
             body: body
           }).catch(function () {});
         } catch (e) {}
       }
-      send({ event: 'view' });
+      send({ p_event: 'view' });
       document.querySelectorAll('[data-track]').forEach(function (el) {
         el.addEventListener('click', function () {
-          send({ event: 'click', button: el.getAttribute('data-track'), href: (el.getAttribute('href') || '').slice(0, 300) });
+          send({ p_event: 'click', p_button: el.getAttribute('data-track'), p_href: (el.getAttribute('href') || '').slice(0, 300) });
         });
       });
     })();
