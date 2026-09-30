@@ -53,7 +53,7 @@
       border-bottom: 1px solid var(--line);
     }
     .brand { display: flex; align-items: center; gap: 14px; }
-    .brand .sub { padding-left: 14px; border-left: 1px solid var(--line-strong); }
+    .brand .sub { padding-left: 14px; border-left: 1px solid var(--line-strong); white-space: nowrap; }
     .logo { display: block; height: 34px; width: auto; }
     .gate .logo { height: 40px; margin: 0 auto; }
     .brand .sub { font-size: 12px; color: var(--muted); font-weight: 500; }
@@ -90,6 +90,25 @@
     }
     .filters .sep { width: 1px; height: 22px; background: var(--line-strong); margin: 0 4px; }
     .range-note { font-size: 12px; color: var(--muted); margin-left: auto; }
+
+    /* Abas de página */
+    .tabs {
+      display: flex; gap: 6px; flex-wrap: wrap;
+      padding: 4px 0 18px; border-bottom: 1px solid var(--line); margin-bottom: 16px;
+    }
+    .tab {
+      cursor: pointer; border: 1px solid var(--line); background: rgba(255,255,255,0.04);
+      padding: 10px 16px; border-radius: 12px; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-2);
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background .15s, border-color .15s, color .15s, transform .15s var(--ease);
+    }
+    .tab:hover { background: rgba(255,255,255,0.08); color: #fff; }
+    .tab .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); }
+    .tab.active { background: var(--red); border-color: var(--red); color: #fff; box-shadow: 0 8px 22px rgba(228,32,45,0.35); }
+    .tab.active .dot { background: #fff; }
+    .tab .soon { font-size: 9px; letter-spacing: 0.12em; padding: 3px 6px; border-radius: 999px; background: rgba(255,255,255,0.1); color: var(--text-2); font-weight: 700; }
+    .tab.active .soon { background: rgba(255,255,255,0.22); color: #fff; }
+    @media (max-width: 640px) { .tab { padding: 9px 12px; font-size: 11px; } }
 
     /* Aviso */
     .notice {
@@ -194,6 +213,10 @@
       .span-2, .span-3 { grid-column: span 4; } .span-4 { grid-column: span 6; } .span-6, .span-8 { grid-column: span 12; }
     }
     @media (max-width: 560px) {
+      .top { flex-wrap: wrap; }
+      .brand { width: 100%; justify-content: space-between; }
+      .brand .sub { font-size: 11px; }
+      .status { width: 100%; justify-content: flex-start; }
       .span-2, .span-3, .span-4 { grid-column: span 12; }
       .kpi.hero .value { font-size: 48px; }
       .range-note { margin-left: 0; width: 100%; }
@@ -210,11 +233,11 @@
     <header class="top">
       <div class="brand">
         <img class="logo" src="assets/logo-veneto.png" alt="Veneto Studio Automotivo" width="252" height="46">
-        <div class="sub">Dashboard · Link na bio</div>
+        <div class="sub" id="subTitle">Dashboard · Link bio</div>
       </div>
       <div class="status">
         <span class="pill" id="statusPill"><i class="dot"></i><span id="statusText">Carregando</span></span>
-        <a class="btn ghost" href="../bio/" target="_blank" rel="noopener">Abrir bio ↗</a>
+        <a class="btn ghost" id="openPage" href="../bio/" target="_blank" rel="noopener">Abrir página ↗</a>
         <button class="btn ghost" id="btnKey" type="button">Chave</button>
       </div>
     </header>
@@ -226,14 +249,19 @@
       <button class="btn" data-range="30" type="button">30 dias</button>
       <button class="btn" data-range="90" type="button">90 dias</button>
       <span class="sep"></span>
-      <select id="pageSel" aria-label="Página"><option value="/bio/">Link na bio</option><option value="/restauracao-de-farois/">Restauração de Faróis</option></select>
-      <span class="sep"></span>
       <input type="date" id="dateFrom" aria-label="De">
       <input type="date" id="dateTo" aria-label="Até">
       <button class="btn" id="btnApply" type="button">Aplicar</button>
       <button class="btn ghost" id="btnRefresh" type="button" title="Atualizar">↻</button>
       <span class="range-note" id="rangeNote"></span>
     </div>
+
+    <nav class="tabs" id="tabs" aria-label="Página">
+      <button class="tab active" data-page="/bio/" type="button"><i class="dot"></i>Link bio</button>
+      <button class="tab" data-page="/restauracao-de-farois/" type="button"><i class="dot"></i>Curso Restauração de Faróis</button>
+      <button class="tab" data-page="/metodo-veneto/" type="button"><i class="dot"></i>Método Veneto <span class="soon">em criação</span></button>
+      <button class="tab" data-page="/polimento-express/" type="button"><i class="dot"></i>Polimento Express <span class="soon">em criação</span></button>
+    </nav>
 
     <div class="notice" id="notice"></div>
 
@@ -362,7 +390,16 @@
     document.querySelectorAll('[data-range]').forEach(function (b) { b.addEventListener('click', function () { setPreset(b.getAttribute('data-range')); }); });
     $('btnApply').addEventListener('click', applyCustom);
     $('btnRefresh').addEventListener('click', load);
-    $('pageSel').addEventListener('change', function () { state.page = this.value; load(); });
+    var PAGE_LABEL = { '/bio/': 'Link bio', '/restauracao-de-farois/': 'Curso Restauração de Faróis', '/metodo-veneto/': 'Método Veneto', '/polimento-express/': 'Polimento Express' };
+    document.querySelectorAll('.tab').forEach(function (t) {
+      t.addEventListener('click', function () {
+        state.page = t.getAttribute('data-page');
+        document.querySelectorAll('.tab').forEach(function (x) { x.classList.toggle('active', x === t); });
+        try { history.replaceState(null, '', '#' + state.page.replace(/\//g, '')); } catch (e) {}
+        load();
+      });
+    });
+    (function () { var h = location.hash.replace('#', ''); document.querySelectorAll('.tab').forEach(function (t) { if (t.getAttribute('data-page').replace(/\//g, '') === h && h) { state.page = t.getAttribute('data-page'); document.querySelectorAll('.tab').forEach(function (x) { x.classList.toggle('active', x === t); }); } }); })();
 
     /* ---------- chave ---------- */
     function getKey() { try { return localStorage.getItem(KEY_STORE) || ''; } catch (e) { return ''; } }
@@ -393,6 +430,14 @@
     function load() {
       setLoading(true);
       $('rangeNote').textContent = 'De ' + dfl.format(state.from) + ' a ' + dfl.format(addDays(state.to, -1));
+      var isBio = state.page === '/bio/';
+      $('subTitle').textContent = 'Dashboard · ' + (PAGE_LABEL[state.page] || state.page);
+      $('openPage').href = '..' + state.page;
+      $('cardButtons').querySelector('h2').textContent = isBio ? 'Cliques por botão' : 'Cliques por CTA';
+      $('cardButtons').querySelector('.hint').textContent = isBio ? 'Botões do link na bio e redes no topo' : 'Qual botão da página abriu o pop-up de captura';
+      $('cardLeads').style.display = isBio ? 'none' : '';
+      $('cardClicks').className = 'card kpi green ' + (isBio ? 'span-3' : 'span-2');
+      $('cardCtr').className = 'card kpi green ' + (isBio ? 'span-3' : 'span-2');
       fetchStats().then(function (d) {
         render(d);
         setLoading(false);
@@ -561,7 +606,7 @@
       return {
         views: views, visitors: visitors, clicks: clicks, clickers: clickers, leads: Math.round(views * 0.04),
         daily: daily,
-        buttons: buttons.map(function (b) { var c = Math.round(clicks * b[2]); return { button: b[0], href: b[1], clicks: c, clickers: Math.round(c * 0.8) }; }),
+        buttons: (state.page === '/bio/' ? buttons : [['CTA: hero', '#popup', 0.34], ['CTA: oferta', '#popup', 0.26], ['CTA: final', '#popup', 0.14], ['CTA: barra-mobile', '#popup', 0.12], ['CTA: conteudo', '#popup', 0.08], ['CTA: topo', '#popup', 0.06]]).map(function (b) { var c = Math.round(clicks * b[2]); return { button: b[0], href: b[1], clicks: c, clickers: Math.round(c * 0.8) }; }),
         sources: [{ source: 'instagram', views: Math.round(views * 0.71) }, { source: 'direto', views: Math.round(views * 0.13) }, { source: 'youtube', views: Math.round(views * 0.09) }, { source: 'tiktok', views: Math.round(views * 0.05) }, { source: 'l.facebook.com', views: Math.round(views * 0.02) }],
         devices: [{ device: 'mobile', views: Math.round(views * 0.91) }, { device: 'desktop', views: Math.round(views * 0.08) }, { device: 'tablet', views: Math.round(views * 0.01) }]
       };
