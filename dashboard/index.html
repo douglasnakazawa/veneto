@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Dashboard Bio – Veneto Studio</title>
+  <meta name="description" content="Visitas e cliques por botão do link na bio do Veneto Studio.">
+  <meta name="theme-color" content="#0a0b0e">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0b0e;
+      --surface: #111318;
+      --surface-2: #171a20;
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.14);
+      --text: #f5f5f7;
+      --text-2: #c9cbd3;
+      --muted: #8f919b;
+      --red: #e4202d;
+      --red-soft: rgba(228,32,45,0.16);
+      --green: #2ab05a;
+      --green-soft: rgba(42,176,90,0.16);
+      --track: rgba(255,255,255,0.07);
+      --radius: 18px;
+      --ease: cubic-bezier(.22,.61,.36,1);
+      /* séries de dados (validadas para a superfície escura) */
+      --s1: #e4202d;  /* visitas */
+      --s2: #2ab05a;  /* cliques */
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background:
+        radial-gradient(70vw 40vh at 50% -10%, rgba(228,32,45,0.18), transparent 70%),
+        var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100dvh;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; color: inherit; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+    /* Topo */
+    .top {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 22px 0 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .gem { width: 26px; height: 26px; background: linear-gradient(160deg, #ff4b57, var(--red) 55%, #8a0f18); clip-path: polygon(50% 0, 100% 30%, 50% 100%, 0 30%); }
+    .brand .name { font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; font-size: 15px; }
+    .brand .sub { font-size: 12px; color: var(--muted); font-weight: 500; }
+    .status { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 7px 12px; border-radius: 999px; font-size: 12px; font-weight: 600;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--line); color: var(--text-2);
+    }
+    .pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
+    .pill.live .dot { background: var(--green); box-shadow: 0 0 0 4px var(--green-soft); }
+    .pill.demo .dot { background: #d9b64a; box-shadow: 0 0 0 4px rgba(217,182,74,0.18); }
+    .btn {
+      cursor: pointer; border: 1px solid var(--line-strong); background: rgba(255,255,255,0.05);
+      padding: 8px 14px; border-radius: 10px; font-size: 13px; font-weight: 600; color: var(--text);
+      transition: background .15s, border-color .15s, transform .15s var(--ease);
+    }
+    .btn:hover { background: rgba(255,255,255,0.09); }
+    .btn.primary { background: var(--red); border-color: var(--red); color: #fff; }
+    .btn.primary:hover { filter: brightness(1.08); }
+    .btn.ghost { background: transparent; }
+    .btn.active { background: var(--red-soft); border-color: rgba(228,32,45,0.6); color: #fff; }
+
+    /* Filtros */
+    .filters {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      padding: 16px 0;
+    }
+    .filters .label { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
+    .filters input[type="date"] {
+      background: rgba(255,255,255,0.05); border: 1px solid var(--line-strong); border-radius: 10px;
+      padding: 7px 10px; font-size: 13px; color-scheme: dark;
+    }
+    .filters .sep { width: 1px; height: 22px; background: var(--line-strong); margin: 0 4px; }
+    .range-note { font-size: 12px; color: var(--muted); margin-left: auto; }
+
+    /* Aviso */
+    .notice {
+      display: none; align-items: center; gap: 10px; margin: 4px 0 12px;
+      padding: 12px 14px; border-radius: 12px; font-size: 13px; color: var(--text-2);
+      background: rgba(217,182,74,0.08); border: 1px solid rgba(217,182,74,0.3);
+    }
+    .notice.show { display: flex; }
+    .notice b { color: #fff; }
+
+    /* Grid */
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; padding-bottom: 40px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 20px 22px; position: relative; overflow: hidden;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+      transition: opacity .2s;
+    }
+    .card.loading { opacity: .55; }
+    .card h2 { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+    .card .hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    .span-3 { grid-column: span 3; } .span-4 { grid-column: span 4; } .span-6 { grid-column: span 6; } .span-8 { grid-column: span 8; } .span-12 { grid-column: span 12; }
+
+    /* KPIs */
+    .kpi .value { font-size: 40px; font-weight: 800; line-height: 1.05; margin-top: 12px; letter-spacing: -0.02em; }
+    .kpi.hero .value { font-size: 56px; }
+    .kpi .meta { display: block; margin-top: 10px; font-size: 12px; line-height: 1.5; color: var(--muted); }
+    .meter { height: 8px; border-radius: 999px; background: var(--track); overflow: hidden; margin-top: 14px; }
+    .meter > i { display: block; height: 100%; border-radius: 999px; background: var(--red); width: 0; transition: width .6s var(--ease); }
+    .meter.green > i { background: var(--green); }
+    .kpi .accent { position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--red); }
+    .kpi.green .accent { background: var(--green); }
+    .spark { margin-top: 12px; height: 34px; width: 100%; display: block; }
+
+    /* Gráfico */
+    .chart-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .legend { display: flex; gap: 14px; font-size: 12px; color: var(--text-2); }
+    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+    .chart { position: relative; margin-top: 14px; }
+    .chart svg { width: 100%; height: 260px; display: block; overflow: visible; }
+    .chart .grid-line { stroke: rgba(255,255,255,0.08); stroke-width: 1; }
+    .chart .tick { fill: var(--muted); font-size: 11px; font-family: inherit; font-variant-numeric: tabular-nums; }
+    .chart .bar { transition: opacity .15s; }
+    .chart .hit:hover ~ .bars .bar, .chart g.col:hover .bar { opacity: .85; }
+    .chart .hit { fill: transparent; cursor: crosshair; }
+    .tooltip {
+      position: absolute; pointer-events: none; z-index: 5; display: none;
+      background: #1b1e25; border: 1px solid var(--line-strong); border-radius: 10px;
+      padding: 10px 12px; font-size: 12px; color: var(--text-2); min-width: 150px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+    .tooltip .d { font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .tooltip .row { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+    .tooltip .row i { width: 12px; height: 2px; display: inline-block; }
+    .tooltip .row b { color: #fff; margin-left: auto; font-variant-numeric: tabular-nums; }
+    .table-toggle { font-size: 12px; }
+    .daily-table { display: none; margin-top: 14px; }
+    .daily-table.show { display: block; }
+
+    /* Tabelas */
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+    th { text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding: 10px 8px; border-bottom: 1px solid var(--line); }
+    td { padding: 12px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    td.name { font-weight: 600; color: #fff; }
+    td.name small { display: block; font-weight: 400; color: var(--muted); font-size: 11px; margin-top: 2px; max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .tbl { overflow-x: auto; }
+    .bar-cell { min-width: 110px; width: 26%; }
+    .span-4 .bar-cell { min-width: 64px; width: 36%; }
+    td.num small { display: block; color: var(--muted); font-size: 11px; font-weight: 400; }
+    .bar-cell .track { height: 8px; border-radius: 999px; background: var(--track); overflow: hidden; }
+    .bar-cell .track > i { display: block; height: 100%; border-radius: 999px; background: var(--s1); width: 0; transition: width .6s var(--ease); }
+    .bar-cell.green .track > i { background: var(--s2); }
+    .empty { padding: 26px 0 10px; color: var(--muted); font-size: 13px; text-align: center; }
+    .rank { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; background: rgba(255,255,255,0.06); font-size: 11px; font-weight: 700; color: var(--text-2); margin-right: 8px; }
+
+    /* Gate */
+    .gate {
+      display: none; position: fixed; inset: 0; z-index: 50; background: rgba(6,7,10,0.86); backdrop-filter: blur(8px);
+      align-items: center; justify-content: center; padding: 16px;
+    }
+    .gate.show { display: flex; }
+    .gate form {
+      width: 100%; max-width: 380px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 20px; padding: 28px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    }
+    .gate h3 { font-size: 18px; font-weight: 800; margin-top: 12px; }
+    .gate p { font-size: 13px; color: var(--muted); margin-top: 6px; }
+    .gate input[type="password"] {
+      width: 100%; margin-top: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--line-strong);
+      border-radius: 10px; padding: 12px 12px; font-size: 14px;
+    }
+    .gate .err { color: #ff6b74; font-size: 12px; margin-top: 8px; display: none; }
+    .gate .btn { width: 100%; margin-top: 14px; padding: 12px; }
+
+    footer { text-align: center; padding: 20px 16px 40px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); }
+
+    @media (max-width: 900px) {
+      .span-3 { grid-column: span 6; } .span-4 { grid-column: span 6; } .span-6, .span-8 { grid-column: span 12; }
+    }
+    @media (max-width: 560px) {
+      .span-3, .span-4 { grid-column: span 12; }
+      .kpi.hero .value { font-size: 48px; }
+      .range-note { margin-left: 0; width: 100%; }
+      .card { padding: 18px 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="gem" aria-hidden="true"></div>
+        <div>
+          <div class="name">Veneto <span style="color:var(--red)">Studio</span></div>
+          <div class="sub">Dashboard · Link na bio</div>
+        </div>
+      </div>
+      <div class="status">
+        <span class="pill" id="statusPill"><i class="dot"></i><span id="statusText">Carregando</span></span>
+        <a class="btn ghost" href="../bio/" target="_blank" rel="noopener">Abrir bio ↗</a>
+        <button class="btn ghost" id="btnKey" type="button">Chave</button>
+      </div>
+    </header>
+
+    <div class="filters" role="group" aria-label="Período">
+      <span class="label">Período</span>
+      <button class="btn" data-range="today" type="button">Hoje</button>
+      <button class="btn active" data-range="7" type="button">7 dias</button>
+      <button class="btn" data-range="30" type="button">30 dias</button>
+      <button class="btn" data-range="90" type="button">90 dias</button>
+      <span class="sep"></span>
+      <input type="date" id="dateFrom" aria-label="De">
+      <input type="date" id="dateTo" aria-label="Até">
+      <button class="btn" id="btnApply" type="button">Aplicar</button>
+      <button class="btn ghost" id="btnRefresh" type="button" title="Atualizar">↻</button>
+      <span class="range-note" id="rangeNote"></span>
+    </div>
+
+    <div class="notice" id="notice"></div>
+
+    <main class="grid" id="grid">
+      <section class="card kpi hero span-6" id="cardViews">
+        <i class="accent"></i>
+        <h2>Visitas</h2>
+        <div class="value" id="kViews">–</div>
+        <div class="meta"><span id="kVisitors">–</span> visitantes únicos · <span id="kViewsPer">–</span> visitas por visitante</div>
+        <svg class="spark" id="sparkViews" viewBox="0 0 300 34" preserveAspectRatio="none" aria-hidden="true"></svg>
+      </section>
+
+      <section class="card kpi green span-3" id="cardClicks">
+        <i class="accent"></i>
+        <h2>Cliques</h2>
+        <div class="value" id="kClicks">–</div>
+        <div class="meta"><span id="kClickers">–</span> pessoas clicaram</div>
+        <svg class="spark" id="sparkClicks" viewBox="0 0 300 34" preserveAspectRatio="none" aria-hidden="true"></svg>
+      </section>
+
+      <section class="card kpi green span-3" id="cardCtr">
+        <i class="accent"></i>
+        <h2>Taxa de clique</h2>
+        <div class="value" id="kCtr">–</div>
+        <div class="meta"><span id="kClickerRate">–</span> dos visitantes clicaram em algo</div>
+        <div class="meter green"><i id="meterCtr"></i></div>
+      </section>
+
+      <section class="card span-8" id="cardDaily">
+        <div class="chart-head">
+          <div>
+            <h2>Visitas e cliques por dia</h2>
+            <div class="hint">Horário de Brasília</div>
+          </div>
+          <div class="legend" aria-hidden="true">
+            <span><i style="background:var(--s1)"></i>Visitas</span>
+            <span><i style="background:var(--s2)"></i>Cliques</span>
+          </div>
+          <button class="btn ghost table-toggle" id="btnDailyTable" type="button" aria-pressed="false">Ver tabela</button>
+        </div>
+        <div class="chart" id="chart">
+          <svg id="dailySvg" role="img" aria-label="Visitas e cliques por dia"></svg>
+          <div class="tooltip" id="tip"></div>
+        </div>
+        <div class="daily-table" id="dailyTable"></div>
+      </section>
+
+      <section class="card span-4" id="cardSources">
+        <h2>Origem das visitas</h2>
+        <div class="hint">UTM source ou site de referência</div>
+        <div id="sources"></div>
+      </section>
+
+      <section class="card span-8" id="cardButtons">
+        <h2>Cliques por botão</h2>
+        <div class="hint">Cada botão do link na bio e das redes no topo</div>
+        <div id="buttons"></div>
+      </section>
+
+      <section class="card span-4" id="cardDevices">
+        <h2>Dispositivo</h2>
+        <div class="hint">Visitas por tipo de aparelho</div>
+        <div id="devices"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="gate" id="gate">
+    <form id="gateForm">
+      <div class="gem" aria-hidden="true"></div>
+      <h3>Acesso ao dashboard</h3>
+      <p>Informe a chave de acesso para carregar os dados.</p>
+      <input type="password" id="gateKey" placeholder="Chave de acesso" autocomplete="current-password" required>
+      <div class="err" id="gateErr">Chave inválida.</div>
+      <button class="btn primary" type="submit">Entrar</button>
+    </form>
+  </div>
+
+  <footer>Veneto Studio · Escola do Brilho 2026 © Todos os direitos reservados</footer>
+
+  <script src="../track-config.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var cfg = window.VENETO_TRACK || {};
+    var DEMO = !cfg.url || !cfg.key || new URLSearchParams(location.search).get('demo') === '1';
+    var KEY_STORE = 'vn_dash_key';
+    var nf = new Intl.NumberFormat('pt-BR');
+    var pf = new Intl.NumberFormat('pt-BR', { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    var df = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: '2-digit' });
+    var dfl = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    var state = { from: null, to: null, preset: '7' };
+    var $ = function (id) { return document.getElementById(id); };
+
+    /* ---------- período ---------- */
+    function startOfDay(d) { var x = new Date(d); x.setHours(0, 0, 0, 0); return x; }
+    function addDays(d, n) { var x = new Date(d); x.setDate(x.getDate() + n); return x; }
+    function toInput(d) { var m = d.getMonth() + 1, day = d.getDate(); return d.getFullYear() + '-' + (m < 10 ? '0' : '') + m + '-' + (day < 10 ? '0' : '') + day; }
+    function setPreset(p) {
+      var today = startOfDay(new Date());
+      state.preset = p;
+      if (p === 'today') { state.from = today; state.to = addDays(today, 1); }
+      else { var n = parseInt(p, 10); state.from = addDays(today, -(n - 1)); state.to = addDays(today, 1); }
+      $('dateFrom').value = toInput(state.from);
+      $('dateTo').value = toInput(addDays(state.to, -1));
+      document.querySelectorAll('[data-range]').forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-range') === p); });
+      load();
+    }
+    function applyCustom() {
+      var f = $('dateFrom').value, t = $('dateTo').value;
+      if (!f || !t) return;
+      var from = startOfDay(new Date(f + 'T00:00:00')), to = addDays(startOfDay(new Date(t + 'T00:00:00')), 1);
+      if (to <= from) return;
+      state.preset = 'custom'; state.from = from; state.to = to;
+      document.querySelectorAll('[data-range]').forEach(function (b) { b.classList.remove('active'); });
+      load();
+    }
+    document.querySelectorAll('[data-range]').forEach(function (b) { b.addEventListener('click', function () { setPreset(b.getAttribute('data-range')); }); });
+    $('btnApply').addEventListener('click', applyCustom);
+    $('btnRefresh').addEventListener('click', load);
+
+    /* ---------- chave ---------- */
+    function getKey() { try { return localStorage.getItem(KEY_STORE) || ''; } catch (e) { return ''; } }
+    function setKey(k) { try { localStorage.setItem(KEY_STORE, k); } catch (e) {} }
+    function showGate(err) { $('gate').classList.add('show'); $('gateErr').style.display = err ? 'block' : 'none'; setTimeout(function () { $('gateKey').focus(); }, 50); }
+    $('gateForm').addEventListener('submit', function (e) { e.preventDefault(); setKey($('gateKey').value.trim()); $('gate').classList.remove('show'); load(); });
+    $('btnKey').addEventListener('click', function () { $('gateKey').value = ''; showGate(false); });
+
+    /* ---------- dados ---------- */
+    function setStatus(kind, text) { var p = $('statusPill'); p.className = 'pill ' + kind; $('statusText').textContent = text; }
+    function setLoading(on) { document.querySelectorAll('.card').forEach(function (c) { c.classList.toggle('loading', on); }); }
+
+    function fetchStats() {
+      if (DEMO) return Promise.resolve(demoData(state.from, state.to));
+      var key = getKey();
+      if (!key) { showGate(false); return Promise.reject(new Error('no-key')); }
+      return fetch(cfg.url.replace(/\/$/, '') + '/rest/v1/rpc/bio_stats', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'apikey': cfg.key, 'Authorization': 'Bearer ' + cfg.key },
+        body: JSON.stringify({ p_key: key, p_from: state.from.toISOString(), p_to: state.to.toISOString() })
+      }).then(function (r) {
+        if (r.status === 401 || r.status === 403 || r.status === 400) { return r.json().then(function (j) { throw new Error((j && j.message) || 'auth'); }); }
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      });
+    }
+
+    function load() {
+      setLoading(true);
+      $('rangeNote').textContent = 'De ' + dfl.format(state.from) + ' a ' + dfl.format(addDays(state.to, -1));
+      fetchStats().then(function (d) {
+        render(d);
+        setLoading(false);
+        if (DEMO) { setStatus('demo', 'Modo demonstração'); notice('<b>Dados de demonstração.</b> Preencha o arquivo <code>track-config.js</code> com a URL e a chave do Supabase para ver os dados reais.'); }
+        else { setStatus('live', 'Ao vivo · ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })); notice(''); }
+      }).catch(function (err) {
+        setLoading(false);
+        if (err.message === 'no-key') { setStatus('', 'Aguardando chave'); return; }
+        if (/inv[aá]lida|auth|permission|denied/i.test(err.message)) { setStatus('', 'Chave inválida'); showGate(true); return; }
+        setStatus('', 'Erro ao carregar');
+        notice('<b>Não foi possível carregar.</b> ' + escapeHtml(err.message));
+      });
+    }
+    function notice(html) { var n = $('notice'); n.innerHTML = html; n.classList.toggle('show', !!html); }
+    function escapeHtml(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+
+    /* ---------- render ---------- */
+    function render(d) {
+      var views = +d.views || 0, visitors = +d.visitors || 0, clicks = +d.clicks || 0, clickers = +d.clickers || 0;
+      $('kViews').textContent = nf.format(views);
+      $('kVisitors').textContent = nf.format(visitors);
+      $('kViewsPer').textContent = visitors ? (views / visitors).toLocaleString('pt-BR', { maximumFractionDigits: 1 }) : '–';
+      $('kClicks').textContent = nf.format(clicks);
+      $('kClickers').textContent = nf.format(clickers);
+      var ctr = views ? clicks / views : 0;
+      $('kCtr').textContent = views ? pf.format(ctr) : '–';
+      $('kClickerRate').textContent = visitors ? pf.format(clickers / visitors) : '–';
+      $('meterCtr').style.width = Math.min(100, ctr * 100) + '%';
+
+      var days = fillDays(d.daily || []);
+      sparkline($('sparkViews'), days.map(function (x) { return x.views; }), 'var(--s1)');
+      sparkline($('sparkClicks'), days.map(function (x) { return x.clicks; }), 'var(--s2)');
+      dailyChart(days);
+      dailyTable(days);
+      buttonsTable(d.buttons || [], views, visitors);
+      simpleTable($('sources'), d.sources || [], 'source', 'views', views, 'Origem', 'Visitas');
+      simpleTable($('devices'), d.devices || [], 'device', 'views', views, 'Aparelho', 'Visitas', { mobile: 'Celular', desktop: 'Computador', tablet: 'Tablet', desconhecido: 'Desconhecido' });
+    }
+
+    function fillDays(daily) {
+      var map = {};
+      daily.forEach(function (r) { map[String(r.day).slice(0, 10)] = r; });
+      var out = [];
+      for (var d = new Date(state.from); d < state.to; d = addDays(d, 1)) {
+        var k = toInput(d), r = map[k] || {};
+        out.push({ day: new Date(d), views: +r.views || 0, clicks: +r.clicks || 0 });
+      }
+      return out;
+    }
+
+    function sparkline(svg, vals, color) {
+      var W = 300, H = 34, n = vals.length, max = Math.max.apply(null, vals.concat([1]));
+      if (n < 2) { svg.innerHTML = ''; return; }
+      var pts = vals.map(function (v, i) { return [(i / (n - 1)) * W, H - 3 - (v / max) * (H - 6)]; });
+      var d = pts.map(function (p, i) { return (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1); }).join(' ');
+      var last = pts[n - 1];
+      svg.innerHTML = '<path d="' + d + ' L' + W + ' ' + H + ' L0 ' + H + ' Z" fill="' + color + '" opacity="0.10"></path>' +
+        '<path d="' + d + '" fill="none" stroke="' + color + '" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>' +
+        '<circle cx="' + last[0] + '" cy="' + last[1] + '" r="4" fill="' + color + '" stroke="var(--surface)" stroke-width="2"></circle>';
+    }
+
+    function dailyChart(days) {
+      var svg = $('dailySvg'), tip = $('tip');
+      var W = Math.max(320, svg.clientWidth || 640), H = 260, padL = 40, padR = 8, padT = 10, padB = 28;
+      var n = days.length, iw = W - padL - padR, ih = H - padT - padB;
+      var max = Math.max.apply(null, days.map(function (x) { return Math.max(x.views, x.clicks); }).concat([1]));
+      var step = niceStep(max), top = Math.ceil(max / step) * step;
+      var y = function (v) { return padT + ih - (v / top) * ih; };
+      var band = iw / n, gap = 2, barW = Math.min(24, Math.max(3, (band - 8 - gap) / 2));
+      var html = '';
+      for (var v = 0; v <= top; v += step) {
+        html += '<line class="grid-line" x1="' + padL + '" x2="' + (W - padR) + '" y1="' + y(v).toFixed(1) + '" y2="' + y(v).toFixed(1) + '"></line>';
+        html += '<text class="tick" x="' + (padL - 8) + '" y="' + (y(v) + 4).toFixed(1) + '" text-anchor="end">' + nf.format(v) + '</text>';
+      }
+      var labelEvery = Math.ceil(n / Math.max(1, Math.floor(iw / 56)));
+      days.forEach(function (d, i) {
+        var x0 = padL + i * band, cx = x0 + band / 2;
+        var xv = cx - gap / 2 - barW, xc = cx + gap / 2;
+        html += '<g class="col" data-i="' + i + '">';
+        html += bar(xv, y(d.views), barW, padT + ih, 'var(--s1)');
+        html += bar(xc, y(d.clicks), barW, padT + ih, 'var(--s2)');
+        html += '<rect class="hit" x="' + x0 + '" y="' + padT + '" width="' + band + '" height="' + ih + '"></rect>';
+        html += '</g>';
+        if (i % labelEvery === 0 || n <= 10) html += '<text class="tick" x="' + cx.toFixed(1) + '" y="' + (H - 8) + '" text-anchor="middle">' + df.format(d.day) + '</text>';
+      });
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+      svg.innerHTML = html;
+      svg.querySelectorAll('g.col').forEach(function (g) {
+        g.addEventListener('pointermove', function (e) {
+          var d = days[+g.getAttribute('data-i')];
+          tip.innerHTML = '<div class="d">' + dfl.format(d.day) + '</div>' +
+            '<div class="row"><i style="background:var(--s1)"></i>Visitas<b>' + nf.format(d.views) + '</b></div>' +
+            '<div class="row"><i style="background:var(--s2)"></i>Cliques<b>' + nf.format(d.clicks) + '</b></div>';
+          var r = svg.getBoundingClientRect(); var px = e.clientX - r.left, py = e.clientY - r.top;
+          tip.style.display = 'block';
+          tip.style.left = Math.min(px + 14, r.width - 170) + 'px';
+          tip.style.top = Math.max(0, py - 70) + 'px';
+        });
+        g.addEventListener('pointerleave', function () { tip.style.display = 'none'; });
+      });
+    }
+    function bar(x, yTop, w, yBase, color) {
+      var h = Math.max(0, yBase - yTop); if (h < 0.5) return '';
+      var r = Math.min(4, h / 2, w / 2);
+      var d = 'M' + x + ' ' + yBase + ' V' + (yTop + r) + ' Q' + x + ' ' + yTop + ' ' + (x + r) + ' ' + yTop + ' H' + (x + w - r) + ' Q' + (x + w) + ' ' + yTop + ' ' + (x + w) + ' ' + (yTop + r) + ' V' + yBase + ' Z';
+      return '<path class="bar" d="' + d + '" fill="' + color + '"></path>';
+    }
+    function niceStep(max) {
+      var raw = max / 4, p = Math.pow(10, Math.floor(Math.log10(raw || 1))), m = raw / p;
+      return (m <= 1 ? 1 : m <= 2 ? 2 : m <= 5 ? 5 : 10) * p;
+    }
+    function dailyTable(days) {
+      var t = $('dailyTable');
+      var rows = days.map(function (d) { return '<tr><td class="name">' + dfl.format(d.day) + '</td><td class="num">' + nf.format(d.views) + '</td><td class="num">' + nf.format(d.clicks) + '</td><td class="num">' + (d.views ? pf.format(d.clicks / d.views) : '–') + '</td></tr>'; }).join('');
+      t.innerHTML = '<table><thead><tr><th>Dia</th><th class="num">Visitas</th><th class="num">Cliques</th><th class="num">Taxa</th></tr></thead><tbody>' + rows + '</tbody></table>';
+    }
+    $('btnDailyTable').addEventListener('click', function () {
+      var on = !$('dailyTable').classList.contains('show');
+      $('dailyTable').classList.toggle('show', on); $('chart').style.display = on ? 'none' : '';
+      this.textContent = on ? 'Ver gráfico' : 'Ver tabela'; this.setAttribute('aria-pressed', on);
+    });
+
+    function buttonsTable(rows, views, visitors) {
+      var el = $('buttons');
+      if (!rows.length) { el.innerHTML = '<div class="empty">Nenhum clique no período.</div>'; return; }
+      var maxC = Math.max.apply(null, rows.map(function (r) { return +r.clicks || 0; }));
+      var total = rows.reduce(function (a, r) { return a + (+r.clicks || 0); }, 0);
+      var html = '<table><thead><tr><th>Botão</th><th class="bar-cell">Participação</th><th class="num">Cliques</th><th class="num">Pessoas</th><th class="num">Taxa</th></tr></thead><tbody>';
+      rows.forEach(function (r, i) {
+        var c = +r.clicks || 0, u = +r.clickers || 0;
+        html += '<tr><td class="name"><span class="rank">' + (i + 1) + '</span>' + escapeHtml(r.button || '(sem nome)') + (r.href ? '<small>' + escapeHtml(r.href) + '</small>' : '') + '</td>' +
+          '<td class="bar-cell"><div class="track"><i style="width:' + (maxC ? (c / maxC) * 100 : 0) + '%"></i></div></td>' +
+          '<td class="num"><b>' + nf.format(c) + '</b><small>' + (total ? pf.format(c / total) : '–') + ' dos cliques</small></td>' +
+          '<td class="num">' + nf.format(u) + '</td>' +
+          '<td class="num">' + (views ? pf.format(c / views) : '–') + '</td></tr>';
+      });
+      el.innerHTML = '<div class="tbl">' + html + '</tbody></table></div>';
+    }
+    function simpleTable(el, rows, kName, kVal, total, hName, hVal, labels) {
+      if (!rows.length) { el.innerHTML = '<div class="empty">Sem dados no período.</div>'; return; }
+      var max = Math.max.apply(null, rows.map(function (r) { return +r[kVal] || 0; }));
+      var html = '<table><thead><tr><th>' + hName + '</th><th class="bar-cell"></th><th class="num">' + hVal + '</th></tr></thead><tbody>';
+      rows.forEach(function (r) {
+        var v = +r[kVal] || 0, name = String(r[kName] || '–'); if (labels && labels[name]) name = labels[name];
+        html += '<tr><td class="name">' + escapeHtml(name) + '</td><td class="bar-cell"><div class="track"><i style="width:' + (max ? (v / max) * 100 : 0) + '%"></i></div></td>' +
+          '<td class="num"><b>' + nf.format(v) + '</b><small>' + (total ? pf.format(v / total) : '–') + '</small></td></tr>';
+      });
+      el.innerHTML = '<div class="tbl">' + html + '</tbody></table></div>';
+    }
+
+    /* ---------- demonstração ---------- */
+    function demoData(from, to) {
+      var seed = 7; function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+      var buttons = [['Método Veneto', 'https://lp.escoladobrilho.com/matriculas-metodo', 0.30], ['Mini curso Restauração de Faróis', 'https://lp.escoladobrilho.com/minicurso-farol', 0.22], ['Produtos Galera do Brilho', 'https://linktr.ee/galeradobrilho', 0.17], ['Atendimento WhatsApp', 'https://api.whatsapp.com/send?phone=5511973696517', 0.12], ['Polimento Express', 'https://lp.escoladobrilho.com/matriculas-polimento', 0.10], ['Vote no iBest', 'https://app.premioibest.com/', 0.05], ['Rede: YouTube', 'https://www.youtube.com/@VenetoStudio', 0.03], ['Rede: TikTok', 'https://www.tiktok.com/@venetostudio', 0.01]];
+      var daily = [], views = 0, clicks = 0;
+      for (var d = new Date(from); d < to; d = addDays(d, 1)) {
+        var base = 380 + Math.round(rnd() * 260) + (d.getDay() === 0 || d.getDay() === 6 ? 120 : 0);
+        var c = Math.round(base * (0.28 + rnd() * 0.1));
+        daily.push({ day: toInput(d), views: base, clicks: c }); views += base; clicks += c;
+      }
+      var visitors = Math.round(views * 0.82), clickers = Math.round(clicks * 0.78);
+      return {
+        views: views, visitors: visitors, clicks: clicks, clickers: clickers,
+        daily: daily,
+        buttons: buttons.map(function (b) { var c = Math.round(clicks * b[2]); return { button: b[0], href: b[1], clicks: c, clickers: Math.round(c * 0.8) }; }),
+        sources: [{ source: 'instagram', views: Math.round(views * 0.71) }, { source: 'direto', views: Math.round(views * 0.13) }, { source: 'youtube', views: Math.round(views * 0.09) }, { source: 'tiktok', views: Math.round(views * 0.05) }, { source: 'l.facebook.com', views: Math.round(views * 0.02) }],
+        devices: [{ device: 'mobile', views: Math.round(views * 0.91) }, { device: 'desktop', views: Math.round(views * 0.08) }, { device: 'tablet', views: Math.round(views * 0.01) }]
+      };
+    }
+
+    /* ---------- init ---------- */
+    window.addEventListener('resize', function () { if (window._lastDays) dailyChart(window._lastDays); });
+    var _dailyChart = dailyChart; dailyChart = function (days) { window._lastDays = days; _dailyChart(days); };
+    setPreset('7');
+  })();
+  </script>
+</body>
+</html>
