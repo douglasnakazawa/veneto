@@ -83,60 +83,68 @@
     .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 16px; }
 
     /* Cabeçalho */
-    .profile {
-      padding: 48px 0 8px;
-      text-align: center;
-      animation: rise .7s var(--ease) both;
-    }
-    .avatar {
-      width: 112px;
-      height: 112px;
-      margin: 0 auto 18px;
-      border-radius: 50%;
+    .hero {
       position: relative;
-      background: linear-gradient(160deg, #1c1f26, #0d0e12);
-      display: grid;
-      place-items: center;
-      box-shadow:
-        0 0 0 3px var(--bg),
-        0 0 0 5px rgba(228,32,45,0.9),
-        0 20px 50px rgba(228,32,45,0.25);
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      animation: rise .8s var(--ease) both;
     }
-    .avatar .gem {
-      width: 52px;
-      height: 52px;
-      background: linear-gradient(160deg, #ff4b57, var(--red) 55%, var(--red-deep));
-      clip-path: polygon(50% 0, 100% 30%, 50% 100%, 0 30%);
-      filter: drop-shadow(0 6px 16px rgba(228,32,45,0.6));
+    .hero img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 733 / 468;
+      object-fit: cover;
     }
-    .avatar .check {
+    .hero::before {
+      content: "";
       position: absolute;
-      right: -2px;
-      bottom: 4px;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: var(--red);
-      border: 3px solid var(--bg);
-      display: grid;
-      place-items: center;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10,11,14,0) 45%, rgba(10,11,14,0.75) 78%, var(--bg) 100%);
+      pointer-events: none;
     }
-    .avatar .check svg { width: 14px; height: 14px; stroke: #fff; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-
-    .wordmark {
-      font-weight: 900;
-      font-size: clamp(56px, 16vw, 76px);
-      line-height: 0.9;
-      letter-spacing: -0.03em;
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 4%;
+      width: 70%;
+      height: 30%;
+      transform: translateX(-50%);
+      background: radial-gradient(closest-side, rgba(228,32,45,0.35), transparent);
+      filter: blur(30px);
+      pointer-events: none;
+    }
+    .profile {
+      margin-top: -36px;
+      padding: 0 0 8px;
+      text-align: center;
+      position: relative;
+      animation: rise .8s var(--ease) .1s both;
+    }
+    .verified {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px 6px 8px;
+      border-radius: 999px;
+      background: rgba(228,32,45,0.14);
+      border: 1px solid rgba(228,32,45,0.45);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      background: linear-gradient(180deg, #ffffff 0%, #d9dbe2 45%, #8d909b 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      filter: drop-shadow(0 8px 30px rgba(0,0,0,0.6));
+      backdrop-filter: blur(8px);
+      margin-bottom: 12px;
     }
+    .verified i {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--red); display: grid; place-items: center;
+    }
+    .verified svg { width: 10px; height: 10px; stroke: #fff; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
     .handle {
-      margin-top: 10px;
+      margin-top: 0;
       font-size: 13px;
       font-weight: 600;
       color: var(--muted);
@@ -336,19 +344,19 @@
       *, *::before, *::after { animation: none !important; transition: none !important; }
     }
     @media (min-width: 720px) {
-      .profile { padding-top: 64px; }
+      .profile { margin-top: -56px; }
     }
   </style>
 </head>
 <body>
   <div class="backdrop" aria-hidden="true"></div>
 
+  <div class="hero">
+    <img src="assets/hero-veneto.webp" alt="Tarcisio Vaglieri, o Veneto, do Veneto Studio Automotivo" width="733" height="468" loading="eager" fetchpriority="high">
+  </div>
+
   <header class="wrap profile">
-    <div class="avatar" aria-hidden="true">
-      <div class="gem"></div>
-      <span class="check"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></span>
-    </div>
-    <h1 class="wordmark">Veneto</h1>
+    <h1 class="verified"><i><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg></i>Veneto Studio Automotivo</h1>
     <p class="handle"><b>@venetostudio</b> · Tarcisio Vaglieri</p>
     <p class="tagline">Somos a Galera do Brilho</p>
 
