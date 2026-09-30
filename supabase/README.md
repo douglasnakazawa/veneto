@@ -28,6 +28,6 @@ A migração aplicada está em `migrations/`.
 | Restauração de Faróis | `/restauracao-de-farois/` | pay.hotmart.com/W103469304T |
 | Método Veneto | `/metodo-veneto/` | pay.hotmart.com/I98970111X |
 | Polimento Express | `/polimento-express/` | pay.hotmart.com/P100773210C |
-| Combo Veneto | `/combo-veneto/` | a definir (hoje o lead segue para o WhatsApp comercial) |
+| Combo Veneto (R$ 997) | `/combo-veneto/` | a definir (hoje o lead segue para o WhatsApp comercial) |
 
 Todas gravam visitas e cliques em `veneto.bio_events` e leads (nome, WhatsApp, e-mail, CPF) em `veneto.leads`.
