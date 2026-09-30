@@ -95,7 +95,7 @@
       padding: 12px 14px; border-radius: 12px; font-size: 13px; color: var(--text-2);
       background: rgba(217,182,74,0.08); border: 1px solid rgba(217,182,74,0.3);
     }
-    .notice.show { display: flex; }
+    .notice.show { display: block; line-height: 1.5; }
     .notice b { color: #fff; }
 
     /* Grid */
@@ -195,6 +195,8 @@
       .kpi.hero .value { font-size: 48px; }
       .range-note { margin-left: 0; width: 100%; }
       .card { padding: 18px 16px; }
+      #buttons .bar-cell, #buttons th.bar-cell { display: none; }
+      td.name small { max-width: 180px; }
     }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
   </style>
