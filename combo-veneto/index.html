@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combo Veneto – 3 cursos por R$ 497 | Veneto Studio</title>
+  <meta name="description" content="Restauração de Faróis, Método Veneto e Polimento Express em um único acesso por R$ 497. Todos os bônus, mentorias ao vivo e garantia de 7 dias.">
+  <meta name="theme-color" content="#0a0b0e">
+  <meta property="og:title" content="Combo Veneto – 3 cursos por R$ 497 | Veneto Studio">
+  <meta property="og:description" content="Restauração de Faróis, Método Veneto e Polimento Express em um único acesso por R$ 497. Todos os bônus, mentorias ao vivo e garantia de 7 dias.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0b0e;
+      --bg-2: #0f1015;
+      --surface: #14161c;
+      --surface-2: #1a1d24;
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.16);
+      --text: #f5f5f7;
+      --text-2: #c9cbd3;
+      --muted: #8f919b;
+      --red: #e4202d;
+      --red-2: #ff3d49;
+      --red-deep: #8a0f18;
+      --red-soft: rgba(228,32,45,0.14);
+      --green: #2ab05a;
+      --green-soft: rgba(42,176,90,0.14);
+      --gold: #e2c05a;
+      --radius: 20px;
+      --max: 1120px;
+      --ease: cubic-bezier(.22,.61,.36,1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; cursor: pointer; }
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    section { padding: 88px 0; position: relative; }
+    .alt { background: var(--bg-2); }
+    h1, h2, h3 { line-height: 1.12; font-weight: 800; letter-spacing: -0.01em; text-wrap: balance; }
+    p, li, .lead, .stat, .pill, .compare-cap, .safe, .fine, .sub { text-wrap: pretty; }
+    .nw { white-space: nowrap; }
+    h1 { font-size: clamp(30px, 4.6vw, 54px); font-weight: 900; }
+    h2 { font-size: clamp(28px, 3.6vw, 42px); font-weight: 900; text-transform: uppercase; }
+    h3 { font-size: 19px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--red-2);
+      margin-bottom: 16px;
+    }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--red); }
+    .center { text-align: center; }
+    .center .eyebrow::after { content: ""; width: 26px; height: 2px; background: var(--red); }
+    .lead { color: var(--text-2); font-size: 17px; max-width: 720px; }
+    .center .lead { margin: 16px auto 0; }
+    .hl { color: var(--red-2); }
+    .muted { color: var(--muted); }
+
+    /* Botões */
+    .btn {
+      display: inline-block; vertical-align: middle;
+      padding: 18px 34px; border-radius: 14px; border: none;
+      font-weight: 800; font-size: 15px; letter-spacing: 0; text-transform: uppercase; text-wrap: balance; line-height: 1.25; text-align: center;
+      background: linear-gradient(180deg, var(--red-2) 0%, var(--red) 60%, #c4141f 100%);
+      color: #fff; box-shadow: 0 14px 34px rgba(228,32,45,0.35), inset 0 1px 0 rgba(255,255,255,0.18);
+      transition: transform .18s var(--ease), box-shadow .18s var(--ease), filter .18s;
+      position: relative; overflow: hidden;
+    }
+    .btn::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.22) 50%, transparent 70%);
+      transform: translateX(-130%); transition: transform .7s var(--ease);
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 20px 44px rgba(228,32,45,0.45); }
+    .btn:hover::after { transform: translateX(130%); }
+    .btn.lg { padding: 20px 40px; font-size: 16px; }
+    .btn.block { display: block; width: 100%; }
+    .btn.ghost { background: rgba(255,255,255,0.06); box-shadow: none; border: 1px solid var(--line-strong); }
+    .btn svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; vertical-align: -4px; margin-left: 6px; }
+    .trust { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 14px; font-size: 12px; color: var(--muted); font-weight: 600; }
+    .trust span { display: inline-flex; align-items: center; gap: 6px; }
+    .trust span::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+
+    /* Topbar */
+    .topbar {
+      position: sticky; top: 0; z-index: 40;
+      background: rgba(10,11,14,0.82); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 66px; gap: 16px; }
+    .topbar img { height: 34px; width: auto; }
+    .topbar .btn { padding: 11px 18px; font-size: 12px; border-radius: 10px; white-space: nowrap; }
+    .topbar .btn span { display: none; }
+    @media (min-width: 640px) { .topbar .btn span { display: inline; } }
+
+    /* Hero */
+    .hero {
+      padding: 0;
+      min-height: 640px;
+      background: #06070a url('imagens/hero-bg.webp') 64% top / cover no-repeat;
+      position: relative;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background:
+        linear-gradient(90deg, rgba(6,7,10,0.96) 0%, rgba(6,7,10,0.88) 38%, rgba(6,7,10,0.35) 62%, rgba(6,7,10,0.1) 100%),
+        linear-gradient(180deg, rgba(6,7,10,0) 70%, var(--bg) 100%);
+    }
+    .hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 620px) 1fr; min-height: 640px; align-items: center; padding-top: 72px; padding-bottom: 72px; }
+    .hero .logo-curso { width: 250px; margin-bottom: 26px; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.6)); }
+    .hero h1 { margin-bottom: 18px; text-transform: uppercase; }
+    .hero .lead { margin-bottom: 30px; }
+    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 34px; max-width: 560px; }
+    .stat {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 14px 16px; border-radius: 14px;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--line); backdrop-filter: blur(6px);
+      font-size: 13px; color: var(--text-2); line-height: 1.4;
+    }
+    .stat b { display: block; color: #fff; font-size: 14px; }
+    .stat i { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; background: var(--red-soft); display: grid; place-items: center; }
+    .stat i svg { width: 14px; height: 14px; stroke: var(--red-2); stroke-width: 2.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Faixa de prova social */
+    .strip { padding: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-2); }
+    .strip .wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 40px; padding: 22px 20px; }
+    .strip span { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-2); font-weight: 600; }
+    .strip b { color: #fff; font-size: 18px; font-weight: 900; }
+
+    /* Cards genéricos */
+    .grid { display: grid; gap: 16px; }
+    .cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 28px; position: relative; overflow: hidden;
+      transition: transform .25s var(--ease), border-color .25s;
+    }
+    .card:hover { transform: translateY(-3px); border-color: var(--line-strong); }
+    .card h3 { margin-bottom: 10px; }
+    .card p { color: var(--text-2); font-size: 15px; }
+    .ico {
+      width: 46px; height: 46px; border-radius: 13px; margin-bottom: 18px;
+      background: linear-gradient(160deg, var(--red-soft), rgba(228,32,45,0.04)); border: 1px solid rgba(228,32,45,0.35);
+      display: grid; place-items: center;
+    }
+    .ico svg { width: 22px; height: 22px; stroke: var(--red-2); stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Listas check / x */
+    .list { list-style: none; display: grid; gap: 12px; margin-top: 18px; }
+    .list li { position: relative; padding-left: 34px; color: var(--text-2); font-size: 15px; }
+    .list li::before {
+      content: ""; position: absolute; left: 0; top: 2px; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--green-soft); border: 1px solid rgba(42,176,90,0.5);
+    }
+    .list li::after {
+      content: ""; position: absolute; left: 8px; top: 6px; width: 5px; height: 10px;
+      border-right: 2px solid var(--green); border-bottom: 2px solid var(--green); transform: rotate(45deg);
+    }
+    .list.no li::before { background: var(--red-soft); border-color: rgba(228,32,45,0.5); }
+    .list.no li::after { border: none; width: 10px; height: 10px; left: 6px; top: 8px; transform: none;
+      background: linear-gradient(45deg, transparent 45%, var(--red-2) 45%, var(--red-2) 55%, transparent 55%), linear-gradient(-45deg, transparent 45%, var(--red-2) 45%, var(--red-2) 55%, transparent 55%); }
+    .card.yes { border-top: 3px solid var(--green); }
+    .card.no { border-top: 3px solid var(--red); }
+    .quote {
+      margin: 34px auto 0; max-width: 760px; text-align: center; font-style: italic; color: var(--text-2);
+      padding: 22px 26px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line);
+    }
+
+    /* Instrutor */
+    .instr { display: grid; grid-template-columns: 380px 1fr; gap: 48px; align-items: center; }
+    .instr .photo { border-radius: 24px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0,0,0,0.6); position: relative; }
+    .instr .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(10,11,14,0.7)); }
+    .instr .photo img { width: 100%; }
+    .instr h2 { text-transform: none; font-size: clamp(30px, 3.6vw, 44px); }
+    .instr .role { color: var(--muted); margin: 8px 0 22px; font-weight: 600; }
+    .instr p { color: var(--text-2); margin-bottom: 14px; }
+    .instr strong { color: #fff; }
+    .pills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 24px; }
+    .pill { padding: 14px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .pill b { display: block; color: #fff; font-size: 14px; margin-bottom: 2px; }
+
+    /* Calculadora */
+    .calc { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 34px; }
+    .calc .box { border-radius: var(--radius); padding: 28px; border: 1px solid var(--line); background: var(--surface); text-align: center; position: relative; overflow: hidden; }
+    .calc .box::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: var(--red); }
+    .calc .box.realista::before { background: var(--green); }
+    .calc .tag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red-2); padding: 6px 12px; border-radius: 999px; background: var(--red-soft); }
+    .calc .realista .tag { color: var(--green); background: var(--green-soft); }
+    .calc .line { color: var(--text-2); margin-top: 14px; font-size: 15px; }
+    .calc .total { font-size: clamp(30px, 4vw, 40px); font-weight: 900; margin-top: 10px; color: #fff; }
+    .calc .realista .total { color: var(--green); }
+
+    /* Antes e depois */
+    .compare-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 40px; }
+    .compare { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); aspect-ratio: 16 / 9; background: #000; user-select: none; }
+    .compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .compare .after { clip-path: inset(0 0 0 var(--pos, 50%)); }
+    .compare .handle {
+      position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 2px; background: #fff; transform: translateX(-50%);
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.3); pointer-events: none;
+    }
+    .compare .handle::after {
+      content: "⇆"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 44px; height: 44px; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; font-size: 18px; font-weight: 900;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+    .compare input[type=range] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+    .compare .lbl { position: absolute; top: 12px; padding: 6px 12px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; background: rgba(0,0,0,0.6); backdrop-filter: blur(6px); pointer-events: none; }
+    .compare .lbl.b { left: 12px; color: #ffb4b9; }
+    .compare .lbl.a { right: 12px; color: #9ff0b7; }
+    .compare-cap { text-align: center; color: var(--muted); font-size: 13px; margin-top: 12px; }
+    .compare-cap b { color: #fff; }
+
+    /* Aulas */
+    .lessons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+    .lesson { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; position: relative; overflow: hidden; }
+    .lesson .n { position: absolute; right: 18px; top: 8px; font-size: 72px; font-weight: 900; color: rgba(255,255,255,0.045); line-height: 1; }
+    .lesson .k { font-size: 11px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red-2); margin-bottom: 8px; }
+    .lesson h3 { font-size: 17px; margin-bottom: 12px; }
+    .lesson ul { list-style: none; display: grid; gap: 8px; }
+    .lesson li { position: relative; padding-left: 20px; color: var(--text-2); font-size: 14px; }
+    .lesson li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px; border-radius: 2px; background: var(--red); }
+    .lesson.bonus { grid-column: 1 / -1; border: 1px solid rgba(226,192,90,0.45); background: linear-gradient(120deg, rgba(226,192,90,0.08), var(--surface) 55%); }
+    .lesson.bonus .k { color: var(--gold); }
+    .lesson.bonus li::before { background: var(--gold); }
+    .lesson.bonus ul { grid-template-columns: repeat(2, 1fr); }
+    .perks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+    .perk { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; text-align: center; }
+    .perk .img { aspect-ratio: 16 / 10; background: #fff; display: grid; place-items: center; overflow: hidden; }
+    .perk .img img { width: 100%; height: 100%; object-fit: cover; }
+    .perk .img.pad img { object-fit: contain; padding: 18px; }
+    .perk .t { padding: 18px 18px 22px; }
+    .perk h3 { font-size: 16px; }
+    .perk p { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+    /* Depoimentos */
+    .testi { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 40px; }
+    .t-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+    .t-card .who { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .t-card .av { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(160deg, var(--red-2), var(--red-deep)); display: grid; place-items: center; font-weight: 900; font-size: 15px; }
+    .t-card .name { font-weight: 800; }
+    .t-card .stars { color: var(--gold); font-size: 12px; letter-spacing: 2px; }
+    .t-card p { color: var(--text-2); font-style: italic; }
+
+    /* Oferta */
+    .offer { display: grid; grid-template-columns: 1fr 460px; gap: 48px; align-items: center; }
+    .offer h2 { text-transform: none; }
+    .offer .txt p { color: var(--text-2); margin-top: 14px; }
+    .offer .txt strong { color: #fff; }
+    .price-box {
+      border-radius: 26px; padding: 36px 32px; text-align: center; position: relative;
+      background: linear-gradient(180deg, #1a1d24, #111318);
+      border: 1px solid rgba(228,32,45,0.45);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 6px rgba(228,32,45,0.08);
+    }
+    .price-box .badge {
+      position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+      background: var(--red); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 8px 16px; border-radius: 999px; white-space: nowrap; box-shadow: 0 8px 22px rgba(228,32,45,0.45);
+    }
+    .price-box img { width: 220px; margin: 6px auto 18px; }
+    .price-box .from { color: var(--muted); font-size: 15px; }
+    .price-box .from s { color: #6f7079; }
+    .price-box .inst { font-size: clamp(40px, 6vw, 56px); font-weight: 900; line-height: 1; margin-top: 6px; color: #fff; }
+    .price-box .inst small { display: block; font-size: 0.3em; font-weight: 700; color: var(--text-2); margin-top: 6px; letter-spacing: 0.02em; }
+    .price-box .cash { color: var(--text-2); margin: 8px 0 22px; font-size: 15px; }
+    .price-box .cash b { color: #fff; }
+    .price-box .list { text-align: left; margin: 0 0 26px; gap: 9px; }
+    .price-box .list li { font-size: 14px; }
+    .price-box .safe { margin-top: 14px; font-size: 12px; color: var(--muted); }
+    .price-box .safe + .safe { margin-top: 6px; }
+
+    /* Garantia */
+    .guar { display: grid; grid-template-columns: 150px 1fr; gap: 32px; align-items: center; max-width: 900px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 36px; }
+    .seal { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--red); display: grid; place-items: center; text-align: center; line-height: 1; background: var(--red-soft); box-shadow: 0 0 0 10px rgba(228,32,45,0.06); }
+    .seal b { display: block; font-size: 52px; font-weight: 900; color: #fff; }
+    .seal span { display: block; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red-2); font-weight: 800; margin-top: 6px; }
+    .guar h3 { font-size: 24px; font-weight: 900; text-transform: uppercase; }
+    .guar .zero { color: var(--red-2); font-weight: 800; margin: 6px 0 12px; }
+    .guar p { color: var(--text-2); }
+
+    /* FAQ */
+    .faq { max-width: 820px; margin: 36px auto 0; }
+    details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 0 22px; margin-bottom: 10px; }
+    summary { cursor: pointer; padding: 18px 0; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--red-2); font-size: 24px; font-weight: 400; flex: 0 0 auto; transition: transform .2s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    details p { color: var(--text-2); padding-bottom: 18px; font-size: 15px; }
+
+    /* Final */
+    .final { background: radial-gradient(700px 400px at 50% 0%, rgba(228,32,45,0.22), transparent 70%), var(--bg-2); text-align: center; }
+    .final .lead { margin: 16px auto 30px; }
+    .icons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 24px; margin-top: 18px; font-size: 13px; color: var(--muted); }
+
+    footer { border-top: 1px solid var(--line); padding: 40px 0 110px; text-align: center; color: var(--muted); font-size: 12px; }
+    footer img { height: 34px; width: auto; margin: 0 auto 12px; opacity: .9; }
+    footer .links { margin: 10px 0; display: flex; justify-content: center; gap: 18px; }
+    footer .links a:hover { color: #fff; }
+    @media (min-width: 720px) { footer { padding-bottom: 40px; } }
+
+    /* Barra fixa mobile */
+    .sticky-cta {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(10,11,14,0.92); backdrop-filter: blur(12px); border-top: 1px solid var(--line);
+      display: flex; align-items: center; gap: 12px;
+      transform: translateY(110%); transition: transform .3s var(--ease);
+    }
+    .sticky-cta.show { transform: translateY(0); }
+    .sticky-cta .p { flex: 1; line-height: 1.2; }
+    .sticky-cta .p small { display: block; color: var(--muted); font-size: 11px; }
+    .sticky-cta .p b { font-size: 16px; }
+    .sticky-cta .btn { padding: 12px 18px; font-size: 12px; border-radius: 10px; flex: 0 0 auto; width: auto !important; white-space: nowrap; }
+    @media (min-width: 720px) { .sticky-cta { display: none; } }
+
+    /* Modal */
+    .modal { position: fixed; inset: 0; z-index: 60; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(4,5,8,0.82); backdrop-filter: blur(10px); }
+    .modal.show { display: flex; }
+    .modal .box {
+      width: 100%; max-width: 440px; border-radius: 24px; padding: 30px 26px; position: relative;
+      background: linear-gradient(180deg, #1a1d24, #111318); border: 1px solid rgba(228,32,45,0.4);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.7); animation: pop .35s var(--ease) both;
+    }
+    @keyframes pop { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
+    .modal .close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: rgba(255,255,255,0.05); font-size: 18px; line-height: 1; }
+    .modal img { width: 190px; margin: 0 auto 16px; }
+    .modal h3 { font-size: 22px; font-weight: 900; text-align: center; }
+    .modal .sub { text-align: center; color: var(--muted); font-size: 14px; margin: 8px 0 16px; }
+    .modal .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 400px) { .modal .row2 { grid-template-columns: 1fr; } }
+    .field { margin-bottom: 12px; }
+    .field label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .field input {
+      width: 100%; padding: 14px 14px; border-radius: 12px; font-size: 16px;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--line-strong); color: #fff; outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .field input:focus { border-color: var(--red-2); box-shadow: 0 0 0 3px var(--red-soft); }
+    .field input.err { border-color: var(--red-2); }
+    .modal .msg { font-size: 12px; color: #ff8a92; min-height: 16px; margin: -4px 0 8px; }
+    .modal .btn { margin-top: 6px; font-size: 14px; padding: 16px 14px; }
+    .modal .fine { text-align: center; font-size: 11px; color: var(--muted); margin-top: 12px; }
+    .modal .btn[disabled] { opacity: .7; cursor: wait; transform: none; }
+
+    /* Reveal */
+    .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rv.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } *, *::before, *::after { animation: none !important; } }
+
+    /* Responsivo */
+    @media (max-width: 960px) {
+      .cols-3 { grid-template-columns: repeat(2, 1fr); }
+      .lessons { grid-template-columns: repeat(2, 1fr); }
+      .instr { grid-template-columns: 1fr; }
+      .instr .photo { max-width: 380px; }
+      .offer { grid-template-columns: 1fr; }
+      .hero .wrap { grid-template-columns: 1fr; }
+      .hero { background-position: 70% top; }
+      .hero::before { background: linear-gradient(180deg, rgba(6,7,10,0.35) 0%, rgba(6,7,10,0.92) 45%, var(--bg) 100%); }
+      .hero .wrap { padding-top: 300px; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 64px 0; }
+      .cols-2, .cols-3, .lessons, .perks, .testi, .compare-grid, .calc { grid-template-columns: 1fr; }
+      .lesson.bonus ul { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr; }
+      .pills { grid-template-columns: 1fr; }
+      .guar { grid-template-columns: 1fr; text-align: center; padding: 28px 20px; }
+      .seal { margin: 0 auto; }
+      .btn { width: 100%; padding: 17px 16px; font-size: 14px; }
+      .btn.lg { padding: 18px 16px; font-size: 14px; }
+      .btn svg { width: 16px; height: 16px; }
+      .topbar .btn { width: auto; }
+      .hero .logo-curso { width: 200px; }
+      .hero .wrap { padding-top: 240px; padding-bottom: 56px; }
+      .price-box { padding: 30px 18px; }
+      .modal .box { padding: 26px 20px; }
+      .card { padding: 22px; }
+    }
+
+    /* Hero mobile: recorte próprio com o instrutor enquadrado no topo */
+    @media (max-width: 960px) {
+      .hero { --hw: min(100vw, 640px); min-height: 0; background: #06070a url('imagens/hero-mobile.webp') center top / var(--hw) auto no-repeat; }
+      .hero::before { background:
+          linear-gradient(90deg, #06070a calc(50% - var(--hw) / 2), rgba(6,7,10,0) calc(50% - var(--hw) / 2 + 60px), rgba(6,7,10,0) calc(50% + var(--hw) / 2 - 60px), #06070a calc(50% + var(--hw) / 2)),
+          linear-gradient(180deg, rgba(6,7,10,0) 0, rgba(6,7,10,0) calc(var(--hw) * .4), rgba(6,7,10,.9) calc(var(--hw) * .66), var(--bg) calc(var(--hw) * .84)); }
+      .hero .wrap { min-height: 0; padding-top: calc(var(--hw) * .58); padding-bottom: 56px; }
+    }
+    @media (max-width: 640px) {
+      .hero .logo-curso, .hero .hero-mark { display: none; }
+      .hero h1 { margin-bottom: 14px; font-size: 28px; line-height: 1.1; }
+      .hero .lead { margin-bottom: 22px; }
+    }
+  
+    /* ===== componentes extras (Método Veneto / Polimento Express) ===== */
+    .wordmark { display: inline-flex; flex-direction: column; line-height: .95; }
+    .wordmark .k { font-size: 10px; font-weight: 700; letter-spacing: .34em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+    .wordmark .k::before, .wordmark .k::after { content: ""; flex: 1; height: 1px; background: var(--red); min-width: 14px; }
+    .wordmark .w { font-weight: 900; letter-spacing: -.03em; text-transform: uppercase; background: linear-gradient(180deg,#fff 0%,#d9dbe2 45%,#8d909b 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .wordmark.pe .w { color: #fff; -webkit-text-fill-color: #fff; background: none; font-style: italic; }
+    .wordmark.pe .w b { color: var(--red-2); -webkit-text-fill-color: var(--red-2); font-style: italic; }
+    .wordmark.pe .k { color: #fff; background: var(--red); padding: 4px 10px; border-radius: 4px; font-style: italic; letter-spacing: .28em; align-self: flex-start; }
+    .wordmark.pe .k::before, .wordmark.pe .k::after { display: none; }
+    .wordmark.sm .w { font-size: 22px; } .wordmark.sm .k { font-size: 8px; }
+    .wordmark.md .w { font-size: 30px; } .wordmark.md .k { font-size: 9px; }
+    .wordmark.lg .w { font-size: clamp(44px, 7vw, 64px); }
+    .topbar .wordmark { line-height: .9; }
+    .hero .price-note { margin-top: 12px; font-size: 14px; color: var(--text-2); }
+    .hero .price-note s { color: #6f7079; } .hero .price-note b { color: #fff; }
+    .who { position: relative; }
+    .who .img { border-radius: 16px; overflow: hidden; margin: -10px -10px 18px; border: 1px solid var(--line); }
+    .who .img img { width: 100%; aspect-ratio: 16/9; object-fit: cover; filter: saturate(.85); }
+    .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 22px; }
+    .pillar { padding: 14px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--red); font-size: 13px; color: var(--muted); }
+    .pillar b { display: block; color: #fff; font-size: 14px; margin-bottom: 2px; text-transform: uppercase; letter-spacing: .06em; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .diagram { position: relative; padding: 20px; }
+    .diagram img { width: 100%; filter: drop-shadow(0 20px 40px rgba(0,0,0,.6)); }
+    .modules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 36px; }
+    .module { display: flex; align-items: center; gap: 14px; padding: 16px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+    .module .n { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: var(--red-soft); color: var(--red-2); font-weight: 900; font-size: 15px; }
+    .module .t { font-weight: 700; font-size: 15px; }
+    .module .t small { display: block; font-weight: 500; color: var(--muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+    .bonus { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 36px; }
+    .bonus-card { display: grid; grid-template-columns: 300px 1fr; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .bonus-card .img { background: #0c0d11; }
+    .bonus-card .img img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; }
+    .bonus-card .body { padding: 26px 28px; }
+    .bonus-card .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; margin-bottom: 12px; flex-wrap: wrap; }
+    .bonus-card .num { font-size: 11px; font-weight: 800; letter-spacing: .2em; color: var(--red-2); border: 1px solid rgba(228,32,45,.5); padding: 5px 10px; border-radius: 6px; }
+    .bonus-card .val { text-align: right; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+    .bonus-card .val b { display: block; color: var(--green); font-size: 16px; letter-spacing: 0; }
+    .bonus-card h3 { margin-bottom: 8px; }
+    .bonus-card p { color: var(--text-2); font-size: 15px; }
+    .bonus-card .chip { display: inline-block; margin: 8px 8px 0 0; font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: var(--green-soft); color: #9ff0b7; }
+    .examples { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px; }
+    .example { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; text-align: center; border-top: 3px solid var(--red); }
+    .example h3 { font-size: 16px; }
+    .example p { color: var(--muted); font-size: 14px; margin-top: 8px; min-height: 66px; }
+    .example .total { font-size: 32px; font-weight: 900; color: #fff; margin-top: 12px; }
+    .example .cap { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+    .price-box.light { background: linear-gradient(180deg, #ffffff, #eef0f4); border: 1px solid rgba(0,0,0,.08); color: #16181d; box-shadow: 0 40px 100px rgba(0,0,0,.6); }
+    .price-box.light .from { color: #6b6e78; } .price-box.light .from s { color: #a0a3ad; }
+    .price-box.light .inst, .price-box.light .cash b { color: #16181d; }
+    .price-box.light .inst small, .price-box.light .cash { color: #4a4d57; }
+    .price-box.light .list li { color: #2b2e36; }
+    .price-box.light .safe { color: #6b6e78; }
+    .price-box.light .cond { font-size: 11px; color: #6b6e78; margin-top: 14px; }
+    .price-box.light .amount { font-size: clamp(44px, 6vw, 60px); font-weight: 900; color: var(--red); letter-spacing: -.02em; line-height: 1; margin: 6px 0 4px; }
+    .receive { list-style: none; display: grid; gap: 10px; margin-top: 18px; }
+    .receive li { display: flex; gap: 12px; align-items: flex-start; color: var(--text-2); }
+    .receive li i { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; background: var(--red-soft); display: grid; place-items: center; color: var(--red-2); font-weight: 900; font-size: 12px; }
+    .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 30px; }
+    .vs .box { border-radius: var(--radius); padding: 26px; border: 1px solid var(--line); }
+    .vs .bad { background: linear-gradient(180deg, rgba(228,32,45,.14), var(--surface) 60%); border-top: 3px solid var(--red); }
+    .vs .good { background: linear-gradient(180deg, rgba(42,176,90,.14), var(--surface) 60%); border-top: 3px solid var(--green); }
+    .vs h3 { margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .vs h3 i { width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; font-style: normal; font-weight: 900; font-size: 14px; }
+    .vs .bad h3 i { background: var(--red-soft); color: var(--red-2); } .vs .good h3 i { background: var(--green-soft); color: var(--green); }
+    .vs .kicker { font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); font-weight: 800; margin-bottom: 8px; }
+    .tbl { width: 100%; border-collapse: collapse; margin-top: 26px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .tbl th, .tbl td { padding: 14px 16px; text-align: center; font-size: 14px; border-bottom: 1px solid var(--line); }
+    .tbl th { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--red-2); font-weight: 800; }
+    .tbl td:first-child { text-align: left; font-weight: 800; color: #fff; }
+    .tbl tr:last-child td { border-bottom: none; }
+    .tbl tr.hi td { background: rgba(42,176,90,.08); color: #fff; }
+    .tbl-wrap { overflow-x: auto; }
+    .concl { text-align: center; margin-top: 18px; color: var(--text-2); }
+    .concl b { color: var(--green); }
+    .gallery { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px 0 14px; margin-top: 30px; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+    .gallery img { flex: 0 0 auto; width: 210px; aspect-ratio: 9/16; object-fit: cover; border-radius: 16px; border: 1px solid var(--line); scroll-snap-align: start; }
+    .checks { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; margin-top: 14px; font-size: 13px; color: var(--text-2); }
+    .checks span::before { content: "✔"; color: var(--green); margin-right: 6px; font-weight: 900; }
+    .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 22px; }
+    .chips span { padding: 10px 16px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: 13px; color: var(--text-2); }
+    .acc { max-width: 860px; margin: 36px auto 0; }
+    .acc details { padding: 0 24px; }
+    .acc summary { font-size: 16px; }
+    .acc ul { list-style: none; display: grid; gap: 8px; padding-bottom: 20px; }
+    .acc li { position: relative; padding-left: 18px; color: var(--text-2); font-size: 14px; }
+    .acc li::before { content: ""; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border-radius: 2px; background: var(--red); }
+    .timeline { position: relative; max-width: 760px; margin: 36px auto 0; padding-left: 34px; }
+    .timeline::before { content: ""; position: absolute; left: 10px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(180deg, var(--red), rgba(228,32,45,.15)); }
+    .step { position: relative; margin-bottom: 26px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; }
+    .step::before { content: ""; position: absolute; left: -30px; top: 24px; width: 12px; height: 12px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 5px rgba(228,32,45,.18); }
+    .step h3 { font-size: 16px; margin-bottom: 8px; }
+    .step ul { list-style: none; display: grid; gap: 5px; }
+    .step li { color: var(--text-2); font-size: 14px; padding-left: 14px; position: relative; }
+    .step li::before { content: "•"; position: absolute; left: 0; color: var(--red-2); }
+    .step .meta { margin-top: 8px; font-size: 13px; color: var(--green); font-weight: 700; }
+    .proj { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 26px; }
+    .proj div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; text-align: center; }
+    .proj small { display: block; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+    .proj b { display: block; font-size: 26px; font-weight: 900; margin-top: 6px; color: #fff; }
+    .proj span { font-size: 12px; color: var(--muted); }
+    .cost { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 36px; }
+    .cost .c { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; border-top: 3px solid var(--line-strong); }
+    .cost .c.win { border-top-color: var(--green); background: linear-gradient(180deg, rgba(42,176,90,.1), var(--surface) 50%); }
+    .cost h3 { font-size: 15px; margin-bottom: 12px; min-height: 40px; }
+    .cost ul { list-style: none; display: grid; gap: 6px; }
+    .cost li { font-size: 13px; color: var(--text-2); padding-left: 12px; position: relative; }
+    .cost li::before { content: "•"; position: absolute; left: 0; color: var(--muted); }
+    .cost li.tot { color: #fff; font-weight: 800; margin-top: 6px; }
+    .cost .win li.tot { color: var(--green); }
+    .bonus-total { text-align: center; margin-top: 24px; font-size: 16px; color: var(--text-2); }
+    .bonus-total b { color: var(--red-2); text-transform: uppercase; letter-spacing: .08em; }
+    .decide { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; max-width: 900px; margin-left: auto; margin-right: auto; }
+    .receive-box { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: linear-gradient(180deg,#1a1d24,#111318); border: 1px solid rgba(228,32,45,.45); border-radius: 26px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,.6); }
+    .receive-box .l { padding: 34px 32px; border-right: 1px solid var(--line); }
+    .receive-box .r { padding: 34px 32px; text-align: center; display: flex; flex-direction: column; justify-content: center; }
+    .receive-box h3 { font-size: 24px; margin: 14px 0 18px; }
+    .receive-box .row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--text-2); }
+    .receive-box .row s { color: var(--red-2); text-decoration: line-through; font-weight: 700; }
+    .receive-box .row .diff { color: var(--red-2); font-weight: 700; }
+    .receive-box .total { margin-top: 14px; font-size: 15px; color: var(--muted); }
+    .receive-box .total b { color: var(--red-2); text-transform: uppercase; letter-spacing: .06em; }
+    .receive-box .today { font-size: 14px; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; font-weight: 700; }
+    .receive-box .amount { font-size: clamp(44px, 6vw, 60px); font-weight: 900; color: var(--green); line-height: 1; margin: 8px 0 4px; letter-spacing: -.02em; }
+    .receive-box .inst { color: var(--text-2); margin-bottom: 20px; }
+    .disclaimer { font-size: 11px; color: var(--muted); max-width: 720px; margin: 10px auto 0; }
+    @media (max-width: 960px) {
+      .two, .decide { grid-template-columns: 1fr; }
+      .modules { grid-template-columns: repeat(2, 1fr); }
+      .cost { grid-template-columns: repeat(2, 1fr); }
+      .bonus-card { grid-template-columns: 1fr; } .bonus-card .img img { aspect-ratio: 16/9; }
+      .receive-box { grid-template-columns: 1fr; } .receive-box .l { border-right: none; border-bottom: 1px solid var(--line); }
+    }
+    @media (max-width: 640px) {
+      .modules, .examples, .vs, .proj, .cost, .pillars { grid-template-columns: 1fr; }
+      .gallery img { width: 170px; }
+      .tbl th, .tbl td { padding: 10px 8px; font-size: 12px; }
+      .tbl th { font-size: 10px; letter-spacing: .1em; }
+      .receive-box .l, .receive-box .r { padding: 26px 20px; }
+    }
+
+    .course-tag { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .journey { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; position: relative; }
+    .jstep { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; position: relative; }
+    .jstep .n { width: 38px; height: 38px; border-radius: 50%; background: var(--red); color: #fff; font-weight: 900; display: grid; place-items: center; margin-bottom: 14px; box-shadow: 0 0 0 6px rgba(228,32,45,.15); }
+    .jstep h3 { font-size: 17px; margin-bottom: 6px; }
+    .jstep p { color: var(--text-2); font-size: 14px; }
+    .jstep .tk { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+    .jstep .tk b { display: block; font-size: 20px; letter-spacing: 0; color: var(--green); margin-top: 4px; }
+    .stack { margin: 26px auto 0; max-width: 820px; text-align: center; padding: 22px 26px; border-radius: 18px; background: linear-gradient(120deg, rgba(42,176,90,.12), var(--surface) 60%); border: 1px solid rgba(42,176,90,.35); color: var(--text-2); font-size: 16px; }
+    .stack b { color: #fff; } .stack .big { display: block; font-size: clamp(30px, 5vw, 42px); font-weight: 900; color: var(--green); margin-top: 6px; }
+    .receive-box .save { display: inline-block; margin: 0 auto 18px; padding: 7px 14px; border-radius: 999px; background: var(--green-soft); color: #9ff0b7; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .perks.six { grid-template-columns: repeat(3, 1fr); margin-top: 36px; }
+    .perk .img.dark { background: #0c0d11; }
+    @media (max-width: 960px) { .journey { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .perks.six { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <span class="wordmark sm"><span class="k">Combo</span><span class="w">Veneto</span></span>
+      <button class="btn js-cta" data-cta="topo" type="button">Garantir <span>meu</span> combo</button>
+    </div>
+  </div>
+
+  <header class="hero dark-hero">
+    <div class="wrap">
+      <div>
+        <div class="hero-mark" style="margin-bottom:22px"><span class="wordmark lg"><span class="k">Combo</span><span class="w">Veneto</span></span></div>
+        <h1>Os <span class="hl nw">3 cursos</span> da Veneto Studio por <span class="hl nw">R$ 497</span></h1>
+        <p class="lead">Restauração de Faróis, Método Veneto e Polimento Express em um único acesso. A trilha completa para sair do zero, cobrar premium e somar os serviços que mais faturam na estética automotiva. <strong style="color:#fff">Menos do que o Método Veneto sozinho.</strong></p>
+        <button class="btn lg js-cta" data-cta="hero" type="button">Quero o combo <span class="nw">por R$&nbsp;497</span> <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <div class="price-note">De <s>R$ 1.561</s> por <b>R$ 497</b> à vista ou <b>12x de R$ 51,40</b></div>
+        <div class="trust"><span>Acesso imediato</span><span>Garantia de 7 dias</span><span>Certificados incluídos</span></div>
+        <div class="stats">
+          <div class="stat"><i><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4zM8 6V4M16 6V4M4 10h16"/></svg></i><div><b>3 cursos completos</b>faróis, lavagem premium e polimento</div></div>
+          <div class="stat"><i><svg viewBox="0 0 24 24"><path d="M12 3v18M7 8h7a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h8"/></svg></i><div><b>Economia de R$ 1.064</b>68% abaixo da soma dos cursos</div></div>
+          <div class="stat"><i><svg viewBox="0 0 24 24"><path d="M4 17l6-6 4 4 6-8M14 7h6v6"/></svg></i><div><b>R$ 1.100 por cliente</b>somando os 3 serviços num atendimento</div></div>
+          <div class="stat"><i><svg viewBox="0 0 24 24"><path d="M12 3l2.4 5 5.6.8-4 3.9.9 5.6-4.9-2.6-4.9 2.6.9-5.6-4-3.9 5.6-.8z"/></svg></i><div><b>Todos os bônus</b>e mentorias ao vivo com o Tarcísio</div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="strip"><div class="wrap">
+    <span><b>3</b> cursos em 1 acesso</span><span><b>24</b> aulas e módulos</span><span><b>+4 mi</b> seguidores nas redes</span><span><b>7 dias</b> de garantia</span>
+  </div></div>
+
+  <section>
+    <div class="wrap">
+      <div class="center rv"><span class="eyebrow">O que está no combo</span><h2>Três cursos. <span class="hl">Uma trilha completa.</span></h2><p class="lead">Cada curso resolve uma etapa do seu negócio. Juntos, eles transformam um cliente de lavagem em um cliente de R$ 1.100.</p></div>
+      <div class="bonus rv">
+        <div class="bonus-card"><div class="img"><img src="imagens/depois-1.webp" alt="Farol restaurado" width="400" height="225" loading="lazy"></div><div class="body"><div class="top"><span class="num">Curso 1</span><div class="val">Valor individual<b style="color:var(--red-2);text-decoration:line-through">R$ 67</b></div></div><span class="course-tag">Porta de entrada</span><h3>Mini Curso Restauração de Faróis</h3><p>5 aulas práticas + 1 aula bônus para transformar menos de R$ 100 em produtos em um serviço de R$ 150 a R$ 400. Técnica simples, resultado que impressiona na hora e cliente que volta.</p></div></div>
+        <div class="bonus-card"><div class="img"><img src="imagens/ja-trabalha.webp" alt="Lavagem premium no Método Veneto" width="1000" height="488" loading="lazy"></div><div class="body"><div class="top"><span class="num">Curso 2</span><div class="val">Valor individual<b style="color:var(--red-2);text-decoration:line-through">R$ 697</b></div></div><span class="course-tag">O negócio premium</span><h3>Método Veneto</h3><p>12 módulos para faturar R$ 10 mil por mês com apenas 2 serviços por dia: técnica de lavagem detalhada, posicionamento premium, gestão, precificação, marketing e vendas de alto ticket.</p></div></div>
+        <div class="bonus-card"><div class="img"><img src="imagens/tarcisio-polindo.webp" alt="Polimento Express" width="800" height="533" loading="lazy"></div><div class="body"><div class="top"><span class="num">Curso 3</span><div class="val">Valor individual<b style="color:var(--red-2);text-decoration:line-through">R$ 797</b></div></div><span class="course-tag">O serviço de maior ticket</span><h3>Polimento Express</h3><p>A técnica exclusiva da Veneto Studio que reduz o polimento de 3 etapas para 1, em 3 horas e com 2 produtos. 6 módulos e o plano de 30 dias para cobrar R$ 600 por polimento.</p></div></div>
+      </div>
+      <div class="center rv" style="margin-top:30px"><button class="btn lg js-cta" data-cta="cursos" type="button">Quero os 3 cursos <span class="nw">por R$&nbsp;497</span></button></div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="center rv"><span class="eyebrow">A jornada</span><h2>Do primeiro cliente ao <span class="hl">ticket de R$ 1.100</span></h2><p class="lead">A ordem certa para aprender, faturar desde a primeira semana e subir o valor de cada atendimento.</p></div>
+      <div class="journey rv">
+        <div class="jstep"><div class="n">1</div><h3>Comece pelos faróis</h3><p>Serviço rápido, investimento abaixo de R$ 100 e resultado que o cliente vê na hora. Você fatura enquanto aprende o resto.</p><div class="tk">Ticket por serviço<b>R$ 150 a R$ 400</b></div></div>
+        <div class="jstep"><div class="n">2</div><h3>Vire premium com o Método Veneto</h3><p>Lavagem detalhada, posicionamento e vendas para parar de competir por preço e cobrar o que o seu trabalho vale.</p><div class="tk">Lavagem premium<b>R$ 200 a R$ 500</b></div></div>
+        <div class="jstep"><div class="n">3</div><h3>Feche com o Polimento Express</h3><p>O serviço de maior ticket, agora em 1 etapa e 3 horas. Cada cliente de lavagem vira uma oportunidade de polimento.</p><div class="tk">Por polimento<b>R$ 600</b></div></div>
+      </div>
+      <div class="stack rv">Um único cliente: <b>lavagem premium R$ 200</b> + <b>faróis R$ 300</b> + <b>polimento R$ 600</b><span class="big nw">= R$ 1.100</span>em um só atendimento.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="center rv"><span class="eyebrow">Resultados</span><h2>O padrão Veneto que <span class="hl">você vai entregar</span></h2><p class="lead">Arraste para comparar o antes e o depois dos faróis e veja carros finalizados na Veneto Studio.</p></div>
+      <div class="compare-grid rv">
+        <div><div class="compare" style="--pos:50%"><img class="before" src="imagens/antes-1.webp" alt="Farol amarelado antes" width="400" height="225" loading="lazy"><img class="after" src="imagens/depois-1.webp" alt="Farol cristalino depois" width="400" height="225" loading="lazy"><div class="handle"></div><span class="lbl b">Antes</span><span class="lbl a">Depois</span><input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois"></div><div class="compare-cap">Farol 100% amarelado → <b>Cristalino</b></div></div>
+        <div><div class="compare" style="--pos:50%"><img class="before" src="imagens/antes-2.webp" alt="Farol craquelado antes" width="400" height="263" loading="lazy"><img class="after" src="imagens/depois-2.webp" alt="Farol restaurado depois" width="400" height="218" loading="lazy"><div class="handle"></div><span class="lbl b">Antes</span><span class="lbl a">Depois</span><input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois"></div><div class="compare-cap">Farol craquelado → <b>Restaurado</b></div></div>
+      </div>
+      <div class="gallery rv"><img src="imagens/galeria-01.webp" alt="Carro finalizado na Veneto Studio" width="720" height="1280" loading="lazy"><img src="imagens/galeria-02.webp" alt="Carro finalizado na Veneto Studio" width="720" height="1280" loading="lazy"><img src="imagens/galeria-03.webp" alt="Carro finalizado na Veneto Studio" width="720" height="1280" loading="lazy"><img src="imagens/galeria-05.webp" alt="Carro finalizado na Veneto Studio" width="720" height="1280" loading="lazy"><img src="imagens/galeria-06.webp" alt="Carro finalizado na Veneto Studio" width="720" height="1280" loading="lazy"><img src="imagens/galeria-08.webp" alt="Carro finalizado na Veneto Studio" width="720" height="1280" loading="lazy"></div>
+      <div class="checks rv"><span>Riscos removidos</span><span>Brilho restaurado</span><span>Proteção aplicada</span><span>Cliente satisfeito</span></div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="center rv"><span class="eyebrow">Para quem é</span><h2>O combo foi feito para você que…</h2></div>
+      <div class="grid cols-3 rv" style="margin-top:40px">
+        <div class="card yes"><h3>Quer começar do zero</h3><ul class="list"><li>Nunca trabalhou com estética automotiva</li><li>Quer uma renda extra começando pela garagem</li><li>Precisa de um caminho claro, na ordem certa</li><li>Quer faturar já na primeira semana com os faróis</li></ul></div>
+        <div class="card yes"><h3>Já lava carros e quer cobrar mais</h3><ul class="list"><li>Cansou de lavar muito e faturar pouco</li><li>Perde cliente quando perguntam "faz polimento?"</li><li>Quer somar faróis e polimento no mesmo atendimento</li><li>Quer sair da guerra de preço</li></ul></div>
+        <div class="card yes"><h3>Tem uma estética e quer escalar</h3><ul class="list"><li>Quer padronizar serviços premium na equipe</li><li>Busca aumentar o ticket médio por carro</li><li>Quer gestão, marketing e vendas de alto ticket</li><li>Quer os 3 cursos pelo preço de menos de 1</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="center rv"><span class="eyebrow">Bônus</span><h2>Todos os bônus <span class="hl">já inclusos</span></h2><p class="lead">Além dos 3 cursos, você recebe os treinamentos extras, os benefícios e as mentorias de cada um.</p></div>
+      <div class="perks six rv">
+        <div class="perk"><div class="img dark"><img src="imagens/bonus-bancos.webp" alt="Higienização de bancos" width="806" height="664" loading="lazy"></div><div class="t"><h3>Higienização de bancos</h3><p>Couro por R$ 450 e tecido por R$ 300</p></div></div>
+        <div class="perk"><div class="img dark"><img src="imagens/bonus-motor.webp" alt="Limpeza técnica de motor" width="806" height="664" loading="lazy"></div><div class="t"><h3>Limpeza técnica de motor</h3><p>Mais R$ 150 em cada atendimento</p></div></div>
+        <div class="perk"><div class="img dark"><img src="imagens/bonus-vitrificacao.webp" alt="Aula de vitrificação" width="806" height="664" loading="lazy"></div><div class="t"><h3>Aula de vitrificação</h3><p>Cobre R$ 250 extra com proteção de 6 meses</p></div></div>
+        <div class="perk"><div class="img dark"><img src="imagens/bonus-lista-vip.webp" alt="Lista VIP de fornecedores" width="806" height="664" loading="lazy"></div><div class="t"><h3>Lista VIP de fornecedores</h3><p>10% de desconto na Galera do Brilho, pra sempre</p></div></div>
+        <div class="perk"><div class="img dark"><img src="imagens/bonus-mentorias.webp" alt="Mentorias ao vivo" width="806" height="664" loading="lazy"></div><div class="t"><h3>Mentorias ao vivo</h3><p>Plantões de dúvidas com o Tarcísio</p></div></div>
+        <div class="perk"><div class="img"><img src="imagens/certificado.png" alt="Certificado Veneto Studio" width="800" height="565" loading="lazy"></div><div class="t"><h3>Certificados</h3><p>Um certificado Veneto Studio por curso</p></div></div>
+      </div>
+      <div class="center rv" style="margin-top:34px"><button class="btn js-cta" data-cta="bonus" type="button">Garantir o combo com <span class="nw">todos os bônus</span></button></div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap instr">
+      <div class="photo rv"><img src="imagens/tarcisio.webp" alt="Tarcísio Veneto" width="800" height="909" loading="lazy"></div>
+      <div class="rv">
+        <span class="eyebrow">Quem vai te ensinar</span>
+        <h2>Tarcísio Veneto</h2>
+        <div class="role">Fundador da Veneto Studio, a maior referência em estética automotiva do Brasil</div>
+        <p>Há 10 anos, o Tarcísio largou o emprego em TI para lavar carros com uma mochila nas costas, cobrando R$ 50 por lavagem. Hoje é dono da Veneto Studio, onde cobra <strong>R$ 500 por lavagem</strong> e <strong>R$ 1.200 por polimento express</strong>.</p>
+        <p>São mais de 4 milhões de seguidores nas redes e mais de 70 turmas presenciais formadas. <strong>No combo, você aprende com ele os três serviços que construíram a Veneto Studio.</strong></p>
+        <div style="margin-top:22px"><button class="btn js-cta" data-cta="instrutor" type="button">Quero aprender <span class="nw">com o Tarcísio</span></button></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="oferta">
+    <div class="wrap">
+      <div class="center rv" style="margin-bottom:36px"><span class="eyebrow">Investimento</span><h2>Veja tudo o que você leva hoje</h2></div>
+      <div class="receive-box rv">
+        <div class="l">
+          <span class="wordmark md"><span class="k">Combo</span><span class="w">Veneto</span></span>
+          <h3>Os 3 cursos + todos os bônus</h3>
+          <div class="row"><span>Mini Curso Restauração de Faróis</span><s>R$ 67</s></div>
+          <div class="row"><span>Método Veneto (12 módulos)</span><s>R$ 697</s></div>
+          <div class="row"><span>Polimento Express (6 módulos)</span><s>R$ 797</s></div>
+          <div class="row"><span>Bônus: bancos, motor, vitrificação e Lista VIP</span><span class="diff">Incluso</span></div>
+          <div class="row"><span>Mentorias ao vivo e certificados</span><span class="diff">Incluso</span></div>
+          <div class="total"><b>Valor total:</b> R$ 1.561,00</div>
+        </div>
+        <div class="r">
+          <div class="today">Hoje por apenas</div>
+          <div class="amount nw">R$ 497,00</div>
+          <div class="inst">ou 12x de R$ 51,40 no cartão</div>
+          <div><span class="save">Economia de R$ 1.064 · 68% off</span></div>
+          <button class="btn lg block js-cta" data-cta="oferta" type="button">Quero o Combo Veneto <span class="nw">por R$&nbsp;497</span></button>
+          <div class="safe" style="margin-top:14px;font-size:12px;color:var(--muted)">🔒 Acesso imediato · Garantia de 7 dias · Compra 100% segura</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" style="padding-top:64px">
+    <div class="wrap">
+      <div class="guar rv">
+        <div class="seal"><div><b>7</b><span>dias de garantia</span></div></div>
+        <div>
+          <h3>Garantia incondicional de 7 dias</h3>
+          <div class="zero">Risco ZERO para você.</div>
+          <p>Acesse os três cursos, assista às aulas e aplique as técnicas. Se por QUALQUER motivo você não ficar satisfeito, é só mandar uma mensagem dentro de 7 dias e devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="center rv"><span class="eyebrow">Dúvidas</span><h2>Perguntas frequentes</h2></div>
+      <div class="faq rv">
+        <details><summary>O que está incluso no Combo Veneto?</summary><p>Os três cursos completos (Mini Curso Restauração de Faróis, Método Veneto e Polimento Express), os treinamentos bônus de higienização de bancos, limpeza de motor e vitrificação, a Lista VIP de fornecedores com 10% de desconto na Galera do Brilho, as mentorias ao vivo com o Tarcísio e um certificado por curso.</p></details>
+        <details><summary>Em que ordem devo fazer os cursos?</summary><p>Recomendamos começar pela Restauração de Faróis, que você aplica já na primeira semana, depois o Método Veneto para posicionar seus serviços como premium, e por fim o Polimento Express, o serviço de maior ticket. Mas você tem acesso a tudo desde o primeiro dia e pode seguir no seu ritmo.</p></details>
+        <details><summary>Preciso ter experiência?</summary><p>Não. A trilha começa do zero com os faróis e avança até o polimento. Quem já trabalha na área acelera os resultados; quem está começando aprende na ordem certa, sem os erros mais comuns.</p></details>
+        <details><summary>Por quanto tempo terei acesso?</summary><p>Você tem 1 ano de acesso a todos os cursos e bônus, pelo celular ou computador, quantas vezes quiser.</p></details>
+        <details><summary>Já comprei um dos cursos. Posso comprar o combo?</summary><p>Pode. Fale com o nosso suporte pelo WhatsApp antes de finalizar, para avaliarmos o seu caso.</p></details>
+        <details><summary>Quais são as formas de pagamento?</summary><p>Cartão de crédito em até 12x de R$ 51,40, ou R$ 497,00 à vista no Pix ou boleto.</p></details>
+        <details><summary>Quanto preciso investir em produtos?</summary><p>Para começar com os faróis, menos de R$ 100. O kit de polimento fica em torno de R$ 1.000, com 10% de desconto pela Lista VIP. O Método Veneto mostra o kit essencial de lavagem e o que pode esperar.</p></details>
+        <details><summary>Tem garantia?</summary><p>Sim. Garantia incondicional de 7 dias: se não gostar por qualquer motivo, devolvemos 100% do valor.</p></details>
+        <details><summary>Recebo certificado?</summary><p>Sim. Você recebe um certificado Veneto Studio ao concluir cada um dos três cursos.</p></details>
+      </div>
+      <div class="card rv" style="max-width:820px;margin:20px auto 0;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+        <div><h3>Ficou com <span class="hl">alguma dúvida</span>?</h3><p>Fale com o nosso time pelo WhatsApp.</p></div>
+        <a class="btn ghost" href="https://api.whatsapp.com/send?phone=5511973696517" target="_blank" rel="noopener">Entrar em contato</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap rv">
+      <span class="eyebrow">Sua vez</span>
+      <h2>Três cursos pelo preço de <span class="hl">menos de um</span></h2>
+      <p class="lead">Por R$ 497 você leva a trilha completa da Veneto Studio: faróis, lavagem premium e polimento, com todos os bônus e mentorias. <strong style="color:#fff">O único risco é não começar.</strong></p>
+      <button class="btn lg js-cta" data-cta="final" type="button">Sim, quero o Combo Veneto <span class="nw">por R$&nbsp;497</span></button>
+      <div class="icons"><span>🔒 Pagamento 100% seguro</span><span>✅ Acesso imediato</span><span>🛡️ Garantia de 7 dias</span></div>
+    </div>
+  </section>
+
+  <footer><div class="wrap">
+    <div style="margin-bottom:10px"><span class="wordmark md"><span class="k">Combo</span><span class="w">Veneto</span></span></div>
+    <div>Um produto Veneto Studio</div>
+    <div class="links"><a href="#">Termos de uso</a><a href="#">Política de privacidade</a></div>
+    <div>Combo Veneto 2026 © Todos os direitos reservados</div>
+    <p class="disclaimer">Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de estratégias não deve ser interpretada como garantia de resultados.</p>
+  </div></footer>
+
+  <div class="sticky-cta" id="stickyCta">
+    <div class="p"><small>De R$ 1.561 por</small><b>12x R$ 51,40</b></div>
+    <button class="btn js-cta" data-cta="barra-mobile" type="button">Garantir combo</button>
+  </div>
+  <!-- MODAL DE CAPTURA -->
+  <div class="modal" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
+    <form class="box" id="leadForm" novalidate>
+      <button class="close" type="button" id="leadClose" aria-label="Fechar">×</button>
+      <div style="text-align:center;margin-bottom:14px"><span class="wordmark md"><span class="k">Combo</span><span class="w">Veneto</span></span></div>
+      <h3 id="leadTitle">Falta só um passo</h3>
+      <p class="sub">Preencha seus dados para garantir o seu Combo Veneto com todos os bônus.</p>
+      <div class="field"><label for="leadNome">Seu nome</label><input id="leadNome" name="nome" type="text" autocomplete="name" placeholder="Como quer ser chamado" required></div>
+      <div class="field"><label for="leadZap">Seu WhatsApp</label><input id="leadZap" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(11) 99999-9999" required></div>
+      <div class="field"><label for="leadEmail">Seu e-mail</label><input id="leadEmail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="voce@email.com" required></div>
+      <div class="field"><label for="leadCpf">Seu CPF</label><input id="leadCpf" name="cpf" type="text" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" required></div>
+      <div class="msg" id="leadMsg"></div>
+      <button class="btn block" type="submit" id="leadSubmit">Garantir meu combo por R$&nbsp;497</button>
+      <div class="fine">🔒 Seus dados estão seguros e não serão compartilhados.</div>
+    </form>
+  </div>
+
+  <script src="../track-config.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var CHECKOUT = '';
+    var PAGE = '/combo-veneto/';
+    var cfg = window.VENETO_TRACK || {};
+    var live = !!(cfg.url && cfg.key) && location.protocol !== 'file:';
+    var q = new URLSearchParams(location.search);
+    var ua = navigator.userAgent || '';
+    var device = /iPad|Tablet/i.test(ua) ? 'tablet' : (/Mobi|Android|iPhone/i.test(ua) ? 'mobile' : 'desktop');
+    var sid = null;
+    try {
+      sid = localStorage.getItem('vn_sid');
+      if (!sid) { sid = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2)); localStorage.setItem('vn_sid', sid); }
+    } catch (e) {}
+    var ctx = {
+      p_session_id: sid,
+      p_referrer: (document.referrer || '').slice(0, 300) || null,
+      p_utm_source: q.get('utm_source'), p_utm_medium: q.get('utm_medium'),
+      p_utm_campaign: q.get('utm_campaign'), p_utm_content: q.get('utm_content'),
+      p_device: device
+    };
+    function rpc(fn, body) {
+      if (!live) return Promise.resolve();
+      return fetch(cfg.url.replace(/\/$/, '') + '/rest/v1/rpc/' + fn, {
+        method: 'POST', keepalive: true, mode: 'cors',
+        headers: { 'Content-Type': 'application/json', 'apikey': cfg.key, 'Authorization': 'Bearer ' + cfg.key },
+        body: JSON.stringify(body)
+      });
+    }
+    function track(ev) { try { rpc('veneto_track', Object.assign({ p_page: PAGE, p_lang: (navigator.language || '').slice(0, 16) || null }, ctx, ev)).catch(function () {}); } catch (e) {} }
+    track({ p_event: 'view' });
+
+    /* Reveal */
+    var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12 }) : null;
+    document.querySelectorAll('.rv').forEach(function (el) { io ? io.observe(el) : el.classList.add('in'); });
+
+    /* Antes e depois */
+    document.querySelectorAll('.compare').forEach(function (c) {
+      var r = c.querySelector('input[type=range]');
+      r.addEventListener('input', function () { c.style.setProperty('--pos', r.value + '%'); });
+    });
+
+    /* Barra fixa mobile */
+    var hero = document.querySelector('.hero'), sticky = document.getElementById('stickyCta');
+    function onScroll() { sticky.classList.toggle('show', window.scrollY > hero.offsetHeight - 80); }
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+    /* Modal */
+    var modal = document.getElementById('leadModal'), form = document.getElementById('leadForm');
+    var nome = document.getElementById('leadNome'), zap = document.getElementById('leadZap'), email = document.getElementById('leadEmail'), cpf = document.getElementById('leadCpf'), msg = document.getElementById('leadMsg'), submit = document.getElementById('leadSubmit');
+    var currentCta = 'cta';
+    function openModal(cta) {
+      currentCta = cta || 'cta';
+      modal.classList.add('show'); document.body.style.overflow = 'hidden';
+      setTimeout(function () { (nome.value ? zap : nome).focus(); }, 60);
+      track({ p_event: 'click', p_button: 'CTA: ' + currentCta, p_href: '#popup' });
+    }
+    function closeModal() { modal.classList.remove('show'); document.body.style.overflow = ''; }
+    document.querySelectorAll('.js-cta').forEach(function (b) { b.addEventListener('click', function () { openModal(b.getAttribute('data-cta')); }); });
+    document.getElementById('leadClose').addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('show')) closeModal(); });
+
+    /* Máscara de telefone */
+    zap.addEventListener('input', function () {
+      var d = zap.value.replace(/\D/g, '').slice(0, 11), out = '';
+      if (d.length > 0) out = '(' + d.slice(0, 2);
+      if (d.length >= 3) out += ') ' + d.slice(2, d.length > 10 ? 7 : 6);
+      if (d.length > (d.length > 10 ? 7 : 6)) out += '-' + d.slice(d.length > 10 ? 7 : 6);
+      zap.value = out;
+    });
+    cpf.addEventListener('input', function () {
+      var d = cpf.value.replace(/\D/g, '').slice(0, 11), out = d;
+      if (d.length > 9) out = d.slice(0, 3) + '.' + d.slice(3, 6) + '.' + d.slice(6, 9) + '-' + d.slice(9);
+      else if (d.length > 6) out = d.slice(0, 3) + '.' + d.slice(3, 6) + '.' + d.slice(6);
+      else if (d.length > 3) out = d.slice(0, 3) + '.' + d.slice(3);
+      cpf.value = out;
+    });
+    function cpfValido(d) {
+      if (!/^\d{11}$/.test(d) || /^(\d)\1{10}$/.test(d)) return false;
+      var s1 = 0, s2 = 0, i;
+      for (i = 0; i < 9; i++) s1 += +d[i] * (10 - i);
+      var d1 = (s1 * 10) % 11; if (d1 === 10) d1 = 0; if (d1 !== +d[9]) return false;
+      for (i = 0; i < 10; i++) s2 += +d[i] * (11 - i);
+      var d2 = (s2 * 10) % 11; if (d2 === 10) d2 = 0; return d2 === +d[10];
+    }
+    function emailValido(v) { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
+    try { var saved = JSON.parse(localStorage.getItem('vn_lead') || 'null'); if (saved) { nome.value = saved.nome || ''; zap.value = saved.zap || ''; email.value = saved.email || ''; cpf.value = saved.cpf || ''; } } catch (e) {}
+
+    function checkoutUrl(n, digits, mail, doc) {
+      var u = new URL(CHECKOUT);
+      u.searchParams.set('name', n);
+      if (mail) u.searchParams.set('email', mail);
+      if (doc) u.searchParams.set('doc', doc);
+      if (digits.length >= 10) { u.searchParams.set('phoneac', digits.slice(0, 2)); u.searchParams.set('phonenumber', digits.slice(2)); }
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'sck', 'src', 'xcod'].forEach(function (k) { if (q.get(k)) u.searchParams.set(k, q.get(k)); });
+      return u.toString();
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var n = nome.value.trim(), digits = zap.value.replace(/\D/g, ''), mail = email.value.trim().toLowerCase(), doc = cpf.value.replace(/\D/g, '');
+      nome.classList.toggle('err', n.length < 2); zap.classList.toggle('err', digits.length < 10);
+      email.classList.toggle('err', !emailValido(mail)); cpf.classList.toggle('err', !cpfValido(doc));
+      if (n.length < 2) { msg.textContent = 'Digite seu nome.'; nome.focus(); return; }
+      if (digits.length < 10) { msg.textContent = 'Digite um WhatsApp válido com DDD.'; zap.focus(); return; }
+      if (!emailValido(mail)) { msg.textContent = 'Digite um e-mail válido.'; email.focus(); return; }
+      if (!cpfValido(doc)) { msg.textContent = 'Digite um CPF válido.'; cpf.focus(); return; }
+      msg.textContent = ''; submit.disabled = true; submit.textContent = 'Só um instante…';
+      try { localStorage.setItem('vn_lead', JSON.stringify({ nome: n, zap: zap.value, email: mail, cpf: cpf.value })); } catch (e2) {}
+      var go = function () { location.href = CHECKOUT ? checkoutUrl(n, digits, mail, doc) : 'https://api.whatsapp.com/send?phone=5511973696517&text=' + encodeURIComponent('Olá! Sou ' + n + ' e quero garantir o Combo Veneto (3 cursos) por R$ 497.'); };
+      var timer = setTimeout(go, 2500);
+      var p = rpc('veneto_lead', Object.assign({ p_nome: n, p_whatsapp: digits, p_email: mail, p_cpf: doc, p_page: PAGE, p_cta: currentCta, p_url: location.href.slice(0, 500), p_utm_term: q.get('utm_term') }, ctx));
+      p.then(function () { clearTimeout(timer); go(); }).catch(function () { clearTimeout(timer); go(); });
+    });
+  })();
+  </script>
+</body>
+</html>

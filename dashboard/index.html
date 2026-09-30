@@ -261,6 +261,7 @@
       <button class="tab" data-page="/restauracao-de-farois/" type="button"><i class="dot"></i>Curso Restauração de Faróis</button>
       <button class="tab" data-page="/metodo-veneto/" type="button"><i class="dot"></i>Método Veneto</button>
       <button class="tab" data-page="/polimento-express/" type="button"><i class="dot"></i>Polimento Express</button>
+      <button class="tab" data-page="/combo-veneto/" type="button"><i class="dot"></i>Combo Veneto</button>
     </nav>
 
     <div class="notice" id="notice"></div>
@@ -390,7 +391,7 @@
     document.querySelectorAll('[data-range]').forEach(function (b) { b.addEventListener('click', function () { setPreset(b.getAttribute('data-range')); }); });
     $('btnApply').addEventListener('click', applyCustom);
     $('btnRefresh').addEventListener('click', load);
-    var PAGE_LABEL = { '/bio/': 'Link bio', '/restauracao-de-farois/': 'Curso Restauração de Faróis', '/metodo-veneto/': 'Método Veneto', '/polimento-express/': 'Polimento Express' };
+    var PAGE_LABEL = { '/bio/': 'Link bio', '/restauracao-de-farois/': 'Curso Restauração de Faróis', '/metodo-veneto/': 'Método Veneto', '/polimento-express/': 'Polimento Express', '/combo-veneto/': 'Combo Veneto' };
     document.querySelectorAll('.tab').forEach(function (t) {
       t.addEventListener('click', function () {
         state.page = t.getAttribute('data-page');
