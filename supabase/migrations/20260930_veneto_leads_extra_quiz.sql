@@ -1,0 +1,6 @@
+-- Aplicada no projeto Grupo NKZ (fscqqeakupldpdaaimkc) em 30/09/2026
+-- com o nome "veneto_leads_extra_quiz".
+-- Adiciona veneto.leads.extra (jsonb) e recria public.veneto_lead com o
+-- parâmetro opcional p_extra. Cidade e UF de p_extra vão para as colunas
+-- "Cidade" e "Região" da "00. Central de Leads".
+-- O SQL completo está no histórico de migrações do projeto.

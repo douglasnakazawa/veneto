@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Quiz: quanto você pode faturar restaurando faróis na sua cidade? | Veneto Studio</title>
+  <meta name="description" content="Responda 7 perguntas rápidas e descubra quanto você pode faturar por mês restaurando faróis na sua cidade. Cálculo gratuito da Veneto Studio.">
+  <meta name="theme-color" content="#0a0b0e">
+  <meta property="og:title" content="Quanto você pode faturar restaurando faróis na sua cidade?">
+  <meta property="og:description" content="Descubra em 1 minuto o seu potencial de ganho com restauração de faróis.">
+  <meta property="og:image" content="imagens/depois-1.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0b0e;
+      --bg-2: #0f1015;
+      --surface: #14161c;
+      --surface-2: #1a1d24;
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.16);
+      --text: #f5f5f7;
+      --text-2: #c9cbd3;
+      --muted: #8f919b;
+      --red: #e4202d;
+      --red-2: #ff3d49;
+      --red-deep: #8a0f18;
+      --red-soft: rgba(228,32,45,0.14);
+      --green: #2ab05a;
+      --green-2: #4ade80;
+      --green-soft: rgba(42,176,90,0.14);
+      --gold: #e2c05a;
+      --radius: 20px;
+      --ease: cubic-bezier(.22,.61,.36,1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background:
+        radial-gradient(80vw 50vh at 50% -10%, rgba(228,32,45,0.22), transparent 70%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100dvh;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; height: auto; }
+    button, input, select { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+    h1, h2, h3 { line-height: 1.15; font-weight: 900; letter-spacing: -0.01em; text-wrap: balance; }
+    p, li { text-wrap: pretty; }
+    .nw { white-space: nowrap; }
+    .hl { color: var(--red-2); }
+    .ok { color: var(--green-2); }
+
+    /* Topo */
+    .top {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(10,11,14,0.86); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .top .in { max-width: 640px; margin: 0 auto; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .top img { height: 30px; width: auto; }
+    .top .step { font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+    .bar { height: 4px; background: rgba(255,255,255,0.06); }
+    .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--red), var(--red-2)); box-shadow: 0 0 12px rgba(228,32,45,.6); transition: width .45s var(--ease); }
+
+    .wrap { max-width: 640px; margin: 0 auto; padding: 28px 18px 60px; }
+
+    /* Telas */
+    .screen { display: none; animation: in .45s var(--ease) both; }
+    .screen.on { display: block; }
+    @keyframes in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 800; letter-spacing: .24em; text-transform: uppercase; color: var(--red-2); margin-bottom: 14px; }
+    .eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--red); }
+
+    /* Intro */
+    .intro-img { position: relative; border-radius: 22px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 26px; aspect-ratio: 16/9; background: #000; }
+    .intro-img img { position: absolute; top: 0; height: 100%; width: 100%; object-fit: cover; }
+    .intro-img .b { left: 0; clip-path: inset(0 50% 0 0); }
+    .intro-img .a { left: 0; clip-path: inset(0 0 0 50%); }
+    .intro-img::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: #fff; transform: translateX(-50%); }
+    .intro-img .lbl { position: absolute; top: 10px; padding: 5px 10px; border-radius: 999px; font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; background: rgba(0,0,0,.6); backdrop-filter: blur(6px); }
+    .intro-img .lbl.l { left: 10px; color: #ffb4b9; } .intro-img .lbl.r { right: 10px; color: #9ff0b7; }
+    .intro h1 { font-size: clamp(28px, 7vw, 40px); text-transform: uppercase; margin-bottom: 14px; }
+    .intro .lead { color: var(--text-2); font-size: 16px; margin-bottom: 24px; }
+    .perks { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 16px; font-size: 13px; color: var(--muted); font-weight: 600; justify-content: center; }
+    .perks span::before { content: "✔"; color: var(--green); margin-right: 6px; font-weight: 900; }
+
+    /* Botões */
+    .btn {
+      display: block; width: 100%; text-align: center;
+      padding: 18px 20px; border-radius: 14px; border: none;
+      font-weight: 800; font-size: 15px; letter-spacing: .01em; text-transform: uppercase; line-height: 1.25; text-wrap: balance;
+      background: linear-gradient(180deg, var(--red-2) 0%, var(--red) 60%, #c4141f 100%);
+      color: #fff; box-shadow: 0 14px 34px rgba(228,32,45,0.35), inset 0 1px 0 rgba(255,255,255,0.18);
+      transition: transform .18s var(--ease), box-shadow .18s, opacity .2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 20px 44px rgba(228,32,45,0.45); }
+    .btn[disabled] { opacity: .45; cursor: not-allowed; transform: none; box-shadow: none; }
+    .btn.green { background: linear-gradient(180deg, #34c96b 0%, var(--green) 60%, #1f8c47 100%); box-shadow: 0 14px 34px rgba(42,176,90,0.35), inset 0 1px 0 rgba(255,255,255,0.18); }
+    .back { display: inline-flex; align-items: center; gap: 6px; background: none; border: none; color: var(--muted); font-size: 13px; font-weight: 700; margin-top: 18px; padding: 6px 0; }
+    .back:hover { color: #fff; }
+
+    /* Perguntas */
+    .q h2 { font-size: clamp(22px, 5.6vw, 30px); margin-bottom: 8px; }
+    .q .hint { color: var(--muted); font-size: 14px; margin-bottom: 22px; }
+    .opts { display: grid; gap: 10px; }
+    .opt {
+      display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
+      padding: 16px 18px; border-radius: 16px;
+      background: var(--surface); border: 1px solid var(--line);
+      transition: border-color .15s, background .15s, transform .15s var(--ease);
+    }
+    .opt:hover { border-color: var(--line-strong); background: var(--surface-2); }
+    .opt:active { transform: scale(.99); }
+    .opt.sel { border-color: var(--red); background: linear-gradient(90deg, var(--red-soft), var(--surface) 70%); }
+    .opt .ic { flex: 0 0 auto; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 22px; background: rgba(255,255,255,0.05); }
+    .opt.sel .ic { background: var(--red); }
+    .opt .t { font-weight: 800; font-size: 15px; }
+    .opt .t small { display: block; font-weight: 500; font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .opt .ck { margin-left: auto; flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--line-strong); }
+    .opt.sel .ck { border-color: var(--red); background: var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L19 7'/%3E%3C/svg%3E") center / 13px no-repeat; }
+
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+    .field input, .field select {
+      width: 100%; padding: 15px 14px; border-radius: 12px; font-size: 16px;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--line-strong); color: #fff; outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9cbd3' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px; padding-right: 38px; }
+    .field select option { background: #14161c; }
+    .field input:focus, .field select:focus { border-color: var(--red-2); box-shadow: 0 0 0 3px var(--red-soft); }
+    .field input.err { border-color: var(--red-2); }
+    .row2 { display: grid; grid-template-columns: 1fr 110px; gap: 10px; }
+    .msg { font-size: 13px; color: #ff8a92; min-height: 18px; margin: -4px 0 10px; }
+
+    /* Gate */
+    .gate-card { background: linear-gradient(180deg, #1a1d24, #111318); border: 1px solid rgba(228,32,45,.4); border-radius: 24px; padding: 26px 22px; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+    .gate-card .lock { width: 54px; height: 54px; border-radius: 16px; background: var(--green-soft); border: 1px solid rgba(42,176,90,.45); display: grid; place-items: center; font-size: 26px; margin-bottom: 16px; }
+    .gate-card h2 { font-size: clamp(22px, 5.6vw, 28px); margin-bottom: 8px; }
+    .gate-card .hint { color: var(--text-2); font-size: 14px; margin-bottom: 20px; }
+    .fine { text-align: center; font-size: 12px; color: var(--muted); margin-top: 12px; }
+
+    /* Calculando */
+    .calc { text-align: center; padding-top: 30px; }
+    .spinner { width: 76px; height: 76px; border-radius: 50%; margin: 0 auto 24px; border: 4px solid rgba(255,255,255,0.08); border-top-color: var(--red); animation: spin .9s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .calc h2 { font-size: 24px; margin-bottom: 20px; }
+    .checklist { list-style: none; display: grid; gap: 12px; max-width: 380px; margin: 0 auto; text-align: left; }
+    .checklist li { display: flex; gap: 12px; align-items: center; color: var(--muted); font-size: 14px; font-weight: 600; opacity: .35; transition: opacity .3s, color .3s; }
+    .checklist li i { flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--line-strong); display: grid; place-items: center; font-style: normal; font-size: 12px; font-weight: 900; }
+    .checklist li.done { opacity: 1; color: var(--text); }
+    .checklist li.done i { border-color: var(--green); background: var(--green); color: #fff; }
+
+    /* Resultado */
+    .res-head { text-align: center; margin-bottom: 22px; }
+    .res-head .who { font-size: 15px; color: var(--text-2); font-weight: 600; margin-bottom: 6px; }
+    .res-head .who b { color: #fff; }
+    .big {
+      border-radius: 24px; padding: 26px 20px; text-align: center; margin-bottom: 14px;
+      background: radial-gradient(120% 90% at 50% 0%, rgba(42,176,90,.22), transparent 60%), var(--surface);
+      border: 1px solid rgba(42,176,90,.45);
+      box-shadow: 0 30px 80px rgba(0,0,0,.45);
+    }
+    .big .k { font-size: 12px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+    .big .v { font-size: clamp(44px, 13vw, 64px); font-weight: 900; color: var(--green-2); line-height: 1.05; margin: 6px 0 4px; letter-spacing: -.02em; }
+    .big .v small { font-size: .38em; color: var(--text-2); font-weight: 700; letter-spacing: 0; }
+    .big .s { color: var(--text-2); font-size: 14px; }
+    .big .s b { color: #fff; }
+
+    .kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+    .kpi { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 14px 8px; text-align: center; min-width: 0; }
+    .kpi .k { font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); line-height: 1.3; min-height: 26px; }
+    .kpi .v { font-size: clamp(15px, 4.3vw, 20px); font-weight: 900; margin-top: 6px; color: #fff; }
+
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 20px; margin-bottom: 14px; }
+    .card h3 { font-size: 17px; margin-bottom: 4px; }
+    .card .sub { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+    .card p { color: var(--text-2); font-size: 15px; }
+    .card p b { color: #fff; }
+
+    .scen { display: grid; gap: 14px; }
+    .scen .r .top-l { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+    .scen .r .n { font-weight: 800; font-size: 14px; }
+    .scen .r .n small { display: block; font-weight: 500; font-size: 12px; color: var(--muted); }
+    .scen .r .val { font-weight: 900; font-size: 16px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .scen .track { height: 12px; border-radius: 999px; background: rgba(42,176,90,.12); overflow: hidden; }
+    .scen .track i { display: block; height: 100%; border-radius: 999px; background: var(--green); width: 0; transition: width 1s var(--ease); }
+    .scen .r.main .n { color: var(--green-2); }
+    .scen .r.main .track i { background: linear-gradient(90deg, var(--green), var(--green-2)); }
+
+    .market { display: flex; gap: 16px; align-items: center; }
+    .market .ic { flex: 0 0 auto; width: 56px; height: 56px; border-radius: 16px; background: var(--red-soft); border: 1px solid rgba(228,32,45,.4); display: grid; place-items: center; font-size: 26px; }
+
+    .goal.hit { border-color: rgba(42,176,90,.45); background: linear-gradient(120deg, rgba(42,176,90,.1), var(--surface) 60%); }
+    .goal.miss { border-color: rgba(226,192,90,.4); background: linear-gradient(120deg, rgba(226,192,90,.08), var(--surface) 60%); }
+
+    .offer {
+      border-radius: 26px; overflow: hidden; margin: 26px 0 14px;
+      background: linear-gradient(180deg, #1a1d24, #111318);
+      border: 1px solid rgba(228,32,45,.5);
+      box-shadow: 0 40px 100px rgba(0,0,0,.6), 0 0 0 6px rgba(228,32,45,.07);
+    }
+    .offer .pic { position: relative; aspect-ratio: 16/8; background: #000; }
+    .offer .pic img { position: absolute; top: 0; width: 100%; height: 100%; object-fit: cover; }
+    .offer .pic .b { clip-path: inset(0 50% 0 0); } .offer .pic .a { clip-path: inset(0 0 0 50%); }
+    .offer .pic::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: #fff; }
+    .offer .body { padding: 22px 20px 24px; text-align: center; }
+    .offer .logo { width: 210px; margin: 0 auto 14px; }
+    .offer h2 { font-size: clamp(22px, 5.6vw, 28px); margin-bottom: 10px; }
+    .offer .pay { color: var(--text-2); font-size: 15px; margin-bottom: 18px; }
+    .offer .pay b { color: #fff; }
+    .offer .price { margin-bottom: 18px; }
+    .offer .price .from { color: var(--muted); font-size: 14px; }
+    .offer .price .from s { color: #6f7079; }
+    .offer .price .v { font-size: clamp(38px, 11vw, 50px); font-weight: 900; line-height: 1; margin: 6px 0 4px; }
+    .offer .price .v small { display: block; font-size: .34em; color: var(--text-2); font-weight: 700; margin-top: 6px; }
+    .offer .price .cash { color: var(--text-2); font-size: 14px; }
+    .offer .price .cash b { color: #fff; }
+    .offer ul { list-style: none; display: grid; gap: 9px; margin: 0 0 22px; text-align: left; }
+    .offer li { position: relative; padding-left: 30px; color: var(--text-2); font-size: 14px; }
+    .offer li::before { content: ""; position: absolute; left: 0; top: 1px; width: 20px; height: 20px; border-radius: 50%; background: var(--green-soft); border: 1px solid rgba(42,176,90,.5); }
+    .offer li::after { content: ""; position: absolute; left: 7px; top: 5px; width: 5px; height: 9px; border-right: 2px solid var(--green); border-bottom: 2px solid var(--green); transform: rotate(45deg); }
+    .offer .trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 14px; margin-top: 14px; font-size: 12px; color: var(--muted); }
+
+    .guar { display: flex; gap: 16px; align-items: center; }
+    .seal { flex: 0 0 auto; width: 78px; height: 78px; border-radius: 50%; border: 3px solid var(--red); display: grid; place-items: center; text-align: center; line-height: 1; background: var(--red-soft); }
+    .seal b { display: block; font-size: 28px; font-weight: 900; }
+    .seal span { display: block; font-size: 7px; letter-spacing: .14em; text-transform: uppercase; color: var(--red-2); font-weight: 800; margin-top: 3px; }
+
+    .who-card { display: flex; gap: 16px; align-items: center; }
+    .who-card img { flex: 0 0 auto; width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: 50% 15%; border: 2px solid var(--red); }
+
+    .redo { display: block; margin: 20px auto 0; background: none; border: none; color: var(--muted); font-size: 13px; font-weight: 700; text-decoration: underline; }
+    .disc { font-size: 11px; color: var(--muted); text-align: center; margin-top: 18px; }
+
+    .sticky {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(10,11,14,.94); backdrop-filter: blur(12px); border-top: 1px solid var(--line);
+      display: flex; gap: 12px; align-items: center;
+      transform: translateY(110%); transition: transform .3s var(--ease);
+    }
+    .sticky.show { transform: none; }
+    .sticky .p { flex: 1; line-height: 1.2; }
+    .sticky .p small { display: block; color: var(--muted); font-size: 11px; }
+    .sticky .p b { font-size: 16px; }
+    .sticky .btn { width: auto; flex: 0 0 auto; padding: 12px 18px; font-size: 12px; border-radius: 10px; white-space: nowrap; }
+    .sticky-pad { height: 80px; }
+
+    @media (max-width: 380px) {
+      .kpis { grid-template-columns: 1fr; }
+      .kpi .k { min-height: 0; }
+      .row2 { grid-template-columns: 1fr 92px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+
+  <header class="top">
+    <div class="in">
+      <img src="imagens/logo-curso.webp" alt="Mini Curso Restauração de Faróis" width="600" height="128">
+      <span class="step" id="stepLbl">Quiz gratuito</span>
+    </div>
+    <div class="bar"><i id="bar"></i></div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- 0. INTRO -->
+    <section class="screen intro on" data-s="intro">
+      <div class="intro-img">
+        <img class="b" src="imagens/antes-1.webp" alt="Farol amarelado antes da restauração" width="400" height="225">
+        <img class="a" src="imagens/depois-1.webp" alt="Farol cristalino depois da restauração" width="400" height="225">
+        <span class="lbl l">Antes</span><span class="lbl r">Depois</span>
+      </div>
+      <span class="eyebrow">Quiz gratuito · 1 minuto</span>
+      <h1>Quanto você pode faturar <span class="hl">restaurando faróis</span> na sua cidade?</h1>
+      <p class="lead">Responda 7 perguntas rápidas e receba um cálculo personalizado do seu potencial de ganho, com base no tamanho da sua cidade, no perfil dos carros e no tempo que você tem.</p>
+      <button class="btn" id="start" type="button">Descobrir meu potencial</button>
+      <div class="perks"><span>100% gratuito</span><span>Resultado na hora</span><span>Sem compromisso</span></div>
+    </section>
+
+    <!-- 1. CIDADE -->
+    <section class="screen q" data-s="cidade">
+      <span class="eyebrow">Pergunta 1 de 7</span>
+      <h2>Em qual cidade você vai atender?</h2>
+      <p class="hint">Vamos calcular o potencial da sua região.</p>
+      <div class="row2">
+        <div class="field"><label for="cidade">Cidade</label><input id="cidade" type="text" autocomplete="address-level2" placeholder="Ex.: Campinas" maxlength="60"></div>
+        <div class="field"><label for="uf">Estado</label>
+          <select id="uf">
+            <option value="">UF</option>
+            <option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option><option>SE</option><option>TO</option>
+          </select>
+        </div>
+      </div>
+      <div class="msg" id="msgCidade"></div>
+      <button class="btn" id="goCidade" type="button" disabled>Continuar</button>
+      <button class="back" type="button" data-back>← Voltar</button>
+    </section>
+
+    <!-- 2..7 perguntas de múltipla escolha (montadas via JS) -->
+    <div id="qs"></div>
+
+    <!-- 8. GATE -->
+    <section class="screen" data-s="gate">
+      <div class="gate-card">
+        <div class="lock">🔓</div>
+        <span class="eyebrow">Seu resultado está pronto</span>
+        <h2>Para onde enviamos o seu cálculo?</h2>
+        <p class="hint">Informe seus dados para liberar o potencial de ganho em <b id="gateCity" style="color:#fff">sua cidade</b>. Você também recebe dicas do Tarcísio para começar.</p>
+        <form id="gateForm" novalidate>
+          <div class="field"><label for="nome">Seu nome</label><input id="nome" type="text" autocomplete="name" placeholder="Como quer ser chamado" maxlength="80"></div>
+          <div class="field"><label for="zap">Seu WhatsApp</label><input id="zap" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(11) 99999-9999"></div>
+          <div class="field"><label for="email">Seu e-mail</label><input id="email" type="email" inputmode="email" autocomplete="email" placeholder="voce@email.com" maxlength="120"></div>
+          <div class="msg" id="msgGate"></div>
+          <button class="btn green" id="goGate" type="submit">Ver meu resultado</button>
+          <div class="fine">🔒 Seus dados estão seguros e não serão compartilhados.</div>
+        </form>
+      </div>
+      <button class="back" type="button" data-back>← Voltar</button>
+    </section>
+
+    <!-- 9. CALCULANDO -->
+    <section class="screen calc" data-s="calc">
+      <div class="spinner"></div>
+      <h2>Calculando seu potencial<span id="calcCity"></span>…</h2>
+      <ul class="checklist" id="checklist">
+        <li><i>✓</i>Analisando o porte da cidade</li>
+        <li><i>✓</i>Estimando carros com farol amarelado</li>
+        <li><i>✓</i>Calculando o ticket ideal para a região</li>
+        <li><i>✓</i>Projetando seu faturamento mensal</li>
+      </ul>
+    </section>
+
+    <!-- 10. RESULTADO -->
+    <section class="screen" data-s="result">
+      <div class="res-head">
+        <div class="who"><b id="rNome">Você</b>, este é o seu potencial em <b id="rCidade">sua cidade</b></div>
+      </div>
+
+      <div class="big">
+        <div class="k">Potencial realista por mês</div>
+        <div class="v nw" id="rMensal">R$ 0</div>
+        <div class="s">restaurando faróis, com <b id="rServSem">0 serviços</b> por semana</div>
+      </div>
+
+      <div class="kpis">
+        <div class="kpi"><div class="k">Ticket por serviço</div><div class="v nw" id="rTicket">R$ 0</div></div>
+        <div class="kpi"><div class="k">Lucro estimado no mês</div><div class="v nw" id="rLucro">R$ 0</div></div>
+        <div class="kpi"><div class="k">Em 12 meses</div><div class="v nw" id="rAno">R$ 0</div></div>
+      </div>
+
+      <div class="card">
+        <h3>Seus 3 cenários</h3>
+        <div class="sub">Faturamento mensal conforme o número de clientes por semana</div>
+        <div class="scen">
+          <div class="r"><div class="top-l"><div class="n">Conservador<small id="sC">0 serviços/semana</small></div><div class="val" id="vC">R$ 0</div></div><div class="track"><i id="bC"></i></div></div>
+          <div class="r main"><div class="top-l"><div class="n">Realista<small id="sR">0 serviços/semana</small></div><div class="val" id="vR">R$ 0</div></div><div class="track"><i id="bR"></i></div></div>
+          <div class="r"><div class="top-l"><div class="n">Acelerado<small id="sA">0 serviços/semana</small></div><div class="val" id="vA">R$ 0</div></div><div class="track"><i id="bA"></i></div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="market">
+          <div class="ic">🚗</div>
+          <div>
+            <h3>Clientes não vão faltar</h3>
+            <p>Uma cidade do porte de <b id="mCity">sua cidade</b> tem cerca de <b id="mFrota">0 carros</b> com farol amarelado ou opaco. No cenário realista, você precisa atender só <b id="mShare">1 em cada 0</b> deles por ano.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card goal" id="goalCard">
+        <h3 id="goalTitle">Sua meta</h3>
+        <p id="goalText"></p>
+      </div>
+
+      <div class="offer" id="oferta">
+        <div class="pic">
+          <img class="b" src="imagens/antes-1.webp" alt="" width="400" height="225" loading="lazy">
+          <img class="a" src="imagens/depois-1.webp" alt="" width="400" height="225" loading="lazy">
+        </div>
+        <div class="body">
+          <img class="logo" src="imagens/logo-curso.webp" alt="Mini Curso Restauração de Faróis" width="600" height="128">
+          <h2>O próximo passo é aprender a técnica</h2>
+          <p class="pay">O curso custa menos que um serviço. Seu primeiro farol de <b class="nw" id="oTicket">R$ 0</b> já paga o investimento <b id="oVezes">0 vezes</b>.</p>
+          <div class="price">
+            <div class="from">De <s>R$&nbsp;200</s> por</div>
+            <div class="v nw">9x R$&nbsp;8,80<small>no cartão</small></div>
+            <div class="cash">ou <b>R$&nbsp;67,00</b> à vista</div>
+          </div>
+          <ul>
+            <li>5 aulas práticas, do zero ao primeiro serviço</li>
+            <li>Técnica exclusiva Veneto de acabamento</li>
+            <li>Como precificar e responder "tá caro"</li>
+            <li>Aula bônus: como vender lavagem e polimento</li>
+            <li>Certificado, 1 ano de acesso e garantia de 7 dias</li>
+          </ul>
+          <button class="btn" id="buy" type="button">Quero começar por R$&nbsp;67</button>
+          <div class="trust"><span>🔒 Pagamento seguro Hotmart</span><span>⚡ Acesso imediato</span><span>🛡️ Garantia de 7 dias</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="guar">
+          <div class="seal"><div><b>7</b><span>dias</span></div></div>
+          <p><b>Garantia incondicional de 7 dias.</b> Assista às aulas e veja a técnica completa. Se não gostar por qualquer motivo, devolvemos 100% do valor.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="who-card">
+          <img src="imagens/tarcisio.webp" alt="Tarcísio Veneto" width="800" height="909" loading="lazy">
+          <p><b>Tarcísio Veneto</b>, fundador da Veneto Studio. Mais de 4 milhões de seguidores e centenas de alunos que começaram a faturar pela restauração de faróis.</p>
+        </div>
+      </div>
+
+      <button class="btn" id="buy2" type="button">Garantir minha vaga por R$&nbsp;67</button>
+      <button class="redo" id="redo" type="button">Refazer o quiz</button>
+      <p class="disc">Estimativa baseada nas suas respostas e em médias de mercado de preço, frota e tempo de serviço. Não é garantia de resultado: o faturamento depende da sua aplicação, da sua região e da demanda local.</p>
+      <div class="sticky-pad"></div>
+    </section>
+
+  </main>
+
+  <div class="sticky" id="sticky">
+    <div class="p"><small>Mini Curso · De R$&nbsp;200 por</small><b>9x R$&nbsp;8,80</b></div>
+    <button class="btn" id="buy3" type="button">Quero começar</button>
+  </div>
+
+  <script src="../track-config.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var CHECKOUT = 'https://pay.hotmart.com/W103469304T';
+    var PAGE = '/quiz-farois/';
+    var CURSO = 67;
+    var cfg = window.VENETO_TRACK || {};
+    var live = !!(cfg.url && cfg.key) && location.protocol !== 'file:';
+    var q = new URLSearchParams(location.search);
+    var ua = navigator.userAgent || '';
+    var device = /iPad|Tablet/i.test(ua) ? 'tablet' : (/Mobi|Android|iPhone/i.test(ua) ? 'mobile' : 'desktop');
+    var sid = null;
+    try {
+      sid = localStorage.getItem('vn_sid');
+      if (!sid) { sid = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2)); localStorage.setItem('vn_sid', sid); }
+    } catch (e) {}
+    var ctx = {
+      p_session_id: sid,
+      p_referrer: (document.referrer || '').slice(0, 300) || null,
+      p_utm_source: q.get('utm_source'), p_utm_medium: q.get('utm_medium'),
+      p_utm_campaign: q.get('utm_campaign'), p_utm_content: q.get('utm_content'),
+      p_device: device
+    };
+    function rpc(fn, body) {
+      if (!live) return Promise.resolve();
+      return fetch(cfg.url.replace(/\/$/, '') + '/rest/v1/rpc/' + fn, {
+        method: 'POST', keepalive: true, mode: 'cors',
+        headers: { 'Content-Type': 'application/json', 'apikey': cfg.key, 'Authorization': 'Bearer ' + cfg.key },
+        body: JSON.stringify(body)
+      });
+    }
+    function track(button) {
+      try {
+        rpc('veneto_track', Object.assign({ p_event: button ? 'click' : 'view', p_page: PAGE, p_button: button || null, p_href: button ? '#quiz' : null, p_lang: (navigator.language || '').slice(0, 16) || null }, ctx)).catch(function () {});
+      } catch (e) {}
+    }
+    track(null);
+
+    var $ = function (id) { return document.getElementById(id); };
+    var brl = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+    var nf = new Intl.NumberFormat('pt-BR');
+    function money(v) { return brl.format(Math.round(v)).replace(/\s/g, ' '); }
+
+    /* ---------- perguntas ---------- */
+    var QS = [
+      { id: 'porte', label: 'Porte', title: 'Qual o tamanho da sua cidade?', hint: 'Cidades maiores costumam aceitar tickets mais altos.', opts: [
+        { v: 'p', ic: '🏡', t: 'Até 50 mil habitantes', s: 'Cidade pequena' },
+        { v: 'm', ic: '🏘️', t: '50 mil a 200 mil', s: 'Cidade média' },
+        { v: 'g', ic: '🏙️', t: '200 mil a 1 milhão', s: 'Cidade grande' },
+        { v: 'c', ic: '🌆', t: 'Capital ou mais de 1 milhão', s: 'Metrópole' } ] },
+      { id: 'perfil', label: 'Carros', title: 'Como são os carros que mais circulam na sua região?', hint: 'O perfil da frota influencia quanto o cliente aceita pagar.', opts: [
+        { v: 'pop', ic: '🚙', t: 'Populares', s: 'Onix, HB20, Gol, Argo' },
+        { v: 'med', ic: '🚘', t: 'Médios e seminovos', s: 'Corolla, Compass, T-Cross' },
+        { v: 'prem', ic: '🏎️', t: 'Muitos SUVs e premium', s: 'SW4, BMW, Audi, Hilux' } ] },
+      { id: 'situacao', label: 'Situação', title: 'Qual é a sua situação hoje?', hint: 'Assim ajustamos o ritmo de clientes ao seu momento.', opts: [
+        { v: 'clt', ic: '💼', t: 'Trabalho CLT e quero renda extra', s: 'Começar no tempo livre' },
+        { v: 'desemp', ic: '🔎', t: 'Estou sem trabalho fixo', s: 'Quero uma fonte de renda' },
+        { v: 'estetica', ic: '🧽', t: 'Já trabalho com estética ou lava-jato', s: 'Quero um serviço a mais' },
+        { v: 'negocio', ic: '🔧', t: 'Tenho outro negócio automotivo', s: 'Oficina, loja, funilaria' } ] },
+      { id: 'dias', label: 'Dias', title: 'Quantos dias por semana você pode dedicar?', hint: 'Seja realista: o cálculo respeita a sua agenda.', opts: [
+        { v: 2, ic: '📅', t: 'Só nos fins de semana', s: '2 dias por semana' },
+        { v: 3.5, ic: '🗓️', t: '3 a 4 dias', s: 'Parte da semana' },
+        { v: 5.5, ic: '📆', t: '5 a 6 dias', s: 'Quase todos os dias' } ] },
+      { id: 'periodo', label: 'Horas', title: 'E quanto tempo por dia?', hint: 'Cada serviço completo (par de faróis) leva cerca de 1 hora.', opts: [
+        { v: 1, ic: '⏱️', t: 'Algumas horas', s: 'Cerca de 1 serviço por dia' },
+        { v: 2, ic: '🕐', t: 'Meio período', s: 'Até 2 serviços por dia' },
+        { v: 3, ic: '☀️', t: 'Período integral', s: '3 ou mais serviços por dia' } ] },
+      { id: 'meta', label: 'Meta', title: 'Quanto você quer faturar a mais por mês?', hint: 'Vamos ver se os faróis te levam até lá.', opts: [
+        { v: 1000, ic: '💵', t: 'R$ 1.000 a mais', s: 'Um complemento na renda' },
+        { v: 2500, ic: '💰', t: 'R$ 2.500 a mais', s: 'Pagar as contas com folga' },
+        { v: 5000, ic: '🚀', t: 'R$ 5.000 a mais', s: 'Trocar de vida' },
+        { v: 10000, ic: '🏆', t: 'R$ 10.000 ou mais', s: 'Construir um negócio' } ] }
+    ];
+    var qsBox = $('qs');
+    QS.forEach(function (Q, i) {
+      var sec = document.createElement('section');
+      sec.className = 'screen q'; sec.setAttribute('data-s', Q.id);
+      var h = '<span class="eyebrow">Pergunta ' + (i + 2) + ' de 7</span><h2>' + Q.title + '</h2><p class="hint">' + Q.hint + '</p><div class="opts">';
+      Q.opts.forEach(function (o, j) {
+        h += '<button class="opt" type="button" data-q="' + Q.id + '" data-i="' + j + '"><span class="ic">' + o.ic + '</span><span class="t">' + o.t + '<small>' + o.s + '</small></span><span class="ck"></span></button>';
+      });
+      h += '</div><button class="back" type="button" data-back>← Voltar</button>';
+      sec.innerHTML = h; qsBox.appendChild(sec);
+    });
+
+    /* ---------- navegação ---------- */
+    var ORDER = ['intro', 'cidade', 'porte', 'perfil', 'situacao', 'dias', 'periodo', 'meta', 'gate', 'calc', 'result'];
+    var PROGRESS = { intro: 0, cidade: 1, porte: 2, perfil: 3, situacao: 4, dias: 5, periodo: 6, meta: 7, gate: 8, calc: 9, result: 9 };
+    var ans = {};
+    var cur = 'intro';
+    function show(id) {
+      document.querySelectorAll('.screen').forEach(function (s) { s.classList.toggle('on', s.getAttribute('data-s') === id); });
+      cur = id;
+      $('bar').style.width = (PROGRESS[id] / 9 * 100) + '%';
+      var p = PROGRESS[id];
+      $('stepLbl').textContent = id === 'intro' ? 'Quiz gratuito' : (p >= 1 && p <= 7 ? 'Pergunta ' + p + ' de 7' : (id === 'result' ? 'Seu resultado' : 'Quase lá'));
+      $('sticky').classList.remove('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (id === 'cidade') setTimeout(function () { $('cidade').focus(); }, 250);
+      if (id === 'gate') setTimeout(function () { $('nome').focus(); }, 250);
+    }
+    function next() { show(ORDER[ORDER.indexOf(cur) + 1]); }
+    document.querySelectorAll('[data-back]').forEach(function (b) { b.addEventListener('click', function () { show(ORDER[Math.max(0, ORDER.indexOf(cur) - 1)]); }); });
+
+    $('start').addEventListener('click', function () { track('Quiz: iniciou'); next(); });
+
+    function cidadeOk() { return $('cidade').value.trim().length >= 2 && $('uf').value; }
+    ['input', 'change'].forEach(function (ev) {
+      $('cidade').addEventListener(ev, function () { $('goCidade').disabled = !cidadeOk(); });
+      $('uf').addEventListener(ev, function () { $('goCidade').disabled = !cidadeOk(); });
+    });
+    $('cidade').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); $('uf').focus(); } });
+    $('goCidade').addEventListener('click', function () {
+      if (!cidadeOk()) { $('msgCidade').textContent = 'Informe a cidade e o estado.'; return; }
+      ans.cidade = $('cidade').value.trim().replace(/\s+/g, ' ');
+      ans.uf = $('uf').value;
+      track('Q1 Estado: ' + ans.uf);
+      next();
+    });
+
+    document.querySelectorAll('.opt').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var Q = QS.filter(function (x) { return x.id === b.getAttribute('data-q'); })[0];
+        var o = Q.opts[+b.getAttribute('data-i')];
+        ans[Q.id] = o.v; ans[Q.id + '_label'] = o.t;
+        b.parentNode.querySelectorAll('.opt').forEach(function (x) { x.classList.toggle('sel', x === b); });
+        track('Q' + (QS.indexOf(Q) + 2) + ' ' + Q.label + ': ' + o.t);
+        setTimeout(next, 260);
+      });
+    });
+
+    /* ---------- cálculo ---------- */
+    function calc() {
+      var tBase = { p: 150, m: 200, g: 250, c: 300 }[ans.porte];
+      var tMult = { pop: 0.85, med: 1, prem: 1.3 }[ans.perfil];
+      var ticket = Math.min(400, Math.max(150, Math.round(tBase * tMult / 10) * 10));
+      var cap = ans.dias * ans.periodo;                      // serviços possíveis por semana
+      var f = (ans.situacao === 'estetica' || ans.situacao === 'negocio') ? 0.6 : 0.45;
+      var cons = Math.max(1, Math.round(cap * 0.3));
+      var real = Math.max(cons, Math.round(cap * f));
+      var acel = Math.max(real, Math.round(cap * 0.9));
+      var semanas = 4;
+      var custo = 20;                                        // produtos por serviço (estimado)
+      var mensal = real * semanas * ticket;
+      var lucro = mensal - real * semanas * custo;
+      var pop = { p: 30000, m: 120000, g: 450000, c: 1500000 }[ans.porte];
+      var amarelados = Math.round(pop * 0.3 * 0.35 / 1000) * 1000;
+      var umEmCada = Math.max(2, Math.round(amarelados / (real * 52)));
+      var servParaMeta = Math.ceil(ans.meta / (ticket * semanas));
+      return {
+        ticket: ticket, cap: cap, cons: cons, real: real, acel: acel,
+        mCons: cons * semanas * ticket, mReal: mensal, mAcel: acel * semanas * ticket,
+        lucro: lucro, ano: mensal * 12, amarelados: amarelados, umEmCada: umEmCada,
+        servParaMeta: servParaMeta, bateMeta: mensal >= ans.meta, vezes: Math.floor(ticket / CURSO)
+      };
+    }
+
+    /* ---------- gate ---------- */
+    var nome = $('nome'), zap = $('zap'), email = $('email');
+    zap.addEventListener('input', function () {
+      var d = zap.value.replace(/\D/g, '').slice(0, 11), out = '';
+      if (d.length > 0) out = '(' + d.slice(0, 2);
+      if (d.length >= 3) out += ') ' + d.slice(2, d.length > 10 ? 7 : 6);
+      if (d.length > (d.length > 10 ? 7 : 6)) out += '-' + d.slice(d.length > 10 ? 7 : 6);
+      zap.value = out;
+    });
+    try { var saved = JSON.parse(localStorage.getItem('vn_lead') || 'null'); if (saved) { nome.value = saved.nome || ''; zap.value = saved.zap || ''; email.value = saved.email || ''; } } catch (e) {}
+    function emailOk(v) { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
+
+    var R = null;
+    $('gateForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var n = nome.value.trim(), d = zap.value.replace(/\D/g, ''), m = email.value.trim().toLowerCase();
+      nome.classList.toggle('err', n.length < 2); zap.classList.toggle('err', d.length < 10); email.classList.toggle('err', !emailOk(m));
+      if (n.length < 2) { $('msgGate').textContent = 'Digite seu nome.'; nome.focus(); return; }
+      if (d.length < 10) { $('msgGate').textContent = 'Digite um WhatsApp válido com DDD.'; zap.focus(); return; }
+      if (!emailOk(m)) { $('msgGate').textContent = 'Digite um e-mail válido.'; email.focus(); return; }
+      $('msgGate').textContent = '';
+      ans.nome = n; ans.whatsapp = d; ans.email = m;
+      try { localStorage.setItem('vn_lead', JSON.stringify({ nome: n, zap: zap.value, email: m })); } catch (e2) {}
+      R = calc();
+      var extra = {
+        origem: 'quiz-farois', cidade: ans.cidade, uf: ans.uf,
+        porte: ans.porte_label, carros: ans.perfil_label, situacao: ans.situacao_label,
+        dias: ans.dias_label, periodo: ans.periodo_label, meta: ans.meta,
+        ticket: R.ticket, servicos_semana: R.real, potencial_mensal: R.mReal, bate_meta: R.bateMeta
+      };
+      try {
+        rpc('veneto_lead', Object.assign({ p_nome: n, p_whatsapp: d, p_email: m, p_page: PAGE, p_cta: 'quiz', p_url: location.href.slice(0, 500), p_utm_term: q.get('utm_term'), p_extra: extra }, ctx)).catch(function () {});
+      } catch (e3) {}
+      track('Quiz: enviou dados');
+      runCalc();
+    });
+
+    function runCalc() {
+      $('calcCity').textContent = ' em ' + ans.cidade;
+      show('calc');
+      var items = $('checklist').querySelectorAll('li');
+      items.forEach(function (li) { li.classList.remove('done'); });
+      items.forEach(function (li, i) { setTimeout(function () { li.classList.add('done'); }, 450 + i * 450); });
+      setTimeout(renderResult, 450 + items.length * 450 + 350);
+    }
+
+    function countUp(el, to) {
+      var t0 = null, dur = 1100;
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var k = Math.min(1, (ts - t0) / dur); k = 1 - Math.pow(1 - k, 3);
+        el.textContent = money(to * k);
+        if (k < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function renderResult() {
+      var first = ans.nome.split(' ')[0];
+      var cityTxt = ans.cidade + '/' + ans.uf;
+      $('rNome').textContent = first;
+      $('rCidade').textContent = cityTxt;
+      countUp($('rMensal'), R.mReal);
+      $('rServSem').textContent = R.real + (R.real === 1 ? ' serviço' : ' serviços');
+      $('rTicket').textContent = money(R.ticket);
+      $('rLucro').textContent = money(R.lucro);
+      $('rAno').textContent = money(R.ano);
+      var max = R.mAcel || 1;
+      [['C', R.cons, R.mCons], ['R', R.real, R.mReal], ['A', R.acel, R.mAcel]].forEach(function (x) {
+        $('s' + x[0]).textContent = x[1] + (x[1] === 1 ? ' serviço' : ' serviços') + ' por semana';
+        $('v' + x[0]).textContent = money(x[2]);
+        $('b' + x[0]).style.width = '0';
+        setTimeout(function () { $('b' + x[0]).style.width = Math.max(6, x[2] / max * 100) + '%'; }, 200);
+      });
+      $('mCity').textContent = ans.cidade;
+      $('mFrota').textContent = nf.format(R.amarelados) + ' carros';
+      $('mShare').textContent = '1 em cada ' + nf.format(R.umEmCada);
+      var gc = $('goalCard');
+      gc.classList.remove('hit', 'miss');
+      if (R.bateMeta) {
+        gc.classList.add('hit');
+        $('goalTitle').innerHTML = '<span class="ok">✔</span> Você bate a sua meta de ' + money(ans.meta);
+        $('goalText').innerHTML = 'Com <b>' + R.servParaMeta + (R.servParaMeta === 1 ? ' serviço' : ' serviços') + ' por semana</b> a ' + money(R.ticket) + ' você já chega lá. No cenário realista, você passa da meta em <b>' + money(R.mReal - ans.meta) + '</b> por mês.';
+      } else {
+        gc.classList.add('miss');
+        $('goalTitle').textContent = 'Sua meta de ' + money(ans.meta) + ' está no alcance';
+        $('goalText').innerHTML = 'Para chegar lá só com faróis, você precisaria de <b>' + R.servParaMeta + ' serviços por semana</b>. O caminho mais rápido é o que o curso ensina na aula bônus: usar o farol como porta de entrada e <b>vender lavagem e polimento</b> para o mesmo cliente.';
+      }
+      $('oTicket').textContent = money(R.ticket);
+      $('oVezes').textContent = R.vezes + (R.vezes === 1 ? ' vez' : ' vezes');
+      show('result');
+      $('bar').style.width = '100%';
+      setTimeout(function () { window.dispatchEvent(new Event('scroll')); }, 700);
+      track('Quiz: viu resultado');
+    }
+
+    /* ---------- oferta ---------- */
+    function checkoutUrl() {
+      var u = new URL(CHECKOUT);
+      if (ans.nome) u.searchParams.set('name', ans.nome);
+      if (ans.email) u.searchParams.set('email', ans.email);
+      if (ans.whatsapp && ans.whatsapp.length >= 10) { u.searchParams.set('phoneac', ans.whatsapp.slice(0, 2)); u.searchParams.set('phonenumber', ans.whatsapp.slice(2)); }
+      u.searchParams.set('sck', q.get('sck') || 'quiz-farois');
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'src', 'xcod'].forEach(function (k) { if (q.get(k)) u.searchParams.set(k, q.get(k)); });
+      return u.toString();
+    }
+    function buy(label) { return function () { track(label); location.href = checkoutUrl(); }; }
+    $('buy').addEventListener('click', buy('CTA: oferta'));
+    $('buy2').addEventListener('click', buy('CTA: final'));
+    $('buy3').addEventListener('click', buy('CTA: barra-mobile'));
+    $('redo').addEventListener('click', function () {
+      track('Quiz: refez');
+      document.querySelectorAll('.opt.sel').forEach(function (x) { x.classList.remove('sel'); });
+      show('cidade');
+    });
+
+    window.addEventListener('scroll', function () {
+      if (cur !== 'result') return;
+      var o = $('oferta').getBoundingClientRect();
+      var offerVisible = o.top < window.innerHeight && o.bottom > 0;
+      $('sticky').classList.toggle('show', !offerVisible);
+    }, { passive: true });
+  })();
+  </script>
+</body>
+</html>

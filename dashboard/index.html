@@ -262,6 +262,7 @@
       <button class="tab" data-page="/metodo-veneto/" type="button"><i class="dot"></i>Método Veneto</button>
       <button class="tab" data-page="/polimento-express/" type="button"><i class="dot"></i>Polimento Express</button>
       <button class="tab" data-page="/combo-veneto/" type="button"><i class="dot"></i>Combo Veneto</button>
+      <button class="tab" data-page="/quiz-farois/" type="button"><i class="dot"></i>Quiz Faróis</button>
     </nav>
 
     <div class="notice" id="notice"></div>
@@ -391,7 +392,7 @@
     document.querySelectorAll('[data-range]').forEach(function (b) { b.addEventListener('click', function () { setPreset(b.getAttribute('data-range')); }); });
     $('btnApply').addEventListener('click', applyCustom);
     $('btnRefresh').addEventListener('click', load);
-    var PAGE_LABEL = { '/bio/': 'Link bio', '/restauracao-de-farois/': 'Curso Restauração de Faróis', '/metodo-veneto/': 'Método Veneto', '/polimento-express/': 'Polimento Express', '/combo-veneto/': 'Combo Veneto' };
+    var PAGE_LABEL = { '/bio/': 'Link bio', '/restauracao-de-farois/': 'Curso Restauração de Faróis', '/metodo-veneto/': 'Método Veneto', '/polimento-express/': 'Polimento Express', '/combo-veneto/': 'Combo Veneto', '/quiz-farois/': 'Quiz Faróis' };
     document.querySelectorAll('.tab').forEach(function (t) {
       t.addEventListener('click', function () {
         state.page = t.getAttribute('data-page');
@@ -435,7 +436,9 @@
       $('subTitle').textContent = 'Dashboard · ' + (PAGE_LABEL[state.page] || state.page);
       $('openPage').href = '..' + state.page;
       $('cardButtons').querySelector('h2').textContent = isBio ? 'Cliques por botão' : 'Cliques por CTA';
-      $('cardButtons').querySelector('.hint').textContent = isBio ? 'Botões do link na bio e redes no topo' : 'Qual botão da página abriu o pop-up de captura';
+      var isQuiz = state.page === '/quiz-farois/';
+      $('cardButtons').querySelector('h2').textContent = isBio ? 'Cliques por botão' : (isQuiz ? 'Funil e respostas do quiz' : 'Cliques por CTA');
+      $('cardButtons').querySelector('.hint').textContent = isBio ? 'Botões do link na bio e redes no topo' : (isQuiz ? 'Quantos iniciaram, cada resposta escolhida, quantos viram o resultado e clicaram em comprar' : 'Qual botão da página abriu o pop-up de captura');
       $('cardLeads').style.display = isBio ? 'none' : '';
       $('cardClicks').className = 'card kpi green ' + (isBio ? 'span-3' : 'span-2');
       $('cardCtr').className = 'card kpi green ' + (isBio ? 'span-3' : 'span-2');
