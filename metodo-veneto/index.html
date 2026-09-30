@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Método Veneto – Lavagem automotiva detalhada | Veneto Studio</title>
+  <meta name="description" content="Como faturar R$ 10 mil por mês com apenas 2 serviços por dia, mesmo começando do zero. 12 módulos, 3 bônus e 3 mentorias ao vivo com Tarcísio Veneto.">
+  <meta name="theme-color" content="#0a0b0e">
+  <meta property="og:title" content="Método Veneto – Lavagem automotiva detalhada | Veneto Studio">
+  <meta property="og:description" content="Como faturar R$ 10 mil por mês com apenas 2 serviços por dia, mesmo começando do zero. 12 módulos, 3 bônus e 3 mentorias ao vivo com Tarcísio Veneto.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0b0e;
+      --bg-2: #0f1015;
+      --surface: #14161c;
+      --surface-2: #1a1d24;
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.16);
+      --text: #f5f5f7;
+      --text-2: #c9cbd3;
+      --muted: #8f919b;
+      --red: #e4202d;
+      --red-2: #ff3d49;
+      --red-deep: #8a0f18;
+      --red-soft: rgba(228,32,45,0.14);
+      --green: #2ab05a;
+      --green-soft: rgba(42,176,90,0.14);
+      --gold: #e2c05a;
+      --radius: 20px;
+      --max: 1120px;
+      --ease: cubic-bezier(.22,.61,.36,1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; cursor: pointer; }
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    section { padding: 88px 0; position: relative; }
+    .alt { background: var(--bg-2); }
+    h1, h2, h3 { line-height: 1.12; font-weight: 800; letter-spacing: -0.01em; text-wrap: balance; }
+    p, li, .lead, .stat, .pill, .compare-cap, .safe, .fine, .sub { text-wrap: pretty; }
+    .nw { white-space: nowrap; }
+    h1 { font-size: clamp(30px, 4.6vw, 54px); font-weight: 900; }
+    h2 { font-size: clamp(28px, 3.6vw, 42px); font-weight: 900; text-transform: uppercase; }
+    h3 { font-size: 19px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--red-2);
+      margin-bottom: 16px;
+    }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--red); }
+    .center { text-align: center; }
+    .center .eyebrow::after { content: ""; width: 26px; height: 2px; background: var(--red); }
+    .lead { color: var(--text-2); font-size: 17px; max-width: 720px; }
+    .center .lead { margin: 16px auto 0; }
+    .hl { color: var(--red-2); }
+    .muted { color: var(--muted); }
+
+    /* Botões */
+    .btn {
+      display: inline-block; vertical-align: middle;
+      padding: 18px 34px; border-radius: 14px; border: none;
+      font-weight: 800; font-size: 15px; letter-spacing: 0; text-transform: uppercase; text-wrap: balance; line-height: 1.25; text-align: center;
+      background: linear-gradient(180deg, var(--red-2) 0%, var(--red) 60%, #c4141f 100%);
+      color: #fff; box-shadow: 0 14px 34px rgba(228,32,45,0.35), inset 0 1px 0 rgba(255,255,255,0.18);
+      transition: transform .18s var(--ease), box-shadow .18s var(--ease), filter .18s;
+      position: relative; overflow: hidden;
+    }
+    .btn::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.22) 50%, transparent 70%);
+      transform: translateX(-130%); transition: transform .7s var(--ease);
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 20px 44px rgba(228,32,45,0.45); }
+    .btn:hover::after { transform: translateX(130%); }
+    .btn.lg { padding: 20px 40px; font-size: 16px; }
+    .btn.block { display: block; width: 100%; }
+    .btn.ghost { background: rgba(255,255,255,0.06); box-shadow: none; border: 1px solid var(--line-strong); }
+    .btn svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; vertical-align: -4px; margin-left: 6px; }
+    .trust { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 14px; font-size: 12px; color: var(--muted); font-weight: 600; }
+    .trust span { display: inline-flex; align-items: center; gap: 6px; }
+    .trust span::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+
+    /* Topbar */
+    .topbar {
+      position: sticky; top: 0; z-index: 40;
+      background: rgba(10,11,14,0.82); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 66px; gap: 16px; }
+    .topbar img { height: 34px; width: auto; }
+    .topbar .btn { padding: 11px 18px; font-size: 12px; border-radius: 10px; white-space: nowrap; }
+    .topbar .btn span { display: none; }
+    @media (min-width: 640px) { .topbar .btn span { display: inline; } }
+
+    /* Hero */
+    .hero {
+      padding: 0;
+      min-height: 640px;
+      background: #06070a url('imagens/hero-bg.webp') 64% top / cover no-repeat;
+      position: relative;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background:
+        linear-gradient(90deg, rgba(6,7,10,0.96) 0%, rgba(6,7,10,0.88) 38%, rgba(6,7,10,0.35) 62%, rgba(6,7,10,0.1) 100%),
+        linear-gradient(180deg, rgba(6,7,10,0) 70%, var(--bg) 100%);
+    }
+    .hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 620px) 1fr; min-height: 640px; align-items: center; padding-top: 72px; padding-bottom: 72px; }
+    .hero .logo-curso { width: 250px; margin-bottom: 26px; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.6)); }
+    .hero h1 { margin-bottom: 18px; text-transform: uppercase; }
+    .hero .lead { margin-bottom: 30px; }
+    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 34px; max-width: 560px; }
+    .stat {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 14px 16px; border-radius: 14px;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--line); backdrop-filter: blur(6px);
+      font-size: 13px; color: var(--text-2); line-height: 1.4;
+    }
+    .stat b { display: block; color: #fff; font-size: 14px; }
+    .stat i { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; background: var(--red-soft); display: grid; place-items: center; }
+    .stat i svg { width: 14px; height: 14px; stroke: var(--red-2); stroke-width: 2.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Faixa de prova social */
+    .strip { padding: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-2); }
+    .strip .wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 40px; padding: 22px 20px; }
+    .strip span { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-2); font-weight: 600; }
+    .strip b { color: #fff; font-size: 18px; font-weight: 900; }
+
+    /* Cards genéricos */
+    .grid { display: grid; gap: 16px; }
+    .cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 28px; position: relative; overflow: hidden;
+      transition: transform .25s var(--ease), border-color .25s;
+    }
+    .card:hover { transform: translateY(-3px); border-color: var(--line-strong); }
+    .card h3 { margin-bottom: 10px; }
+    .card p { color: var(--text-2); font-size: 15px; }
+    .ico {
+      width: 46px; height: 46px; border-radius: 13px; margin-bottom: 18px;
+      background: linear-gradient(160deg, var(--red-soft), rgba(228,32,45,0.04)); border: 1px solid rgba(228,32,45,0.35);
+      display: grid; place-items: center;
+    }
+    .ico svg { width: 22px; height: 22px; stroke: var(--red-2); stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Listas check / x */
+    .list { list-style: none; display: grid; gap: 12px; margin-top: 18px; }
+    .list li { position: relative; padding-left: 34px; color: var(--text-2); font-size: 15px; }
+    .list li::before {
+      content: ""; position: absolute; left: 0; top: 2px; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--green-soft); border: 1px solid rgba(42,176,90,0.5);
+    }
+    .list li::after {
+      content: ""; position: absolute; left: 8px; top: 6px; width: 5px; height: 10px;
+      border-right: 2px solid var(--green); border-bottom: 2px solid var(--green); transform: rotate(45deg);
+    }
+    .list.no li::before { background: var(--red-soft); border-color: rgba(228,32,45,0.5); }
+    .list.no li::after { border: none; width: 10px; height: 10px; left: 6px; top: 8px; transform: none;
+      background: linear-gradient(45deg, transparent 45%, var(--red-2) 45%, var(--red-2) 55%, transparent 55%), linear-gradient(-45deg, transparent 45%, var(--red-2) 45%, var(--red-2) 55%, transparent 55%); }
+    .card.yes { border-top: 3px solid var(--green); }
+    .card.no { border-top: 3px solid var(--red); }
+    .quote {
+      margin: 34px auto 0; max-width: 760px; text-align: center; font-style: italic; color: var(--text-2);
+      padding: 22px 26px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line);
+    }
+
+    /* Instrutor */
+    .instr { display: grid; grid-template-columns: 380px 1fr; gap: 48px; align-items: center; }
+    .instr .photo { border-radius: 24px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0,0,0,0.6); position: relative; }
+    .instr .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(10,11,14,0.7)); }
+    .instr .photo img { width: 100%; }
+    .instr h2 { text-transform: none; font-size: clamp(30px, 3.6vw, 44px); }
+    .instr .role { color: var(--muted); margin: 8px 0 22px; font-weight: 600; }
+    .instr p { color: var(--text-2); margin-bottom: 14px; }
+    .instr strong { color: #fff; }
+    .pills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 24px; }
+    .pill { padding: 14px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .pill b { display: block; color: #fff; font-size: 14px; margin-bottom: 2px; }
+
+    /* Calculadora */
+    .calc { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 34px; }
+    .calc .box { border-radius: var(--radius); padding: 28px; border: 1px solid var(--line); background: var(--surface); text-align: center; position: relative; overflow: hidden; }
+    .calc .box::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: var(--red); }
+    .calc .box.realista::before { background: var(--green); }
+    .calc .tag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red-2); padding: 6px 12px; border-radius: 999px; background: var(--red-soft); }
+    .calc .realista .tag { color: var(--green); background: var(--green-soft); }
+    .calc .line { color: var(--text-2); margin-top: 14px; font-size: 15px; }
+    .calc .total { font-size: clamp(30px, 4vw, 40px); font-weight: 900; margin-top: 10px; color: #fff; }
+    .calc .realista .total { color: var(--green); }
+
+    /* Antes e depois */
+    .compare-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 40px; }
+    .compare { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); aspect-ratio: 16 / 9; background: #000; user-select: none; }
+    .compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .compare .after { clip-path: inset(0 0 0 var(--pos, 50%)); }
+    .compare .handle {
+      position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 2px; background: #fff; transform: translateX(-50%);
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.3); pointer-events: none;
+    }
+    .compare .handle::after {
+      content: "⇆"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 44px; height: 44px; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; font-size: 18px; font-weight: 900;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+    .compare input[type=range] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+    .compare .lbl { position: absolute; top: 12px; padding: 6px 12px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; background: rgba(0,0,0,0.6); backdrop-filter: blur(6px); pointer-events: none; }
+    .compare .lbl.b { left: 12px; color: #ffb4b9; }
+    .compare .lbl.a { right: 12px; color: #9ff0b7; }
+    .compare-cap { text-align: center; color: var(--muted); font-size: 13px; margin-top: 12px; }
+    .compare-cap b { color: #fff; }
+
+    /* Aulas */
+    .lessons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+    .lesson { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; position: relative; overflow: hidden; }
+    .lesson .n { position: absolute; right: 18px; top: 8px; font-size: 72px; font-weight: 900; color: rgba(255,255,255,0.045); line-height: 1; }
+    .lesson .k { font-size: 11px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red-2); margin-bottom: 8px; }
+    .lesson h3 { font-size: 17px; margin-bottom: 12px; }
+    .lesson ul { list-style: none; display: grid; gap: 8px; }
+    .lesson li { position: relative; padding-left: 20px; color: var(--text-2); font-size: 14px; }
+    .lesson li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px; border-radius: 2px; background: var(--red); }
+    .lesson.bonus { grid-column: 1 / -1; border: 1px solid rgba(226,192,90,0.45); background: linear-gradient(120deg, rgba(226,192,90,0.08), var(--surface) 55%); }
+    .lesson.bonus .k { color: var(--gold); }
+    .lesson.bonus li::before { background: var(--gold); }
+    .lesson.bonus ul { grid-template-columns: repeat(2, 1fr); }
+    .perks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+    .perk { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; text-align: center; }
+    .perk .img { aspect-ratio: 16 / 10; background: #fff; display: grid; place-items: center; overflow: hidden; }
+    .perk .img img { width: 100%; height: 100%; object-fit: cover; }
+    .perk .img.pad img { object-fit: contain; padding: 18px; }
+    .perk .t { padding: 18px 18px 22px; }
+    .perk h3 { font-size: 16px; }
+    .perk p { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+    /* Depoimentos */
+    .testi { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 40px; }
+    .t-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+    .t-card .who { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .t-card .av { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(160deg, var(--red-2), var(--red-deep)); display: grid; place-items: center; font-weight: 900; font-size: 15px; }
+    .t-card .name { font-weight: 800; }
+    .t-card .stars { color: var(--gold); font-size: 12px; letter-spacing: 2px; }
+    .t-card p { color: var(--text-2); font-style: italic; }
+
+    /* Oferta */
+    .offer { display: grid; grid-template-columns: 1fr 460px; gap: 48px; align-items: center; }
+    .offer h2 { text-transform: none; }
+    .offer .txt p { color: var(--text-2); margin-top: 14px; }
+    .offer .txt strong { color: #fff; }
+    .price-box {
+      border-radius: 26px; padding: 36px 32px; text-align: center; position: relative;
+      background: linear-gradient(180deg, #1a1d24, #111318);
+      border: 1px solid rgba(228,32,45,0.45);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 6px rgba(228,32,45,0.08);
+    }
+    .price-box .badge {
+      position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+      background: var(--red); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 8px 16px; border-radius: 999px; white-space: nowrap; box-shadow: 0 8px 22px rgba(228,32,45,0.45);
+    }
+    .price-box img { width: 220px; margin: 6px auto 18px; }
+    .price-box .from { color: var(--muted); font-size: 15px; }
+    .price-box .from s { color: #6f7079; }
+    .price-box .inst { font-size: clamp(40px, 6vw, 56px); font-weight: 900; line-height: 1; margin-top: 6px; color: #fff; }
+    .price-box .inst small { display: block; font-size: 0.3em; font-weight: 700; color: var(--text-2); margin-top: 6px; letter-spacing: 0.02em; }
+    .price-box .cash { color: var(--text-2); margin: 8px 0 22px; font-size: 15px; }
+    .price-box .cash b { color: #fff; }
+    .price-box .list { text-align: left; margin: 0 0 26px; gap: 9px; }
+    .price-box .list li { font-size: 14px; }
+    .price-box .safe { margin-top: 14px; font-size: 12px; color: var(--muted); }
+    .price-box .safe + .safe { margin-top: 6px; }
+
+    /* Garantia */
+    .guar { display: grid; grid-template-columns: 150px 1fr; gap: 32px; align-items: center; max-width: 900px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 36px; }
+    .seal { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--red); display: grid; place-items: center; text-align: center; line-height: 1; background: var(--red-soft); box-shadow: 0 0 0 10px rgba(228,32,45,0.06); }
+    .seal b { display: block; font-size: 52px; font-weight: 900; color: #fff; }
+    .seal span { display: block; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red-2); font-weight: 800; margin-top: 6px; }
+    .guar h3 { font-size: 24px; font-weight: 900; text-transform: uppercase; }
+    .guar .zero { color: var(--red-2); font-weight: 800; margin: 6px 0 12px; }
+    .guar p { color: var(--text-2); }
+
+    /* FAQ */
+    .faq { max-width: 820px; margin: 36px auto 0; }
+    details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 0 22px; margin-bottom: 10px; }
+    summary { cursor: pointer; padding: 18px 0; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--red-2); font-size: 24px; font-weight: 400; flex: 0 0 auto; transition: transform .2s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    details p { color: var(--text-2); padding-bottom: 18px; font-size: 15px; }
+
+    /* Final */
+    .final { background: radial-gradient(700px 400px at 50% 0%, rgba(228,32,45,0.22), transparent 70%), var(--bg-2); text-align: center; }
+    .final .lead { margin: 16px auto 30px; }
+    .icons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 24px; margin-top: 18px; font-size: 13px; color: var(--muted); }
+
+    footer { border-top: 1px solid var(--line); padding: 40px 0 110px; text-align: center; color: var(--muted); font-size: 12px; }
+    footer img { height: 34px; width: auto; margin: 0 auto 12px; opacity: .9; }
+    footer .links { margin: 10px 0; display: flex; justify-content: center; gap: 18px; }
+    footer .links a:hover { color: #fff; }
+    @media (min-width: 720px) { footer { padding-bottom: 40px; } }
+
+    /* Barra fixa mobile */
+    .sticky-cta {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(10,11,14,0.92); backdrop-filter: blur(12px); border-top: 1px solid var(--line);
+      display: flex; align-items: center; gap: 12px;
+      transform: translateY(110%); transition: transform .3s var(--ease);
+    }
+    .sticky-cta.show { transform: translateY(0); }
+    .sticky-cta .p { flex: 1; line-height: 1.2; }
+    .sticky-cta .p small { display: block; color: var(--muted); font-size: 11px; }
+    .sticky-cta .p b { font-size: 16px; }
+    .sticky-cta .btn { padding: 12px 18px; font-size: 12px; border-radius: 10px; flex: 0 0 auto; width: auto !important; white-space: nowrap; }
+    @media (min-width: 720px) { .sticky-cta { display: none; } }
+
+    /* Modal */
+    .modal { position: fixed; inset: 0; z-index: 60; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(4,5,8,0.82); backdrop-filter: blur(10px); }
+    .modal.show { display: flex; }
+    .modal .box {
+      width: 100%; max-width: 440px; border-radius: 24px; padding: 30px 26px; position: relative;
+      background: linear-gradient(180deg, #1a1d24, #111318); border: 1px solid rgba(228,32,45,0.4);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.7); animation: pop .35s var(--ease) both;
+    }
+    @keyframes pop { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
+    .modal .close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: rgba(255,255,255,0.05); font-size: 18px; line-height: 1; }
+    .modal img { width: 190px; margin: 0 auto 16px; }
+    .modal h3 { font-size: 22px; font-weight: 900; text-align: center; }
+    .modal .sub { text-align: center; color: var(--muted); font-size: 14px; margin: 8px 0 16px; }
+    .modal .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 400px) { .modal .row2 { grid-template-columns: 1fr; } }
+    .field { margin-bottom: 12px; }
+    .field label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .field input {
+      width: 100%; padding: 14px 14px; border-radius: 12px; font-size: 16px;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--line-strong); color: #fff; outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .field input:focus { border-color: var(--red-2); box-shadow: 0 0 0 3px var(--red-soft); }
+    .field input.err { border-color: var(--red-2); }
+    .modal .msg { font-size: 12px; color: #ff8a92; min-height: 16px; margin: -4px 0 8px; }
+    .modal .btn { margin-top: 6px; font-size: 14px; padding: 16px 14px; }
+    .modal .fine { text-align: center; font-size: 11px; color: var(--muted); margin-top: 12px; }
+    .modal .btn[disabled] { opacity: .7; cursor: wait; transform: none; }
+
+    /* Reveal */
+    .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rv.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } *, *::before, *::after { animation: none !important; } }
+
+    /* Responsivo */
+    @media (max-width: 960px) {
+      .cols-3 { grid-template-columns: repeat(2, 1fr); }
+      .lessons { grid-template-columns: repeat(2, 1fr); }
+      .instr { grid-template-columns: 1fr; }
+      .instr .photo { max-width: 380px; }
+      .offer { grid-template-columns: 1fr; }
+      .hero .wrap { grid-template-columns: 1fr; }
+      .hero { background-position: 70% top; }
+      .hero::before { background: linear-gradient(180deg, rgba(6,7,10,0.35) 0%, rgba(6,7,10,0.92) 45%, var(--bg) 100%); }
+      .hero .wrap { padding-top: 300px; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 64px 0; }
+      .cols-2, .cols-3, .lessons, .perks, .testi, .compare-grid, .calc { grid-template-columns: 1fr; }
+      .lesson.bonus ul { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr; }
+      .pills { grid-template-columns: 1fr; }
+      .guar { grid-template-columns: 1fr; text-align: center; padding: 28px 20px; }
+      .seal { margin: 0 auto; }
+      .btn { width: 100%; padding: 17px 16px; font-size: 14px; }
+      .btn.lg { padding: 18px 16px; font-size: 14px; }
+      .btn svg { width: 16px; height: 16px; }
+      .topbar .btn { width: auto; }
+      .hero .logo-curso { width: 200px; }
+      .hero .wrap { padding-top: 240px; padding-bottom: 56px; }
+      .price-box { padding: 30px 18px; }
+      .modal .box { padding: 26px 20px; }
+      .card { padding: 22px; }
+    }
+  
+    /* ===== componentes extras (Método Veneto / Polimento Express) ===== */
+    .wordmark { display: inline-flex; flex-direction: column; line-height: .95; }
+    .wordmark .k { font-size: 10px; font-weight: 700; letter-spacing: .34em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+    .wordmark .k::before, .wordmark .k::after { content: ""; flex: 1; height: 1px; background: var(--red); min-width: 14px; }
+    .wordmark .w { font-weight: 900; letter-spacing: -.03em; text-transform: uppercase; background: linear-gradient(180deg,#fff 0%,#d9dbe2 45%,#8d909b 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .wordmark.pe .w { color: #fff; -webkit-text-fill-color: #fff; background: none; font-style: italic; }
+    .wordmark.pe .w b { color: var(--red-2); -webkit-text-fill-color: var(--red-2); font-style: italic; }
+    .wordmark.pe .k { color: #fff; background: var(--red); padding: 4px 10px; border-radius: 4px; font-style: italic; letter-spacing: .28em; align-self: flex-start; }
+    .wordmark.pe .k::before, .wordmark.pe .k::after { display: none; }
+    .wordmark.sm .w { font-size: 22px; } .wordmark.sm .k { font-size: 8px; }
+    .wordmark.md .w { font-size: 30px; } .wordmark.md .k { font-size: 9px; }
+    .wordmark.lg .w { font-size: clamp(44px, 7vw, 64px); }
+    .topbar .wordmark { line-height: .9; }
+    .hero .price-note { margin-top: 12px; font-size: 14px; color: var(--text-2); }
+    .hero .price-note s { color: #6f7079; } .hero .price-note b { color: #fff; }
+    .who { position: relative; }
+    .who .img { border-radius: 16px; overflow: hidden; margin: -10px -10px 18px; border: 1px solid var(--line); }
+    .who .img img { width: 100%; aspect-ratio: 16/9; object-fit: cover; filter: saturate(.85); }
+    .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 22px; }
+    .pillar { padding: 14px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--red); font-size: 13px; color: var(--muted); }
+    .pillar b { display: block; color: #fff; font-size: 14px; margin-bottom: 2px; text-transform: uppercase; letter-spacing: .06em; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .diagram { position: relative; padding: 20px; }
+    .diagram img { width: 100%; filter: drop-shadow(0 20px 40px rgba(0,0,0,.6)); }
+    .modules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 36px; }
+    .module { display: flex; align-items: center; gap: 14px; padding: 16px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+    .module .n { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: var(--red-soft); color: var(--red-2); font-weight: 900; font-size: 15px; }
+    .module .t { font-weight: 700; font-size: 15px; }
+    .module .t small { display: block; font-weight: 500; color: var(--muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+    .bonus { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 36px; }
+    .bonus-card { display: grid; grid-template-columns: 300px 1fr; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .bonus-card .img { background: #0c0d11; }
+    .bonus-card .img img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; }
+    .bonus-card .body { padding: 26px 28px; }
+    .bonus-card .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; margin-bottom: 12px; flex-wrap: wrap; }
+    .bonus-card .num { font-size: 11px; font-weight: 800; letter-spacing: .2em; color: var(--red-2); border: 1px solid rgba(228,32,45,.5); padding: 5px 10px; border-radius: 6px; }
+    .bonus-card .val { text-align: right; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+    .bonus-card .val b { display: block; color: var(--green); font-size: 16px; letter-spacing: 0; }
+    .bonus-card h3 { margin-bottom: 8px; }
+    .bonus-card p { color: var(--text-2); font-size: 15px; }
+    .bonus-card .chip { display: inline-block; margin: 8px 8px 0 0; font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: var(--green-soft); color: #9ff0b7; }
+    .examples { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px; }
+    .example { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; text-align: center; border-top: 3px solid var(--red); }
+    .example h3 { font-size: 16px; }
+    .example p { color: var(--muted); font-size: 14px; margin-top: 8px; min-height: 66px; }
+    .example .total { font-size: 32px; font-weight: 900; color: #fff; margin-top: 12px; }
+    .example .cap { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+    .price-box.light { background: linear-gradient(180deg, #ffffff, #eef0f4); border: 1px solid rgba(0,0,0,.08); color: #16181d; box-shadow: 0 40px 100px rgba(0,0,0,.6); }
+    .price-box.light .from { color: #6b6e78; } .price-box.light .from s { color: #a0a3ad; }
+    .price-box.light .inst, .price-box.light .cash b { color: #16181d; }
+    .price-box.light .inst small, .price-box.light .cash { color: #4a4d57; }
+    .price-box.light .list li { color: #2b2e36; }
+    .price-box.light .safe { color: #6b6e78; }
+    .price-box.light .cond { font-size: 11px; color: #6b6e78; margin-top: 14px; }
+    .price-box.light .amount { font-size: clamp(44px, 6vw, 60px); font-weight: 900; color: var(--red); letter-spacing: -.02em; line-height: 1; margin: 6px 0 4px; }
+    .receive { list-style: none; display: grid; gap: 10px; margin-top: 18px; }
+    .receive li { display: flex; gap: 12px; align-items: flex-start; color: var(--text-2); }
+    .receive li i { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; background: var(--red-soft); display: grid; place-items: center; color: var(--red-2); font-weight: 900; font-size: 12px; }
+    .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 30px; }
+    .vs .box { border-radius: var(--radius); padding: 26px; border: 1px solid var(--line); }
+    .vs .bad { background: linear-gradient(180deg, rgba(228,32,45,.14), var(--surface) 60%); border-top: 3px solid var(--red); }
+    .vs .good { background: linear-gradient(180deg, rgba(42,176,90,.14), var(--surface) 60%); border-top: 3px solid var(--green); }
+    .vs h3 { margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .vs h3 i { width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; font-style: normal; font-weight: 900; font-size: 14px; }
+    .vs .bad h3 i { background: var(--red-soft); color: var(--red-2); } .vs .good h3 i { background: var(--green-soft); color: var(--green); }
+    .vs .kicker { font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); font-weight: 800; margin-bottom: 8px; }
+    .tbl { width: 100%; border-collapse: collapse; margin-top: 26px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .tbl th, .tbl td { padding: 14px 16px; text-align: center; font-size: 14px; border-bottom: 1px solid var(--line); }
+    .tbl th { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--red-2); font-weight: 800; }
+    .tbl td:first-child { text-align: left; font-weight: 800; color: #fff; }
+    .tbl tr:last-child td { border-bottom: none; }
+    .tbl tr.hi td { background: rgba(42,176,90,.08); color: #fff; }
+    .tbl-wrap { overflow-x: auto; }
+    .concl { text-align: center; margin-top: 18px; color: var(--text-2); }
+    .concl b { color: var(--green); }
+    .gallery { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px 0 14px; margin-top: 30px; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+    .gallery img { flex: 0 0 auto; width: 210px; aspect-ratio: 9/16; object-fit: cover; border-radius: 16px; border: 1px solid var(--line); scroll-snap-align: start; }
+    .checks { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; margin-top: 14px; font-size: 13px; color: var(--text-2); }
+    .checks span::before { content: "✔"; color: var(--green); margin-right: 6px; font-weight: 900; }
+    .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 22px; }
+    .chips span { padding: 10px 16px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: 13px; color: var(--text-2); }
+    .acc { max-width: 860px; margin: 36px auto 0; }
+    .acc details { padding: 0 24px; }
+    .acc summary { font-size: 16px; }
+    .acc ul { list-style: none; display: grid; gap: 8px; padding-bottom: 20px; }
+    .acc li { position: relative; padding-left: 18px; color: var(--text-2); font-size: 14px; }
+    .acc li::before { content: ""; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border-radius: 2px; background: var(--red); }
+    .timeline { position: relative; max-width: 760px; margin: 36px auto 0; padding-left: 34px; }
+    .timeline::before { content: ""; position: absolute; left: 10px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(180deg, var(--red), rgba(228,32,45,.15)); }
+    .step { position: relative; margin-bottom: 26px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; }
+    .step::before { content: ""; position: absolute; left: -30px; top: 24px; width: 12px; height: 12px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 5px rgba(228,32,45,.18); }
+    .step h3 { font-size: 16px; margin-bottom: 8px; }
+    .step ul { list-style: none; display: grid; gap: 5px; }
+    .step li { color: var(--text-2); font-size: 14px; padding-left: 14px; position: relative; }
+    .step li::before { content: "•"; position: absolute; left: 0; color: var(--red-2); }
+    .step .meta { margin-top: 8px; font-size: 13px; color: var(--green); font-weight: 700; }
+    .proj { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 26px; }
+    .proj div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; text-align: center; }
+    .proj small { display: block; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+    .proj b { display: block; font-size: 26px; font-weight: 900; margin-top: 6px; color: #fff; }
+    .proj span { font-size: 12px; color: var(--muted); }
+    .cost { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 36px; }
+    .cost .c { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; border-top: 3px solid var(--line-strong); }
+    .cost .c.win { border-top-color: var(--green); background: linear-gradient(180deg, rgba(42,176,90,.1), var(--surface) 50%); }
+    .cost h3 { font-size: 15px; margin-bottom: 12px; min-height: 40px; }
+    .cost ul { list-style: none; display: grid; gap: 6px; }
+    .cost li { font-size: 13px; color: var(--text-2); padding-left: 12px; position: relative; }
+    .cost li::before { content: "•"; position: absolute; left: 0; color: var(--muted); }
+    .cost li.tot { color: #fff; font-weight: 800; margin-top: 6px; }
+    .cost .win li.tot { color: var(--green); }
+    .bonus-total { text-align: center; margin-top: 24px; font-size: 16px; color: var(--text-2); }
+    .bonus-total b { color: var(--red-2); text-transform: uppercase; letter-spacing: .08em; }
+    .decide { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; max-width: 900px; margin-left: auto; margin-right: auto; }
+    .receive-box { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: linear-gradient(180deg,#1a1d24,#111318); border: 1px solid rgba(228,32,45,.45); border-radius: 26px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,.6); }
+    .receive-box .l { padding: 34px 32px; border-right: 1px solid var(--line); }
+    .receive-box .r { padding: 34px 32px; text-align: center; display: flex; flex-direction: column; justify-content: center; }
+    .receive-box h3 { font-size: 24px; margin: 14px 0 18px; }
+    .receive-box .row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--text-2); }
+    .receive-box .row s { color: var(--red-2); text-decoration: line-through; font-weight: 700; }
+    .receive-box .row .diff { color: var(--red-2); font-weight: 700; }
+    .receive-box .total { margin-top: 14px; font-size: 15px; color: var(--muted); }
+    .receive-box .total b { color: var(--red-2); text-transform: uppercase; letter-spacing: .06em; }
+    .receive-box .today { font-size: 14px; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; font-weight: 700; }
+    .receive-box .amount { font-size: clamp(44px, 6vw, 60px); font-weight: 900; color: var(--green); line-height: 1; margin: 8px 0 4px; letter-spacing: -.02em; }
+    .receive-box .inst { color: var(--text-2); margin-bottom: 20px; }
+    .disclaimer { font-size: 11px; color: var(--muted); max-width: 720px; margin: 10px auto 0; }
+    @media (max-width: 960px) {
+      .two, .decide { grid-template-columns: 1fr; }
+      .modules { grid-template-columns: repeat(2, 1fr); }
+      .cost { grid-template-columns: repeat(2, 1fr); }
+      .bonus-card { grid-template-columns: 1fr; } .bonus-card .img img { aspect-ratio: 16/9; }
+      .receive-box { grid-template-columns: 1fr; } .receive-box .l { border-right: none; border-bottom: 1px solid var(--line); }
+    }
+    @media (max-width: 640px) {
+      .modules, .examples, .vs, .proj, .cost, .pillars { grid-template-columns: 1fr; }
+      .gallery img { width: 170px; }
+      .tbl th, .tbl td { padding: 10px 8px; font-size: 12px; }
+      .tbl th { font-size: 10px; letter-spacing: .1em; }
+      .receive-box .l, .receive-box .r { padding: 26px 20px; }
+      .hero.dark-hero .wrap { padding-top: 240px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <span class="wordmark sm"><span class="k">Método</span><span class="w">Veneto</span></span>
+      <button class="btn js-cta" data-cta="topo" type="button">Garantir <span>minha</span> vaga</button>
+    </div>
+  </div>
+
+  <header class="hero dark-hero">
+    <div class="wrap">
+      <div>
+        <div style="margin-bottom:22px"><span class="wordmark lg"><span class="k">Método</span><span class="w">Veneto</span></span></div>
+        <h1>Como faturar <span class="hl nw">R$ 10 mil</span> <span class="nw">por mês</span> com apenas <span class="nw">2 serviços</span> por dia, mesmo começando <span class="hl nw">do zero</span></h1>
+        <p class="lead">Descubra o método exclusivo que está transformando serviços comuns em serviços premium altamente lucrativos, permitindo que profissionais da estética automotiva trabalhem menos e ganhem mais. <strong style="color:#fff">Mesmo começando do zero e sem grandes investimentos.</strong></p>
+        <button class="btn lg js-cta" data-cta="hero" type="button">Quero transformar meu <span class="nw">negócio agora</span> <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <div class="price-note">De <s>R$ 997</s> por <b>R$ 697,00</b> à vista ou <b>12x de R$ 72,09</b></div>
+        <div class="trust"><span>Vagas limitadas</span><span>1 ano de acesso</span><span>Garantia de 7 dias</span></div>
+        <div class="stats">
+          <div class="stat"><i><svg viewBox="0 0 24 24"><path d="M4 17l6-6 4 4 6-8M14 7h6v6"/></svg></i><div><b>R$ 10 mil/mês</b>com 2 serviços por dia</div></div>
+          <div class="stat"><i><svg viewBox="0 0 24 24"><path d="M12 3v18M7 8h7a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h8"/></svg></i><div><b>Lavagem premium</b>cobre R$ 200 a R$ 500 por carro</div></div>
+          <div class="stat"><i><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4zM8 6V4M16 6V4M4 10h16"/></svg></i><div><b>12 módulos</b>técnica, gestão, marketing e vendas</div></div>
+          <div class="stat"><i><svg viewBox="0 0 24 24"><path d="M12 3l2.4 5 5.6.8-4 3.9.9 5.6-4.9-2.6-4.9 2.6.9-5.6-4-3.9 5.6-.8z"/></svg></i><div><b>3 bônus + 3 mentorias</b>ao vivo com o Tarcísio</div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="strip"><div class="wrap">
+    <span><b>+4 mi</b> seguidores nas redes</span><span><b>+70</b> turmas presenciais formadas</span><span><b>12</b> módulos completos</span><span><b>7 dias</b> de garantia</span>
+  </div></div>
+
+  <section>
+    <div class="wrap">
+      <div class="center rv"><span class="eyebrow">Para quem é</span><h2>Pra quem é o <span class="hl">Método Veneto</span>?</h2><p class="lead">Este método foi desenvolvido para você que:</p></div>
+      <div class="grid cols-2 rv" style="margin-top:40px">
+        <div class="card yes who">
+          <div class="img"><img src="imagens/ja-trabalha.webp" alt="Profissional de estética automotiva lavando um carro" width="1000" height="488" loading="lazy"></div>
+          <h3>Já trabalha com estética automotiva e…</h3>
+          <ul class="list"><li>Está cansado de lavar muitos carros por dia e não faturar o suficiente</li><li>Não consegue cobrar um valor justo por um serviço premium</li><li>Sente que os clientes não valorizam seu trabalho ou "só procuram preço"</li><li>Enfrenta concorrência acirrada que sempre cobra mais barato</li><li>Trabalha em garagem própria ou delivery e quer dar o próximo passo</li><li>Busca técnicas e estratégias para justificar um preço premium</li><li>Deseja dar uma vida melhor para sua família sem sacrificar a saúde</li></ul>
+        </div>
+        <div class="card yes who">
+          <div class="img"><img src="imagens/comecar-do-zero.webp" alt="Pessoa começando na estética automotiva" width="800" height="533" loading="lazy"></div>
+          <h3>Ou para você que quer começar do zero e…</h3>
+          <ul class="list"><li>Está insatisfeito com seu emprego atual e sonha com independência financeira</li><li>Tem paixão por carros mas não sabe como transformar isso em um negócio lucrativo</li><li>Não tem certeza se conseguiria clientes sem experiência prévia no mercado</li><li>Tem dúvidas sobre quanto precisaria investir para começar</li><li>Se preocupa se as pessoas na sua região pagariam por serviços premium</li><li>Quer começar da forma certa, sem os erros que a maioria comete</li><li>Está disposto a aprender e aplicar um método comprovado, mesmo como atividade paralela</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap two">
+      <div class="diagram rv"><img src="imagens/diagrama-metodo.webp" alt="Diagrama do Método Veneto: técnica, gestão, marketing e vendas" width="631" height="563" loading="lazy"></div>
+      <div class="rv">
+        <span class="eyebrow">O método</span>
+        <h2 style="text-transform:none">O que é o <span class="hl">Método Veneto</span>?</h2>
+        <p class="lead" style="margin-top:14px">O Método Veneto te mostra o passo a passo para faturar 10 mil por mês com apenas 2 serviços por dia. Desenvolvido por Tarcísio Veneto, referência nacional em estética automotiva, este sistema transforma lavagens comuns em serviços premium altamente valorizados.</p>
+        <p class="lead" style="margin-top:12px">Você aprenderá tanto os fundamentos técnicos (produtos, diluições, técnicas de lavagem detalhada) quanto o posicionamento premium necessário para cobrar mais. O método inclui gestão financeira e precificação, estratégias de marketing para atrair clientes premium e técnicas de vendas que eliminam objeções de preço. É o caminho completo para trabalhar menos e ganhar mais na estética automotiva.</p>
+        <div class="pillars">
+          <div class="pillar"><b>Técnica</b>produtos, diluições e lavagem detalhada</div>
+          <div class="pillar"><b>Gestão</b>precificação e controle financeiro</div>
+          <div class="pillar"><b>Marketing</b>atrair clientes que pagam premium</div>
+          <div class="pillar"><b>Vendas</b>fechar sem objeção de preço</div>
+        </div>
+        <div style="margin-top:26px"><button class="btn js-cta" data-cta="metodo" type="button">Quero transformar meu <span class="nw">negócio agora</span></button></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="center rv"><span class="eyebrow">Conteúdo</span><h2>Conteúdo completo do Método Veneto</h2><p class="lead">Confira os 12 módulos que você vai acessar.</p></div>
+      <div class="modules rv">
+        <div class="module"><span class="n">0</span><div class="t"><small>Módulo 0</small>Comece por aqui</div></div><div class="module"><span class="n">1</span><div class="t"><small>Módulo 1</small>Fundamentos do Sucesso</div></div><div class="module"><span class="n">2</span><div class="t"><small>Módulo 2</small>Conceitos Essenciais</div></div><div class="module"><span class="n">3</span><div class="t"><small>Módulo 3</small>Estrutura Inicial</div></div><div class="module"><span class="n">4</span><div class="t"><small>Módulo 4</small>Diagnóstico Profissional</div></div><div class="module"><span class="n">5</span><div class="t"><small>Módulo 5</small>Lavagem Undercar</div></div><div class="module"><span class="n">6</span><div class="t"><small>Módulo 6</small>Lavagem da Carroceria</div></div><div class="module"><span class="n">7</span><div class="t"><small>Módulo 7</small>Limpeza Interna</div></div><div class="module"><span class="n">8</span><div class="t"><small>Módulo 8</small>Proteção das Superfícies</div></div><div class="module"><span class="n">9</span><div class="t"><small>Módulo 9</small>Marketing Estratégico</div></div><div class="module"><span class="n">10</span><div class="t"><small>Módulo 10</small>Vendas de Alto Ticket</div></div><div class="module"><span class="n">11</span><div class="t"><small>Módulo 11</small>Gestão do Negócio</div></div>
+      </div>
+      <div class="center rv" style="margin-top:34px"><button class="btn lg js-cta" data-cta="conteudo" type="button">Quero transformar meu <span class="nw">negócio agora</span></button></div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="center rv"><span class="eyebrow">Bônus</span><h2>Treinamentos extras para <span class="hl">maximizar seu faturamento</span></h2><p class="lead">3 treinamentos extras para dobrar seus resultados. Além de todo o conteúdo do Método Veneto, você receberá 3 treinamentos adicionais de serviços complementares. Estes cursos te permitirão oferecer opções de alto valor que seus clientes podem adicionar à lavagem premium, aumentando significativamente seu ticket médio em cada atendimento.</p></div>
+      <div class="bonus rv">
+        <div class="bonus-card"><div class="img"><img src="imagens/bonus-farois.webp" alt="Restauração de faróis" width="806" height="664" loading="lazy"></div><div class="body"><div class="top"><span class="num">#01</span><div class="val">Valor que você pode cobrar<b>R$ 300,00</b></div></div><h3>Treinamento de restauração de faróis</h3><p>Aprenda a transformar faróis amarelados e opacos em cristalinos novamente, utilizando técnicas profissionais e produtos específicos. Este serviço pode ser oferecido como complemento à lavagem premium ou como serviço independente.</p></div></div>
+        <div class="bonus-card"><div class="img"><img src="imagens/bonus-bancos.webp" alt="Higienização de bancos" width="806" height="664" loading="lazy"></div><div class="body"><div class="top"><span class="num">#02</span><div class="val">Valor que você pode cobrar<b>Couro R$ 450 · Tecido R$ 300</b></div></div><h3>Treinamento de higienização de bancos</h3><p>Domine técnicas avançadas para limpeza e revitalização de bancos de couro e tecido, removendo manchas, odores e restaurando a aparência original. Um dos serviços mais solicitados e com maior percepção de valor para os clientes.</p></div></div>
+        <div class="bonus-card"><div class="img"><img src="imagens/bonus-motor.webp" alt="Limpeza técnica de motor" width="806" height="664" loading="lazy"></div><div class="body"><div class="top"><span class="num">#03</span><div class="val">Valor que você pode cobrar<b>R$ 150,00</b></div></div><h3>Treinamento de limpeza técnica de motor</h3><p>Aprenda a realizar limpeza profissional e segura do compartimento do motor, utilizando técnicas e produtos que não comprometem componentes eletrônicos. Um serviço que impressiona por transformar uma área normalmente negligenciada.</p></div></div>
+      </div>
+
+      <div class="center rv" style="margin-top:56px"><h2 style="font-size:clamp(24px,3vw,32px)">Potencial de <span class="hl">faturamento extra</span> com os bônus</h2><p class="lead">Imagine adicionar estes serviços ao seu menu:</p></div>
+      <div class="examples rv">
+        <div class="example"><h3>Exemplo 1</h3><p>Cliente solicita lavagem premium (R$ 200) + Restauração de faróis (R$ 300)</p><div class="total">R$ 500</div><div class="cap">em um único atendimento</div></div>
+        <div class="example"><h3>Exemplo 2</h3><p>Cliente solicita lavagem premium (R$ 200) + Higienização de bancos em couro (R$ 450)</p><div class="total">R$ 650</div><div class="cap">em um único atendimento</div></div>
+        <div class="example"><h3>Exemplo 3</h3><p>Pacote completo com lavagem premium (R$ 200) + Restauração de faróis (R$ 300) + Limpeza de motor (R$ 150)</p><div class="total">R$ 650</div><div class="cap">em um único atendimento</div></div>
+      </div>
+      <p class="center lead rv" style="margin-top:26px">Estes bônus são mais do que simples conteúdos adicionais, são ferramentas práticas para você multiplicar seu faturamento oferecendo serviços complementares de alto valor.</p>
+      <div class="center rv" style="margin-top:26px"><button class="btn js-cta" data-cta="bonus" type="button">Quero garantir meus <span class="nw">bônus agora</span></button></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap two">
+      <div class="rv">
+        <span class="eyebrow">Mentorias</span>
+        <h2 style="text-transform:none">E ainda tem mais. Plantões de dúvidas ao vivo com Tarcísio. <span class="hl">3 encontros exclusivos para acelerar seus resultados</span></h2>
+        <p class="lead" style="margin-top:14px">Além de todo o conteúdo do curso e os bônus, você terá acesso a 3 encontros de mentoria ao vivo com Tarcísio. Estes plantões de dúvidas são sua oportunidade de esclarecer questões específicas, receber orientações personalizadas e garantir que você está aplicando o método corretamente no seu negócio.</p>
+        <p class="lead" style="margin-top:12px">Tire suas dúvidas diretamente com quem transformou a estética automotiva no Brasil. Traga casos reais, situações específicas da sua região ou desafios particulares do seu negócio e receba orientação direta para implementar o Método Veneto com máxima eficiência.</p>
+        <div style="margin-top:26px"><button class="btn js-cta" data-cta="mentorias" type="button">Quero participar das <span class="nw">mentorias ao vivo</span></button></div>
+      </div>
+      <div class="rv"><img src="imagens/mentorias-laptop.webp" alt="Mentoria ao vivo com Tarcísio Veneto" width="800" height="984" loading="lazy" style="filter:drop-shadow(0 30px 60px rgba(0,0,0,.6))"></div>
+    </div>
+  </section>
+
+  <section class="alt" id="oferta">
+    <div class="wrap offer">
+      <div class="txt rv">
+        <span class="eyebrow">Investimento</span>
+        <h2>Tudo o que você recebe com o <span class="hl">Método Veneto</span></h2>
+        <ul class="receive">
+          <li><i>✓</i>Acesso completo ao curso Método Veneto com 12 módulos</li>
+          <li><i>✓</i>3 bônus para aumentar seu faturamento: faróis, bancos e motor</li>
+          <li><i>✓</i>3 encontros ao vivo para tirar dúvidas com o Tarcísio</li>
+          <li><i>✓</i>1 ano de acesso para assistir no seu ritmo</li>
+          <li><i>✓</i>Garantia incondicional de 7 dias</li>
+        </ul>
+        <div class="guar rv" style="margin-top:30px;padding:26px;grid-template-columns:110px 1fr;gap:22px">
+          <div class="seal" style="width:110px;height:110px"><div><b style="font-size:40px">7</b><span>dias de garantia</span></div></div>
+          <div><h3 style="font-size:18px">Garantia de 7 dias</h3><p style="font-size:14px">Você tem uma Garantia Incondicional de 7 Dias para o Método Veneto: acesse o curso e, caso não fique satisfeito, solicite cancelamento por e-mail. Você receberá reembolso integral sem burocracia, porque confio no método quando aplicado corretamente.</p></div>
+        </div>
+      </div>
+      <div class="price-box light rv">
+        <span class="badge">Condição especial · primeira turma</span>
+        <img src="imagens/logo-veneto-escuro.webp" alt="Método Veneto" width="600" height="179" style="width:200px">
+        <div class="from">De <s>R$ 997,00</s> por apenas:</div>
+        <div class="amount nw">R$ 697,00</div>
+        <div class="cash">à vista ou em até <b>12x de R$ 72,09</b> no cartão</div>
+        <ul class="list"><li>12 módulos do Método Veneto</li><li>3 treinamentos bônus</li><li>3 mentorias ao vivo</li><li>1 ano de acesso</li><li>Garantia de 7 dias</li></ul>
+        <button class="btn lg block js-cta" data-cta="oferta" type="button">Quero transformar meu <span class="nw">negócio agora</span></button>
+        <div class="safe">🔒 Pagamento seguro processado pela Hotmart</div>
+        <div class="cond">Esta é uma condição exclusiva para os pioneiros que farão parte da primeira turma do Método Veneto.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap instr">
+      <div class="photo rv"><img src="imagens/tarcisio.webp" alt="Tarcísio Veneto" width="800" height="909" loading="lazy"></div>
+      <div class="rv">
+        <span class="eyebrow">Quem vai te ensinar</span>
+        <h2>Tarcísio Veneto</h2>
+        <div class="role">Fundador da Veneto Studio, a maior referência em estética automotiva do Brasil</div>
+        <p>Tarcísio evoluiu de lavador de carros com uma mochila e produtos básicos a uma das maiores referências em estética automotiva do Brasil. Cobra R$ 500 por lavagens que outros fazem por menos de R$ 100.</p>
+        <p>São mais de 2 milhões de inscritos no YouTube e 1,2 milhão de seguidores no Instagram. <strong>Já formou mais de 70 turmas presenciais, com alunos que multiplicaram suas rendas de R$ 3.000 para mais de R$ 10.000 mensais.</strong></p>
+        <div style="margin-top:22px"><button class="btn js-cta" data-cta="instrutor" type="button">Quero transformar meu <span class="nw">negócio agora</span></button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="center rv"><span class="eyebrow">Dúvidas</span><h2>Perguntas <span class="hl">frequentes</span></h2></div>
+      <div class="faq rv">
+        <details><summary>Por quanto tempo terei acesso ao conteúdo?</summary><p>O tempo normal de acesso ao Método Veneto é de 1 ano, mas se você entrar nessa primeira turma você terá o acesso em DOBRO, totalizando 2 anos de acesso ao curso e a todos os bônus. Isso dá tempo mais que suficiente para assistir, implementar e revisar o conteúdo quantas vezes quiser.</p></details>
+        <details><summary>Preciso ter experiência prévia em estética automotiva para aproveitar o curso?</summary><p>Não. O método começa pelos fundamentos e avança até o posicionamento premium. Quem já trabalha na área acelera resultados; quem está começando aprende da forma certa, sem os erros mais comuns.</p></details>
+        <details><summary>Como funcionam os plantões de dúvidas ao vivo?</summary><p>São 3 encontros ao vivo com o Tarcísio, com data divulgada dentro da plataforma. Você envia suas dúvidas, traz casos reais do seu negócio e recebe orientação direta. Os encontros ficam gravados para quem não puder participar na hora.</p></details>
+        <details><summary>Quanto tempo demora para eu começar a ver resultados?</summary><p>A maioria dos alunos que aplica o método começa a aumentar o ticket médio nas primeiras semanas. O caminho até R$ 10 mil por mês costuma levar de 4 a 6 meses de aplicação consistente.</p></details>
+        <details><summary>Quais são as formas de pagamento para o Método Veneto?</summary><p>Cartão de crédito em até 12x de R$ 72,09, ou R$ 697,00 à vista. O pagamento é processado pela Hotmart, com Pix, cartão e boleto.</p></details>
+        <details><summary>Quanto preciso investir em equipamentos e produtos para implementar o método?</summary><p>O método foi desenhado para começar com estrutura enxuta. No módulo de estrutura inicial o Tarcísio mostra o kit essencial, o que vale o investimento agora e o que pode esperar, para você começar a faturar antes de ampliar.</p></details>
+      </div>
+      <div class="card rv" style="max-width:820px;margin:20px auto 0;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+        <div><h3>Ficou com <span class="hl">alguma dúvida</span>?</h3><p>É só clicar no botão para falar com o nosso suporte.</p></div>
+        <a class="btn ghost" href="https://wa.me/32999242505" target="_blank" rel="noopener" data-track="Suporte WhatsApp">Entrar em contato</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap rv">
+      <span class="eyebrow">Sua vez</span>
+      <h2>Trabalhe menos e <span class="hl">ganhe mais</span></h2>
+      <p class="lead">Por R$ 697,00 você recebe o método completo, 3 bônus e 3 mentorias ao vivo com quem transformou a estética automotiva no Brasil.</p>
+      <button class="btn lg js-cta" data-cta="final" type="button">Quero transformar meu <span class="nw">negócio agora</span></button>
+      <div class="icons"><span>🔒 Pagamento 100% seguro</span><span>✅ Acesso imediato</span><span>🛡️ Garantia de 7 dias</span></div>
+    </div>
+  </section>
+
+  <footer><div class="wrap">
+    <div style="margin-bottom:10px"><span class="wordmark md"><span class="k">Método</span><span class="w">Veneto</span></span></div>
+    <div>Um produto Veneto Studio</div>
+    <div class="links"><a href="#">Termos de uso</a><a href="#">Política de privacidade</a></div>
+    <div>Método Veneto 2026 © Todos os direitos reservados</div>
+  </div></footer>
+
+  <div class="sticky-cta" id="stickyCta">
+    <div class="p"><small>De R$ 997 por</small><b>12x R$ 72,09</b></div>
+    <button class="btn js-cta" data-cta="barra-mobile" type="button">Garantir vaga</button>
+  </div>
+  <!-- MODAL DE CAPTURA -->
+  <div class="modal" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
+    <form class="box" id="leadForm" novalidate>
+      <button class="close" type="button" id="leadClose" aria-label="Fechar">×</button>
+      <div style="text-align:center;margin-bottom:14px"><span class="wordmark md"><span class="k">Método</span><span class="w">Veneto</span></span></div>
+      <h3 id="leadTitle">Falta só um passo</h3>
+      <p class="sub">Preencha seus dados para garantir sua vaga. Você vai direto para o pagamento seguro, já com tudo preenchido.</p>
+      <div class="field"><label for="leadNome">Seu nome</label><input id="leadNome" name="nome" type="text" autocomplete="name" placeholder="Como quer ser chamado" required></div>
+      <div class="field"><label for="leadZap">Seu WhatsApp</label><input id="leadZap" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(11) 99999-9999" required></div>
+      <div class="field"><label for="leadEmail">Seu e-mail</label><input id="leadEmail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="voce@email.com" required></div>
+      <div class="field"><label for="leadCpf">Seu CPF</label><input id="leadCpf" name="cpf" type="text" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" required></div>
+      <div class="msg" id="leadMsg"></div>
+      <button class="btn block" type="submit" id="leadSubmit">Garantir minha vaga por 12x R$&nbsp;72,09</button>
+      <div class="fine">🔒 Seus dados estão seguros. Pagamento processado pela Hotmart.</div>
+    </form>
+  </div>
+
+  <script src="../track-config.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var CHECKOUT = 'https://pay.hotmart.com/I98970111X';
+    var PAGE = '/metodo-veneto/';
+    var cfg = window.VENETO_TRACK || {};
+    var live = !!(cfg.url && cfg.key) && location.protocol !== 'file:';
+    var q = new URLSearchParams(location.search);
+    var ua = navigator.userAgent || '';
+    var device = /iPad|Tablet/i.test(ua) ? 'tablet' : (/Mobi|Android|iPhone/i.test(ua) ? 'mobile' : 'desktop');
+    var sid = null;
+    try {
+      sid = localStorage.getItem('vn_sid');
+      if (!sid) { sid = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2)); localStorage.setItem('vn_sid', sid); }
+    } catch (e) {}
+    var ctx = {
+      p_session_id: sid,
+      p_referrer: (document.referrer || '').slice(0, 300) || null,
+      p_utm_source: q.get('utm_source'), p_utm_medium: q.get('utm_medium'),
+      p_utm_campaign: q.get('utm_campaign'), p_utm_content: q.get('utm_content'),
+      p_device: device
+    };
+    function rpc(fn, body) {
+      if (!live) return Promise.resolve();
+      return fetch(cfg.url.replace(/\/$/, '') + '/rest/v1/rpc/' + fn, {
+        method: 'POST', keepalive: true, mode: 'cors',
+        headers: { 'Content-Type': 'application/json', 'apikey': cfg.key, 'Authorization': 'Bearer ' + cfg.key },
+        body: JSON.stringify(body)
+      });
+    }
+    function track(ev) { try { rpc('veneto_track', Object.assign({ p_page: PAGE, p_lang: (navigator.language || '').slice(0, 16) || null }, ctx, ev)).catch(function () {}); } catch (e) {} }
+    track({ p_event: 'view' });
+
+    /* Reveal */
+    var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12 }) : null;
+    document.querySelectorAll('.rv').forEach(function (el) { io ? io.observe(el) : el.classList.add('in'); });
+
+    /* Antes e depois */
+    document.querySelectorAll('.compare').forEach(function (c) {
+      var r = c.querySelector('input[type=range]');
+      r.addEventListener('input', function () { c.style.setProperty('--pos', r.value + '%'); });
+    });
+
+    /* Barra fixa mobile */
+    var hero = document.querySelector('.hero'), sticky = document.getElementById('stickyCta');
+    function onScroll() { sticky.classList.toggle('show', window.scrollY > hero.offsetHeight - 80); }
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+    /* Modal */
+    var modal = document.getElementById('leadModal'), form = document.getElementById('leadForm');
+    var nome = document.getElementById('leadNome'), zap = document.getElementById('leadZap'), email = document.getElementById('leadEmail'), cpf = document.getElementById('leadCpf'), msg = document.getElementById('leadMsg'), submit = document.getElementById('leadSubmit');
+    var currentCta = 'cta';
+    function openModal(cta) {
+      currentCta = cta || 'cta';
+      modal.classList.add('show'); document.body.style.overflow = 'hidden';
+      setTimeout(function () { (nome.value ? zap : nome).focus(); }, 60);
+      track({ p_event: 'click', p_button: 'CTA: ' + currentCta, p_href: '#popup' });
+    }
+    function closeModal() { modal.classList.remove('show'); document.body.style.overflow = ''; }
+    document.querySelectorAll('.js-cta').forEach(function (b) { b.addEventListener('click', function () { openModal(b.getAttribute('data-cta')); }); });
+    document.getElementById('leadClose').addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('show')) closeModal(); });
+
+    /* Máscara de telefone */
+    zap.addEventListener('input', function () {
+      var d = zap.value.replace(/\D/g, '').slice(0, 11), out = '';
+      if (d.length > 0) out = '(' + d.slice(0, 2);
+      if (d.length >= 3) out += ') ' + d.slice(2, d.length > 10 ? 7 : 6);
+      if (d.length > (d.length > 10 ? 7 : 6)) out += '-' + d.slice(d.length > 10 ? 7 : 6);
+      zap.value = out;
+    });
+    cpf.addEventListener('input', function () {
+      var d = cpf.value.replace(/\D/g, '').slice(0, 11), out = d;
+      if (d.length > 9) out = d.slice(0, 3) + '.' + d.slice(3, 6) + '.' + d.slice(6, 9) + '-' + d.slice(9);
+      else if (d.length > 6) out = d.slice(0, 3) + '.' + d.slice(3, 6) + '.' + d.slice(6);
+      else if (d.length > 3) out = d.slice(0, 3) + '.' + d.slice(3);
+      cpf.value = out;
+    });
+    function cpfValido(d) {
+      if (!/^\d{11}$/.test(d) || /^(\d)\1{10}$/.test(d)) return false;
+      var s1 = 0, s2 = 0, i;
+      for (i = 0; i < 9; i++) s1 += +d[i] * (10 - i);
+      var d1 = (s1 * 10) % 11; if (d1 === 10) d1 = 0; if (d1 !== +d[9]) return false;
+      for (i = 0; i < 10; i++) s2 += +d[i] * (11 - i);
+      var d2 = (s2 * 10) % 11; if (d2 === 10) d2 = 0; return d2 === +d[10];
+    }
+    function emailValido(v) { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
+    try { var saved = JSON.parse(localStorage.getItem('vn_lead') || 'null'); if (saved) { nome.value = saved.nome || ''; zap.value = saved.zap || ''; email.value = saved.email || ''; cpf.value = saved.cpf || ''; } } catch (e) {}
+
+    function checkoutUrl(n, digits, mail, doc) {
+      var u = new URL(CHECKOUT);
+      u.searchParams.set('name', n);
+      if (mail) u.searchParams.set('email', mail);
+      if (doc) u.searchParams.set('doc', doc);
+      if (digits.length >= 10) { u.searchParams.set('phoneac', digits.slice(0, 2)); u.searchParams.set('phonenumber', digits.slice(2)); }
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'sck', 'src', 'xcod'].forEach(function (k) { if (q.get(k)) u.searchParams.set(k, q.get(k)); });
+      return u.toString();
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var n = nome.value.trim(), digits = zap.value.replace(/\D/g, ''), mail = email.value.trim().toLowerCase(), doc = cpf.value.replace(/\D/g, '');
+      nome.classList.toggle('err', n.length < 2); zap.classList.toggle('err', digits.length < 10);
+      email.classList.toggle('err', !emailValido(mail)); cpf.classList.toggle('err', !cpfValido(doc));
+      if (n.length < 2) { msg.textContent = 'Digite seu nome.'; nome.focus(); return; }
+      if (digits.length < 10) { msg.textContent = 'Digite um WhatsApp válido com DDD.'; zap.focus(); return; }
+      if (!emailValido(mail)) { msg.textContent = 'Digite um e-mail válido.'; email.focus(); return; }
+      if (!cpfValido(doc)) { msg.textContent = 'Digite um CPF válido.'; cpf.focus(); return; }
+      msg.textContent = ''; submit.disabled = true; submit.textContent = 'Só um instante…';
+      try { localStorage.setItem('vn_lead', JSON.stringify({ nome: n, zap: zap.value, email: mail, cpf: cpf.value })); } catch (e2) {}
+      var go = function () { location.href = checkoutUrl(n, digits, mail, doc); };
+      var timer = setTimeout(go, 2500);
+      var p = rpc('veneto_lead', Object.assign({ p_nome: n, p_whatsapp: digits, p_email: mail, p_cpf: doc, p_page: PAGE, p_cta: currentCta, p_url: location.href.slice(0, 500), p_utm_term: q.get('utm_term') }, ctx));
+      p.then(function () { clearTimeout(timer); go(); }).catch(function () { clearTimeout(timer); go(); });
+    });
+  })();
+  </script>
+</body>
+</html>

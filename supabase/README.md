@@ -19,3 +19,14 @@ insert into veneto.dashboard_keys (key, label) values ('sua-chave', 'Nome de que
 ```
 
 A migração aplicada está em `migrations/`.
+
+## Páginas rastreadas
+
+| Página | `page` nos eventos | Checkout |
+|---|---|---|
+| Link na bio | `/bio/` | – |
+| Restauração de Faróis | `/restauracao-de-farois/` | pay.hotmart.com/W103469304T |
+| Método Veneto | `/metodo-veneto/` | pay.hotmart.com/I98970111X |
+| Polimento Express | `/polimento-express/` | pay.hotmart.com/P100773210C |
+
+Todas gravam visitas e cliques em `veneto.bio_events` e leads (nome, WhatsApp, e-mail, CPF) em `veneto.leads`.
