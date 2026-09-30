@@ -1,0 +1,5 @@
+-- Aplicada no projeto Grupo NKZ (fscqqeakupldpdaaimkc) em 30/09/2026
+-- com o nome "veneto_leads_email_cpf".
+-- Adiciona a coluna cpf em veneto.leads e recria public.veneto_lead com
+-- os parâmetros p_email e p_cpf (validação de formato no servidor).
+-- O SQL completo está no histórico de migrações do projeto.

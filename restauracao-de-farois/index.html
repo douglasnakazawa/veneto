@@ -340,7 +340,9 @@
     .modal .close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: rgba(255,255,255,0.05); font-size: 18px; line-height: 1; }
     .modal img { width: 190px; margin: 0 auto 16px; }
     .modal h3 { font-size: 22px; font-weight: 900; text-align: center; }
-    .modal .sub { text-align: center; color: var(--muted); font-size: 14px; margin: 8px 0 20px; }
+    .modal .sub { text-align: center; color: var(--muted); font-size: 14px; margin: 8px 0 16px; }
+    .modal .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 400px) { .modal .row2 { grid-template-columns: 1fr; } }
     .field { margin-bottom: 12px; }
     .field label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
     .field input {
@@ -698,9 +700,11 @@
       <button class="close" type="button" id="leadClose" aria-label="Fechar">×</button>
       <img src="imagens/logo-curso.webp" alt="" width="600" height="128">
       <h3 id="leadTitle">Falta só um passo</h3>
-      <p class="sub">Informe seu nome e WhatsApp para garantir sua vaga. Você vai direto para o pagamento seguro.</p>
+      <p class="sub">Preencha seus dados para garantir sua vaga. Você vai direto para o pagamento seguro, já com tudo preenchido.</p>
       <div class="field"><label for="leadNome">Seu nome</label><input id="leadNome" name="nome" type="text" autocomplete="name" placeholder="Como quer ser chamado" required></div>
       <div class="field"><label for="leadZap">Seu WhatsApp</label><input id="leadZap" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(11) 99999-9999" required></div>
+      <div class="field"><label for="leadEmail">Seu e-mail</label><input id="leadEmail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="voce@email.com" required></div>
+      <div class="field"><label for="leadCpf">Seu CPF</label><input id="leadCpf" name="cpf" type="text" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" required></div>
       <div class="msg" id="leadMsg"></div>
       <button class="btn block" type="submit" id="leadSubmit">Garantir minha vaga por R$&nbsp;67</button>
       <div class="fine">🔒 Seus dados estão seguros. Pagamento processado pela Hotmart.</div>
@@ -758,7 +762,7 @@
 
     /* Modal */
     var modal = document.getElementById('leadModal'), form = document.getElementById('leadForm');
-    var nome = document.getElementById('leadNome'), zap = document.getElementById('leadZap'), msg = document.getElementById('leadMsg'), submit = document.getElementById('leadSubmit');
+    var nome = document.getElementById('leadNome'), zap = document.getElementById('leadZap'), email = document.getElementById('leadEmail'), cpf = document.getElementById('leadCpf'), msg = document.getElementById('leadMsg'), submit = document.getElementById('leadSubmit');
     var currentCta = 'cta';
     function openModal(cta) {
       currentCta = cta || 'cta';
@@ -780,11 +784,29 @@
       if (d.length > (d.length > 10 ? 7 : 6)) out += '-' + d.slice(d.length > 10 ? 7 : 6);
       zap.value = out;
     });
-    try { var saved = JSON.parse(localStorage.getItem('vn_lead') || 'null'); if (saved) { nome.value = saved.nome || ''; zap.value = saved.zap || ''; } } catch (e) {}
+    cpf.addEventListener('input', function () {
+      var d = cpf.value.replace(/\D/g, '').slice(0, 11), out = d;
+      if (d.length > 9) out = d.slice(0, 3) + '.' + d.slice(3, 6) + '.' + d.slice(6, 9) + '-' + d.slice(9);
+      else if (d.length > 6) out = d.slice(0, 3) + '.' + d.slice(3, 6) + '.' + d.slice(6);
+      else if (d.length > 3) out = d.slice(0, 3) + '.' + d.slice(3);
+      cpf.value = out;
+    });
+    function cpfValido(d) {
+      if (!/^\d{11}$/.test(d) || /^(\d)\1{10}$/.test(d)) return false;
+      var s1 = 0, s2 = 0, i;
+      for (i = 0; i < 9; i++) s1 += +d[i] * (10 - i);
+      var d1 = (s1 * 10) % 11; if (d1 === 10) d1 = 0; if (d1 !== +d[9]) return false;
+      for (i = 0; i < 10; i++) s2 += +d[i] * (11 - i);
+      var d2 = (s2 * 10) % 11; if (d2 === 10) d2 = 0; return d2 === +d[10];
+    }
+    function emailValido(v) { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
+    try { var saved = JSON.parse(localStorage.getItem('vn_lead') || 'null'); if (saved) { nome.value = saved.nome || ''; zap.value = saved.zap || ''; email.value = saved.email || ''; cpf.value = saved.cpf || ''; } } catch (e) {}
 
-    function checkoutUrl(n, digits) {
+    function checkoutUrl(n, digits, mail, doc) {
       var u = new URL(CHECKOUT);
       u.searchParams.set('name', n);
+      if (mail) u.searchParams.set('email', mail);
+      if (doc) u.searchParams.set('doc', doc);
       if (digits.length >= 10) { u.searchParams.set('phoneac', digits.slice(0, 2)); u.searchParams.set('phonenumber', digits.slice(2)); }
       ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'sck', 'src', 'xcod'].forEach(function (k) { if (q.get(k)) u.searchParams.set(k, q.get(k)); });
       return u.toString();
@@ -792,15 +814,18 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var n = nome.value.trim(), digits = zap.value.replace(/\D/g, '');
+      var n = nome.value.trim(), digits = zap.value.replace(/\D/g, ''), mail = email.value.trim().toLowerCase(), doc = cpf.value.replace(/\D/g, '');
       nome.classList.toggle('err', n.length < 2); zap.classList.toggle('err', digits.length < 10);
+      email.classList.toggle('err', !emailValido(mail)); cpf.classList.toggle('err', !cpfValido(doc));
       if (n.length < 2) { msg.textContent = 'Digite seu nome.'; nome.focus(); return; }
       if (digits.length < 10) { msg.textContent = 'Digite um WhatsApp válido com DDD.'; zap.focus(); return; }
+      if (!emailValido(mail)) { msg.textContent = 'Digite um e-mail válido.'; email.focus(); return; }
+      if (!cpfValido(doc)) { msg.textContent = 'Digite um CPF válido.'; cpf.focus(); return; }
       msg.textContent = ''; submit.disabled = true; submit.textContent = 'Só um instante…';
-      try { localStorage.setItem('vn_lead', JSON.stringify({ nome: n, zap: zap.value })); } catch (e2) {}
-      var go = function () { location.href = checkoutUrl(n, digits); };
+      try { localStorage.setItem('vn_lead', JSON.stringify({ nome: n, zap: zap.value, email: mail, cpf: cpf.value })); } catch (e2) {}
+      var go = function () { location.href = checkoutUrl(n, digits, mail, doc); };
       var timer = setTimeout(go, 2500);
-      var p = rpc('veneto_lead', Object.assign({ p_nome: n, p_whatsapp: digits, p_page: PAGE, p_cta: currentCta, p_url: location.href.slice(0, 500), p_utm_term: q.get('utm_term') }, ctx));
+      var p = rpc('veneto_lead', Object.assign({ p_nome: n, p_whatsapp: digits, p_email: mail, p_cpf: doc, p_page: PAGE, p_cta: currentCta, p_url: location.href.slice(0, 500), p_utm_term: q.get('utm_term') }, ctx));
       p.then(function () { clearTimeout(timer); go(); }).catch(function () { clearTimeout(timer); go(); });
     });
   })();
