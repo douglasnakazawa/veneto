@@ -391,6 +391,20 @@
       .modal .box { padding: 26px 20px; }
       .card { padding: 22px; }
     }
+
+    /* Hero mobile: recorte próprio com o instrutor enquadrado no topo */
+    @media (max-width: 960px) {
+      .hero { --hw: min(100vw, 640px); min-height: 0; background: #06070a url('imagens/hero-mobile.webp') center top / var(--hw) auto no-repeat; }
+      .hero::before { background:
+          linear-gradient(90deg, #06070a calc(50% - var(--hw) / 2), rgba(6,7,10,0) calc(50% - var(--hw) / 2 + 60px), rgba(6,7,10,0) calc(50% + var(--hw) / 2 - 60px), #06070a calc(50% + var(--hw) / 2)),
+          linear-gradient(180deg, rgba(6,7,10,0) 0, rgba(6,7,10,0) calc(var(--hw) * .4), rgba(6,7,10,.9) calc(var(--hw) * .66), var(--bg) calc(var(--hw) * .84)); }
+      .hero .wrap { min-height: 0; padding-top: calc(var(--hw) * .58); padding-bottom: 56px; }
+    }
+    @media (max-width: 640px) {
+      .hero .logo-curso, .hero .hero-mark { display: none; }
+      .hero h1 { margin-bottom: 14px; font-size: 28px; line-height: 1.1; }
+      .hero .lead { margin-bottom: 22px; }
+    }
   
     /* ===== componentes extras (Método Veneto / Polimento Express) ===== */
     .wordmark { display: inline-flex; flex-direction: column; line-height: .95; }
@@ -531,7 +545,6 @@
       .tbl th, .tbl td { padding: 10px 8px; font-size: 12px; }
       .tbl th { font-size: 10px; letter-spacing: .1em; }
       .receive-box .l, .receive-box .r { padding: 26px 20px; }
-      .hero.dark-hero .wrap { padding-top: 240px; }
     }
   </style>
 </head>
@@ -544,10 +557,10 @@
     </div>
   </div>
 
-  <header class="hero dark-hero" style="background-image:url('imagens/hero-bg.webp')">
+  <header class="hero dark-hero">
     <div class="wrap">
       <div>
-        <div style="margin-bottom:22px"><span class="wordmark pe lg"><span class="k">Polimento</span><span class="w">E<b>x</b>press</span></span></div>
+        <div class="hero-mark" style="margin-bottom:22px"><span class="wordmark pe lg"><span class="k">Polimento</span><span class="w">E<b>x</b>press</span></span></div>
         <h1>Domine o polimento de <span class="nw">1 etapa</span> e fature <span class="hl nw">R$ 600</span> <span class="hl nw">todo dia</span></h1>
         <p class="lead">Sistema passo a passo que transforma qualquer pessoa comum em especialista em polimento em 7 dias. <strong style="color:#fff">Certificado Veneto Studio incluído.</strong></p>
         <button class="btn lg js-cta" data-cta="hero" type="button">Quero começar a cobrar <span class="nw">R$&nbsp;600 agora</span> <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
